@@ -1,0 +1,45 @@
+# ! PR 이 머지되면 버저닝을 수행합니다.
+
+name: auto_versioning
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  changes:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - id: get-tags
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - id: get-latest-version
+        uses: ./.github/actions/get_latest_version
+
+      - id: dev-versioning
+        if: github.ref_name == 'develop'
+        uses: ./.github/actions/versioning
+        with:
+          segment: patch
+          previous: ${{ steps.get-latest-version.outputs.version }}
+          description: ${{ github.event.pull_request.title }}
+
+      - id: qa-versioning
+        if: github.ref_name == 'qa'
+        uses: ./.github/actions/versioning
+        with:
+          segment: minor
+          previous: ${{ steps.get-latest-version.outputs.version }}
+          description: ${{ github.event.pull_request.title }}
+
+      - id: prod-versioning
+        if: github.ref_name == 'prod'
+        uses: ./.github/actions/versioning
+        with:
+          segment: major
+          previous: ${{ steps.get-latest-version.outputs.version }}
+          description: ${{ github.event.pull_request.title }}
