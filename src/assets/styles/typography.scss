@@ -1,0 +1,31 @@
+@mixin Heading1($size: 24px, $weight: 800, $color: null) {
+  @include font($size, $weight, $color);
+}
+
+@mixin Heading2($size: 20px, $weight: 700, $color: null) {
+  @include font($size, $weight, $color);
+}
+
+@mixin SubHeading1($size: 18px, $weight: 700, $color: null) {
+  @include font($size, $weight, $color);
+}
+
+@mixin SubHeading2($size: 16px, $weight: 600, $color: null) {
+  @include font($size, $weight, $color);
+}
+
+@mixin SubHeading3($size: 14px, $weight: 600, $color: null) {
+  @include font($size, $weight, $color);
+}
+
+@mixin Body1($size: 16px, $weight: 400, $color: null) {
+  @include font($size, $weight, $color);
+}
+
+@mixin Body2($size: 14px, $weight: 400, $color: null) {
+  @include font($size, $weight, $color);
+}
+
+@mixin caption($size: 13px, $weight: 400, $color: null) {
+  @include font($size, $weight, $color);
+}
