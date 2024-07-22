@@ -46,7 +46,7 @@ jobs:
           port: ${{ secrets.FRONT_PORT }}
           script: |
             whoami
-            echo ${{ secrets.NCP_SECRET_KEY }} | sudo docker login ${{ secrets.NCP_CONTAINER_REGISTRY }} -u --password-stdin
+            echo "${{ secrets.NCP_SECRET_KEY }}" | sudo docker login ${{ secrets.NCP_CONTAINER_REGISTRY }} -u ${{ secrets.NCP_ACCESS_KEY }} --password-stdin
             docker pull ${{ secrets.NCP_CONTAINER_REGISTRY }}/client
             sudo docker stop $(docker ps -a -q)
             sudo docker rm $(docker ps -a -q)
