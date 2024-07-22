@@ -1,0 +1,23 @@
+// todo : 임시 컴포넌트 , 정해지면 추가 예정
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  border: none;
+}
+
+.l {
+  padding: 16px auto;
+  width: 100%;
+  height: 54px;
+
+  @include SubHeading2();
+}
+
+.blue {
+  background-color: $main02;
+  color: white;
+}
