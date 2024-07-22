@@ -15,7 +15,14 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@styles/*": ["./src/assets/styles/*"]
+    }
   },
   "include": ["src/**/*", "vite.config.ts"],
   "exclude": ["node_modules"]
