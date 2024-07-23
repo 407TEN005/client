@@ -1,0 +1,10 @@
+@mixin font($size: 16px, $weight: normal, $color: null) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: 140%;
+  letter-spacing: -2.5%;
+
+  @if $color != null {
+    color: $color;
+  }
+}
