@@ -13,3 +13,32 @@
   justify-content: $justifyContent;
   flex-direction: $flexDirection;
 }
+
+@mixin allUnset {
+  all: unset;
+  box-sizing: border-box;
+}
+
+@mixin autofill-box-shadow($color) {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: white;
+    box-shadow: 0 0 0 30px $color inset;
+    -webkit-box-shadow: 0 0 0 30px $color inset;
+    transition:
+      background-color 600000s 0s,
+      color 600000s 0s;
+  }
+}
+
+@mixin autofill-box-shadow-focused($color) {
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    box-shadow: 0 0 0 30px $color inset;
+    -webkit-box-shadow: 0 0 0 30px $color inset;
+    transition:
+      background-color 600000s 0s,
+      color 600000s 0s;
+  }
+}
