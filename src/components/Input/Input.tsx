@@ -6,7 +6,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   scale?: 'l' | 'm';
   isRequired?: boolean;
   isError?: boolean;
-  ErrorMessage?: string;
+  errorMessage?: string;
 }
 
 const Input = ({
@@ -15,7 +15,7 @@ const Input = ({
   scale = 'l',
   isRequired = false,
   isError = false,
-  ErrorMessage,
+  errorMessage,
   ...props
 }: InputProps) => {
   return (
@@ -45,7 +45,7 @@ const Input = ({
             ${styles[scale]}
           `}
         />
-        {isError && <p className={styles.errorMessage}>{ErrorMessage}</p>}
+        {isError && <p className={styles.errorMessage}>{errorMessage}</p>}
       </div>
     </div>
   );
