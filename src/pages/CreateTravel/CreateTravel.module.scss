@@ -1,24 +1,34 @@
 .wrapper {
-  margin: 0 20px;
+  @include flex(center, space-between, column);
 
-  .label {
-    display: flex;
-    margin-top: 44px;
-    margin-bottom: 12px;
-    @include SubHeading1($color: $black);
+  height: calc(100% - 68px);
+  padding: 32px 20px 36px 20px;
 
-    span {
-      color: $main02;
-      margin-left: 4px;
+  .inputWrapper {
+    .label {
+      display: flex;
+      margin-top: 44px;
+      margin-bottom: 12px;
+      @include SubHeading1($color: $black);
+
+      span {
+        color: $main02;
+        margin-left: 4px;
+      }
+    }
+
+    .dayPickerWrapper {
+      @include flex(center, space-around);
+      margin-bottom: 44px;
+
+      p {
+        margin: 0 10px;
+      }
     }
   }
 
-  .dayPickerWrapper {
-    @include flex(center, space-around);
-
-    p {
-      margin: 0 10px;
-    }
+  .createButton {
+    width: 100%;
   }
 }
 

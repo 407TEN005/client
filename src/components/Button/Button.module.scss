@@ -8,6 +8,8 @@
   background-color: transparent;
   border-radius: 8px;
   border: none;
+
+  cursor: pointer;
 }
 
 .l {
@@ -30,4 +32,8 @@
 .outlined {
   border: 1px solid $main02;
   color: $main02;
+}
+
+.isActive {
+  border-radius: 999px;
 }
