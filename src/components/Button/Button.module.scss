@@ -10,6 +10,11 @@
   border: none;
 
   cursor: pointer;
+
+  &:disabled {
+    background-color: $p200;
+    color: white;
+  }
 }
 
 .l {
@@ -25,13 +30,13 @@
 }
 
 .blue {
-  background-color: $main02;
+  background-color: $main01;
   color: white;
 }
 
 .outlined {
-  border: 1px solid $main02;
-  color: $main02;
+  border: 1px solid $main01;
+  color: $main01;
 }
 
 .isActive {

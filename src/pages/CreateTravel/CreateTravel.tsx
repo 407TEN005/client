@@ -1,7 +1,8 @@
 import styles from './CreateTravel.module.scss';
 import Input from '@components/Input';
-import useInput from '@hooks/useInput';
 import Button from '@components/Button';
+import useInput from '@hooks/useInput';
+import useDayPicker from '@hooks/useDayPicker';
 
 import { addDays, format } from 'date-fns';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
@@ -25,6 +26,12 @@ const CreateTravel = () => {
     handleChange: handleCountChange,
   } = useInput(TRAVEL_NAME_ERROR_MESSAGE);
 
+  const { date: startDate, handleDateChange: handleStartDateChange } = useDayPicker();
+  const { date: endDate, handleDateChange: handleEndDateChange } = useDayPicker();
+
+  const isButtonDisabled =
+    !(name && count && startDate && endDate) || !!(nameErrorMessage || countErrorMessage);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.inputWrapper}>
@@ -45,24 +52,28 @@ const CreateTravel = () => {
 
         <div className={styles.dayPickerWrapper}>
           <DayPickerInput
+            value={startDate && format(startDate, 'yyyy.MM.dd')}
+            onDayChange={handleStartDateChange}
+            placeholder={`${format(new Date(), 'yyyy.MM.dd')}`}
             inputProps={{
               className: `${styles.input} ${styles.dayPickerInput}`,
+              readOnly: true,
             }}
-            onDayChange={(day) => console.log(day)}
-            placeholder={`${format(new Date(), 'yyyy.MM.dd')}`}
           />
           <p> ~ </p>
           <DayPickerInput
+            value={endDate && format(endDate, 'yyyy.MM.dd')}
+            onDayChange={handleEndDateChange}
+            placeholder={`${format(addDays(new Date(), 3), 'yyyy.MM.dd')}`}
             inputProps={{
               className: `${styles.input} ${styles.dayPickerInput}`,
+              readOnly: true,
             }}
-            onDayChange={(day) => console.log(day)}
             classNames={{
               overlayWrapper: styles.dayPicker,
               container: '',
               overlay: '',
             }}
-            placeholder={`${format(addDays(new Date(), 3), 'yyyy.MM.dd')}`}
           />
         </div>
 
@@ -79,7 +90,7 @@ const CreateTravel = () => {
         />
       </div>
 
-      <Button className={styles.createButton} isActive>
+      <Button className={styles.createButton} isActive disabled={isButtonDisabled}>
         생성하기
       </Button>
     </div>

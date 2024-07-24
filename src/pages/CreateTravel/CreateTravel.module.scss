@@ -12,7 +12,7 @@
       @include SubHeading1($color: $black);
 
       span {
-        color: $main02;
+        color: $main01;
         margin-left: 4px;
       }
     }
@@ -35,14 +35,14 @@
 .dayPickerInput {
   @include allUnset;
   @include autofill-box-shadow($color: #f5f6f7);
-  @include autofill-box-shadow-focused($color: $main02);
+  @include autofill-box-shadow-focused($color: $main01);
 
   &.error {
     border: 1px solid $error;
   }
 
   &:focus:not(.error) {
-    border: 1px solid $main02;
+    border: 1px solid $main01;
   }
 
   &::placeholder {
