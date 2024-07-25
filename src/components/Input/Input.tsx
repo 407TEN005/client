@@ -3,19 +3,21 @@ import styles from './Input.module.scss';
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   label?: string;
+  subLabel?: string;
   scale?: 'l' | 'm';
   isRequired?: boolean;
   isError?: boolean;
-  ErrorMessage?: string;
+  errorMessage?: string;
 }
 
 const Input = ({
   id,
   label,
+  subLabel,
   scale = 'l',
   isRequired = false,
   isError = false,
-  ErrorMessage,
+  errorMessage,
   ...props
 }: InputProps) => {
   return (
@@ -24,6 +26,12 @@ const Input = ({
         <label htmlFor={id} className={styles.label}>
           {label}
           {isRequired && <span>*</span>}
+        </label>
+      )}
+
+      {subLabel && (
+        <label htmlFor={id} className={styles.subLabel}>
+          {subLabel}
         </label>
       )}
 
@@ -45,7 +53,7 @@ const Input = ({
             ${styles[scale]}
           `}
         />
-        {isError && <p className={styles.errorMessage}>{ErrorMessage}</p>}
+        {isError && <p className={styles.errorMessage}>{errorMessage}</p>}
       </div>
     </div>
   );

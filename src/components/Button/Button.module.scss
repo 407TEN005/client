@@ -8,6 +8,14 @@
   background-color: transparent;
   border-radius: 8px;
   border: none;
+
+  cursor: pointer;
+
+  &:disabled {
+    background-color: $p200;
+    color: white;
+    cursor: default;
+  }
 }
 
 .l {
@@ -23,11 +31,15 @@
 }
 
 .blue {
-  background-color: $main02;
+  background-color: $main01;
   color: white;
 }
 
 .outlined {
-  border: 1px solid $main02;
-  color: $main02;
+  border: 1px solid $main01;
+  color: $main01;
+}
+
+.isActive {
+  border-radius: 999px;
 }
