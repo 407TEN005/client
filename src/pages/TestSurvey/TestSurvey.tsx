@@ -1,6 +1,8 @@
 import Button from '@components/Button';
 import styles from './TestSurvey.module.scss';
 
+// todo : 사진 추가 예정
+
 const TestSurvey = () => {
   return (
     <div className={styles.wrapper}>
