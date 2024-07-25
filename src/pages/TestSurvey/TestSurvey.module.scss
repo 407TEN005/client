@@ -27,12 +27,26 @@
     height: 350px;
     gap: 12px;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 
     .family {
+      @include flex(flex-start, flex-start, column);
       @include Body1($color: $gray300);
-      padding: 16px;
+
       border-radius: 12px;
       background-color: $gray10;
+
+      .label {
+        padding: 16px 0 11px 16px;
+      }
+
+      .image {
+        @include flex(flex-end, flex-end);
+        width: 100%;
+        height: 100%;
+        padding-right: 20px;
+        padding-bottom: 20px;
+      }
     }
   }
 

@@ -1,5 +1,16 @@
 import Button from '@components/Button';
 import styles from './TestSurvey.module.scss';
+import {
+  TestFather,
+  TestMother,
+  TestSon,
+  TestDaughter,
+  //   선택 추가시 추가예정
+  //   SelectedTestFather,
+  //   SelectedTestMother,
+  //   SelectedTestSon,
+  //   SelectedTestDaughter,
+} from '@images/index';
 
 // todo : 사진 추가 예정
 
@@ -12,10 +23,38 @@ const TestSurvey = () => {
         <p className={styles.subTitle}>선택한 역할에 따라 맞춤형 질문이 제공됩니다.</p>
 
         <div className={styles.familyWrapper}>
-          <div className={styles.family}>아빠</div>
-          <div className={styles.family}>엄마</div>
-          <div className={styles.family}>아들</div>
-          <div className={styles.family}>딸</div>
+          <div className={styles.family}>
+            <div className={styles.label}>
+              <span>아빠</span>
+            </div>
+            <div className={styles.image}>
+              <TestFather />
+            </div>
+          </div>
+          <div className={styles.family}>
+            <div className={styles.label}>
+              <span>엄마</span>
+            </div>
+            <div className={styles.image}>
+              <TestMother />
+            </div>
+          </div>
+          <div className={styles.family}>
+            <div className={styles.label}>
+              <span>아들</span>
+            </div>
+            <div className={styles.image}>
+              <TestSon />
+            </div>
+          </div>
+          <div className={styles.family}>
+            <div className={styles.label}>
+              <span>딸</span>
+            </div>
+            <div className={styles.image}>
+              <TestDaughter />
+            </div>
+          </div>
         </div>
       </div>
 
