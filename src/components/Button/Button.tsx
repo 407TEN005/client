@@ -1,7 +1,7 @@
 import styles from './Button.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: 'l' | 'm';
+  size?: 'xl' | 'l' | 'm';
   isActive?: boolean;
   variant?: 'blue' | 'yellow' | 'green' | 'outlined';
   className?: string;

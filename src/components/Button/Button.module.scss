@@ -18,6 +18,13 @@
   }
 }
 
+.xl {
+  padding: 16px;
+  width: 100%;
+
+  @include SubHeading2();
+}
+
 .l {
   padding: 16px 32px;
 
