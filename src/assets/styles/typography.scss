@@ -26,6 +26,10 @@
   @include font($size, $weight, $color);
 }
 
-@mixin caption($size: 13px, $weight: 400, $color: null) {
+@mixin caption1($size: 13px, $weight: 400, $color: null) {
+  @include font($size, $weight, $color);
+}
+
+@mixin caption2($size: 11px, $weight: 400, $color: null) {
   @include font($size, $weight, $color);
 }

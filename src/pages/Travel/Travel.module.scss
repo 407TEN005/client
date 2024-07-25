@@ -1,0 +1,36 @@
+.wrapper {
+  width: 100%;
+  height: calc(100% - 68px);
+  background-color: $p400;
+  padding: 0 20px;
+}
+
+.titleContainer {
+  margin-bottom: 79px;
+}
+
+.title {
+  @include Heading1;
+  padding: 0 65px 0 24px;
+  padding-bottom: 2px;
+  color: white;
+}
+
+.dday {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2px 8px;
+  color: $p500;
+  background-color: $p100;
+  width: 44px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.travelDate {
+  padding-left: 23px;
+  color: white;
+}
