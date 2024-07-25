@@ -18,11 +18,20 @@
     }
 
     .dayPickerWrapper {
-      @include flex(center, space-around);
       margin-bottom: 44px;
 
-      p {
-        margin: 0 10px;
+      .dayPickerInputWrapper {
+        @include flex(center, space-around);
+
+        p {
+          margin: 0 10px;
+        }
+      }
+
+      .dateErrorMessage {
+        @include caption;
+        color: $error;
+        margin-top: 8px;
       }
     }
   }
