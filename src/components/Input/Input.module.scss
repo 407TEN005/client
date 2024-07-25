@@ -29,7 +29,7 @@
   display: flex;
   margin-top: 8px;
 
-  @include Body2($color: $black);
+  @include Body2($color: $gray200);
 }
 
 .input {
