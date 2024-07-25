@@ -16,6 +16,7 @@
     "jsx": "react-jsx",
     "incremental": true,
     "resolveJsonModule": true,
+    "types": ["vite-plugin-svgr/client"],
     "baseUrl": ".",
     "paths": {
       "@src/*": ["./src/*"],
@@ -27,6 +28,6 @@
       "@animations/*": ["./src/assets/animations/*"]
     }
   },
-  "include": ["src/**/*", "vite.config.ts"],
+  "include": ["src/**/*", "vite.config.ts", "custom.d.ts"],
   "exclude": ["node_modules"]
 }
