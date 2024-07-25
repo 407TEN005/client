@@ -1,8 +1,15 @@
 import { TestLogo } from '@images/index';
 import Button from '@components/Button';
 import styles from './Test.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Test = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/test/survey');
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -14,7 +21,7 @@ const Test = () => {
         <TestLogo />
       </div>
 
-      <Button isActive className={styles.button} onClick={() => alert('기능 개발')}>
+      <Button isActive className={styles.button} onClick={handleButtonClick}>
         테스트 시작하기
       </Button>
     </div>
