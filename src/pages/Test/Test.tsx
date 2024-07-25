@@ -14,7 +14,7 @@ const Test = () => {
         <TestLogo />
       </div>
 
-      <Button isActive className={styles.button} onClick={() => alert('기능 개발 중')}>
+      <Button isActive className={styles.button} onClick={() => alert('기능 개발')}>
         테스트 시작하기
       </Button>
     </div>
