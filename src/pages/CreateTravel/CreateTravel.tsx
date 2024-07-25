@@ -129,7 +129,12 @@ const CreateTravel = () => {
         />
       </div>
 
-      <Button className={styles.createButton} isActive disabled={isButtonDisabled}>
+      <Button
+        className={styles.createButton}
+        isActive
+        disabled={isButtonDisabled}
+        onClick={() => alert('기능 준비중')}
+      >
         생성하기
       </Button>
     </div>
