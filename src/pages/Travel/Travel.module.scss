@@ -10,9 +10,9 @@
 }
 
 .title {
-  @include Heading1;
-  padding: 0 65px 0 24px;
-  padding-bottom: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  padding-bottom: 4px;
   color: white;
 }
 
@@ -22,15 +22,88 @@
   align-items: center;
   text-align: center;
   padding: 2px 8px;
+  margin-bottom: 8px;
   color: $p500;
   background-color: $p100;
   width: 44px;
   height: 22px;
   border-radius: 6px;
-  font-size: 13px;
+  @include caption2;
 }
 
 .travelDate {
-  padding-left: 23px;
+  color: $p100;
+  @include Body2;
+}
+
+.familyMemberWrapper {
+  height: 140px;
+}
+
+.familyMemberTitle {
+  @include SubHeading2;
   color: white;
+  margin-bottom: 8px;
+}
+
+.familyMemberContainer {
+  padding-left: 11px;
+  padding-top: 8px;
+}
+
+.familyMemberImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: white;
+}
+
+.familyMember {
+  padding: 5px 0;
+}
+
+.familyMemberName {
+  text-align: center;
+  width: 60px;
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
+  padding-top: 4px;
+}
+
+.commandmentListContainer {
+  height: 440px;
+  flex: flex;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.commandmentListTitle {
+  @include SubHeading2;
+  color: $gray400;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.commandmentItem {
+  padding: 66px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commandmentItem .image {
+  width: 88.8px;
+  height: 80.73px;
+
+  background-color: $gray100;
+}
+
+.commandmentItem .info {
+  @include caption1;
+  color: $gray300;
+  padding-top: 8px;
+  padding-bottom: 28px;
 }
