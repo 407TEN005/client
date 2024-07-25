@@ -11,10 +11,17 @@ import {
   //   SelectedTestSon,
   //   SelectedTestDaughter,
 } from '@images/index';
+import { useNavigate } from 'react-router-dom';
 
 // todo : 사진 추가 예정
 
 const TestSurvey = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/test/survey/1');
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -58,7 +65,7 @@ const TestSurvey = () => {
         </div>
       </div>
 
-      <Button isActive className={styles.button} onClick={() => alert('기능 개발')}>
+      <Button isActive className={styles.button} onClick={handleClick}>
         다음
       </Button>
     </div>
