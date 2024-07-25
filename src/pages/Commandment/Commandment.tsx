@@ -1,10 +1,10 @@
 import styles from './Commandment.module.scss';
 import Button from '@components/Button';
 
-const Commandment = () => {
-  const Commandment_Item = '즉흥적인 아빠는 계획이 있는 아들과 균형!';
+const COMMANDMENT_ITEM = '즉흥적인 아빠는 계획이 있는 아들과 균형!';
 
-  const items = Array(10).fill(Commandment_Item);
+const Commandment = () => {
+  const items = Array(10).fill(COMMANDMENT_ITEM);
 
   const handleRecreateCommandment = () => {
     alert('재생성 기능 구현 예정');
