@@ -1,60 +1,71 @@
 import { lazy } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
-import Home from '@pages/Home';
-import Layout from '@components/Layout';
-import SimpleLayout from '@components/SimpleLayout';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 
-export const router = createBrowserRouter([
+import Layout from '@components/Layout';
+import AuthLayout from '@components/AuthLayout';
+import ROUTES from '@constants/routes';
+import Login from './pages/Login';
+
+export const layoutRouters = [
   {
-    path: '/',
-    Component: () => <Layout />,
+    Component: Layout,
     children: [
       {
-        index: true,
-        Component: Home,
+        path: ROUTES.home,
+        Component: lazy(() => import('./pages/Home')),
       },
       {
-        path: 'create',
+        path: ROUTES.createTravel,
         Component: lazy(() => import('./pages/CreateTravel')),
       },
       {
-        path: 'test',
+        path: ROUTES.test,
         Component: lazy(() => import('./pages/Test')),
       },
       {
-        path: 'test/survey',
+        path: ROUTES.testSurvey,
         Component: lazy(() => import('./pages/TestSurvey')),
       },
       {
-        path: 'test/survey/:surveyId',
+        path: ROUTES.testSurveyDetail,
         Component: lazy(() => import('./pages/TestSurveyDetail')),
       },
       {
-        path: 'travel/:travelId',
+        path: ROUTES.travel,
         Component: lazy(() => import('./pages/Travel')),
       },
       {
-        path: 'commandment',
+        path: ROUTES.commandment,
         Component: lazy(() => import('./pages/Commandment')),
       },
       {
-        path: 'testresult',
+        path: ROUTES.testResult,
         Component: lazy(() => import('./pages/TestResult')),
       },
       {
         // 디자인 완료 후 삭제 예정
-        path: 'analysis',
+        path: ROUTES.analysis,
         Component: lazy(() => import('./components/Analysis')),
       },
     ],
   },
+];
+
+export const router = createBrowserRouter([
   {
     path: '/',
-    Component: () => <SimpleLayout />,
     children: [
       {
-        path: 'login',
-        Component: lazy(() => import('./pages/Login')),
+        index: true,
+        Component: () => <Navigate to={ROUTES.home} />,
+      },
+      {
+        Component: () => AuthLayout({ shouldProtect: false }),
+        children: [{ path: ROUTES.login, Component: Login }],
+      },
+      {
+        Component: () => AuthLayout({ shouldProtect: true }),
+        children: layoutRouters,
       },
     ],
   },
