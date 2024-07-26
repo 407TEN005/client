@@ -1,6 +1,6 @@
+import { ResultSample } from '@src/assets/images';
 import styles from './TestResult.module.scss';
 import Button from '@src/components/Button';
-import Sample from '@src/assets/images/testresultimg.svg';
 import { useNavigate } from 'react-router-dom';
 
 const TAG_MESSAGES = ['#도전은내운명', '#감정폭발주의', '#즉흥여행의달인'];
@@ -22,7 +22,7 @@ const TestResult = () => {
           </div>
         ))}
       </div>
-      <img src={Sample} className={styles.characterImg} />
+      <ResultSample className={styles.characterImg} />
       <div className={styles.descriptionWrapper}>
         <div className={styles.description}>
           활기찬 여행 분위기를 조성하며 <br /> 새로운 경험에 언제나 활짝 열려있군요!
