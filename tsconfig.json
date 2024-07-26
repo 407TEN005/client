@@ -17,6 +17,7 @@
     "incremental": true,
     "resolveJsonModule": true,
     "types": ["vite-plugin-svgr/client"],
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "@src/*": ["./src/*"],
