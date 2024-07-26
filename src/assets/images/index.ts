@@ -19,6 +19,17 @@ export { ReactComponent as Question4 } from './question4.svg';
 
 // ? 성향 테스트 결과 이미지
 export { ReactComponent as ResultP1 } from './result_p1.svg';
+export { ReactComponent as ResultP2 } from './result_p2.svg';
+export { ReactComponent as ResultP3 } from './result_p3.svg';
+export { ReactComponent as ResultP4 } from './result_p4.svg';
+export { ReactComponent as ResultP5 } from './result_p5.svg';
+export { ReactComponent as ResultP6 } from './result_p6.svg';
+export { ReactComponent as ResultC1 } from './result_c1.svg';
+export { ReactComponent as ResultC2 } from './result_c2.svg';
+export { ReactComponent as ResultC3 } from './result_c3.svg';
+export { ReactComponent as ResultC4 } from './result_c4.svg';
+export { ReactComponent as ResultC5 } from './result_c5.svg';
+export { ReactComponent as ResultC6 } from './result_c6.svg';
 
 // ? 10계명 생성 페이지
 export { ReactComponent as CommandmentIcon } from './commandment.svg';
