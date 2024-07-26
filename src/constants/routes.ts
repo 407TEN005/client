@@ -9,6 +9,7 @@ export const ROUTES = {
   commandment: 'commandment',
   testResult: 'testResult',
   analysis: 'analysis',
+  redirect: 'oauth2/redirect',
 } as const;
 
 export default ROUTES;

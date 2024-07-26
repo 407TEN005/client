@@ -4,7 +4,8 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import Layout from '@components/Layout';
 import AuthLayout from '@components/AuthLayout';
 import ROUTES from '@constants/routes';
-import Login from './pages/Login';
+import Login from '@pages/Login';
+import Redirect from '@pages/Redirect';
 
 export const layoutRouters = [
   {
@@ -68,5 +69,9 @@ export const router = createBrowserRouter([
         children: layoutRouters,
       },
     ],
+  },
+  {
+    path: ROUTES.redirect,
+    Component: Redirect,
   },
 ]);
