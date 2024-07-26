@@ -1,0 +1,42 @@
+.wrapper {
+  padding: 0 20px;
+
+  .contentWrapper {
+    @include flex(center, center, column);
+
+    .mainLogo {
+      margin-top: 175px;
+      margin-bottom: 276px;
+    }
+
+    .buttons {
+      @include flex(center, center, column);
+      width: 100%;
+
+      .kakaoButton {
+        @include flex(center, center);
+        @include SubHeading2($color: $black);
+        background-color: #fee500;
+        padding: 16px 28px 16px 24px;
+        border-radius: 46px;
+        margin-bottom: 28px;
+        cursor: pointer;
+
+        p {
+          @include flex(center, center);
+          width: 280px;
+        }
+
+        svg {
+          margin-right: auto;
+        }
+      }
+
+      .notLogin {
+        @include Body2($color: $gray100);
+        text-decoration: underline;
+        text-decoration-color: $gray100;
+      }
+    }
+  }
+}

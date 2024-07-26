@@ -1,7 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom';
-import Layout from '@components/Layout';
-import Home from '@pages/Home';
 import { lazy } from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+import Home from '@pages/Home';
+import Layout from '@components/Layout';
+import SimpleLayout from '@components/SimpleLayout';
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,16 @@ export const router = createBrowserRouter([
         // 디자인 완료 후 삭제 예정
         path: 'analysis',
         Component: lazy(() => import('./components/Analysis')),
+      },
+    ],
+  },
+  {
+    path: '/',
+    Component: () => <SimpleLayout />,
+    children: [
+      {
+        path: 'login',
+        Component: lazy(() => import('./pages/Login')),
       },
     ],
   },
