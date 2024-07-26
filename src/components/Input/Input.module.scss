@@ -7,7 +7,7 @@
     flex: 1;
 
     .errorMessage {
-      @include caption;
+      @include caption1;
       color: $error;
       margin-top: 8px;
     }
