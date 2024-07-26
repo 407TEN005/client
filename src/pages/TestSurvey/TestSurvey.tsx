@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '@components/Button';
 import styles from './TestSurvey.module.scss';
 import {
@@ -5,22 +7,32 @@ import {
   TestMother,
   TestSon,
   TestDaughter,
-  //   선택 추가시 추가예정
-  //   SelectedTestFather,
-  //   SelectedTestMother,
-  //   SelectedTestSon,
-  //   SelectedTestDaughter,
+  SelectedTestFather,
+  SelectedTestMother,
+  SelectedTestSon,
+  SelectedTestDaughter,
 } from '@images/index';
-import { useNavigate } from 'react-router-dom';
 
 // todo : 사진 추가 예정
 
 const TestSurvey = () => {
   const navigate = useNavigate();
 
+  const [selectedRole, setSelectedRole] = useState<string | undefined>(undefined);
+
+  const handleSelect = (value: string) => {
+    if (value === selectedRole) {
+      setSelectedRole(undefined);
+    } else {
+      setSelectedRole(value);
+    }
+  };
+
   const handleClick = () => {
     navigate('/test/survey/1');
   };
+
+  const isDisabled = !selectedRole;
 
   return (
     <div className={styles.wrapper}>
@@ -30,42 +42,54 @@ const TestSurvey = () => {
         <p className={styles.subTitle}>선택한 역할에 따라 맞춤형 질문이 제공됩니다.</p>
 
         <div className={styles.familyWrapper}>
-          <div className={styles.family}>
-            <div className={styles.label}>
-              <span>아빠</span>
-            </div>
+          <div
+            className={`
+              ${styles.family} 
+              ${selectedRole === 'father' ? styles.selected : ''}`}
+            onClick={() => handleSelect('father')}
+          >
             <div className={styles.image}>
-              <TestFather />
+              {selectedRole === 'father' ? <SelectedTestFather /> : <TestFather />}
             </div>
+            <label>아빠</label>
           </div>
-          <div className={styles.family}>
-            <div className={styles.label}>
-              <span>엄마</span>
-            </div>
+          <div
+            className={`
+              ${styles.family} 
+              ${selectedRole === 'mother' ? styles.selected : ''}`}
+            onClick={() => handleSelect('mother')}
+          >
             <div className={styles.image}>
-              <TestMother />
+              {selectedRole === 'mother' ? <SelectedTestMother /> : <TestMother />}
             </div>
+            <label>엄마</label>
           </div>
-          <div className={styles.family}>
-            <div className={styles.label}>
-              <span>아들</span>
-            </div>
+          <div
+            className={`
+              ${styles.family} 
+              ${selectedRole === 'son' ? styles.selected : ''}`}
+            onClick={() => handleSelect('son')}
+          >
             <div className={styles.image}>
-              <TestSon />
+              {selectedRole === 'son' ? <SelectedTestSon /> : <TestSon />}
             </div>
+            <label>아들</label>
           </div>
-          <div className={styles.family}>
-            <div className={styles.label}>
-              <span>딸</span>
-            </div>
+          <div
+            className={`
+              ${styles.family} 
+              ${selectedRole === 'daughter' ? styles.selected : ''}`}
+            onClick={() => handleSelect('daughter')}
+          >
             <div className={styles.image}>
-              <TestDaughter />
+              {selectedRole === 'daughter' ? <SelectedTestDaughter /> : <TestDaughter />}
             </div>
+            <label>딸</label>
           </div>
         </div>
       </div>
 
-      <Button isActive className={styles.button} onClick={handleClick}>
+      <Button isActive className={styles.button} onClick={handleClick} disabled={isDisabled}>
         다음
       </Button>
     </div>
