@@ -3,6 +3,7 @@ import Button from '@components/Button';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Analysis from '@src/components/Analysis';
+import { EmptyRoom } from '@src/assets/images';
 
 const Travel = () => {
   const navigate = useNavigate();
@@ -51,14 +52,14 @@ const Travel = () => {
         </div>
       </div>
       <div className={styles.commandmentListContainer}>
-        <div className={styles.commandmentListTitle}>이번 여행의 10계명</div>
+        <div className={styles.commandmentListTitle}>서로를 배려하는 여행 10계명</div>
         <div>
           <div className={styles.commandmentItem}>
-            <div className={styles.image}></div>
+            <EmptyRoom />
             <div className={styles.info}>
               서로 다른 여행 성향을 파악하고 여행 10계명을 생성해 보세요!
             </div>
-            <Button variant="outlined" size="m" onClick={handleOpenAnalysis}>
+            <Button variant="outlined" isActive size="m" onClick={handleOpenAnalysis}>
               여행 10계명 생성하기
             </Button>
           </div>

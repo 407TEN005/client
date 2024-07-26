@@ -28,3 +28,6 @@ export { ReactComponent as DashLine } from './dash_line.svg';
 
 // ? 분석 컴포넌트 이미지
 export { ReactComponent as AnalysisImg } from './sample_analysis.svg';
+
+// ? 여행방 페이지
+export { ReactComponent as EmptyRoom } from './empty_room_img.svg';
