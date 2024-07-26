@@ -5,6 +5,8 @@ import { KakaoLogo, MainLogo } from '@images/index';
 const KAKAO_LOGIN_URL = import.meta.env.VITE_KAKAO_LOGIN_URL;
 
 const Login = () => {
+  console.log(KAKAO_LOGIN_URL);
+
   const handleClick = () => {
     window.open(KAKAO_LOGIN_URL);
   };
