@@ -1,0 +1,63 @@
+.wrapper {
+  @include flex(flex-start, flex-start, column);
+  height: calc(100% - 72px);
+
+  .progress {
+    width: 100%;
+    height: 4px;
+    appearance: none;
+  }
+
+  .progress::-webkit-progress-bar {
+    background-color: #f6f6f6;
+    height: 4px;
+  }
+
+  .progress::-webkit-progress-value {
+    background-color: $p500;
+    height: 4px;
+  }
+
+  .contentWrapper {
+    @include flex(center, space-between, column);
+
+    height: 100%;
+    padding: 41px 20px 36px 20px;
+
+    .content {
+      .icon {
+        margin-bottom: 12px;
+      }
+
+      .titles {
+        margin-bottom: 48px;
+
+        p {
+          @include Heading2;
+        }
+      }
+
+      .button {
+        @include flex(center, flex-start);
+        @include Body2($color: $gray300);
+
+        width: 100%;
+        padding: 20px;
+        border-radius: 12px;
+        background-color: $gray10;
+        box-shadow: 0 0 0 1px $gray10 inset;
+        letter-spacing: -2.5%;
+      }
+
+      .selected {
+        @include SubHeading3($color: $p500);
+        box-shadow: 0 0 0 1px $p500 inset;
+        background-color: $p50;
+      }
+
+      .button + .button {
+        margin-top: 12px;
+      }
+    }
+  }
+}
