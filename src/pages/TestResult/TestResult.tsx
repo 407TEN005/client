@@ -31,7 +31,7 @@ const TestResult = () => {
           다소 강한 감정 표현이 앞서 <br /> 갈등이 발생하지 않도록 주의하세요!
         </div>
       </div>
-      <Button variant="gray" size="xl" onClick={handleStartTenTen}>
+      <Button variant="gray" size="xl" isActive onClick={handleStartTenTen}>
         텐텐 시작하기
       </Button>
     </div>

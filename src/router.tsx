@@ -41,8 +41,9 @@ export const router = createBrowserRouter([
         Component: lazy(() => import('./pages/TestResult')),
       },
       {
+        // 디자인 완료 후 삭제 예정
         path: 'analysis',
-        Component: lazy(() => import('./pages/Analysis')),
+        Component: lazy(() => import('./components/Analysis')),
       },
     ],
   },

@@ -25,3 +25,6 @@ export { ReactComponent as CommandmentIcon } from './commandment.svg';
 export { ReactComponent as Recreate } from './recreate.svg';
 export { ReactComponent as Share } from './share.svg';
 export { ReactComponent as DashLine } from './dash_line.svg';
+
+// ? 분석 컴포넌트 이미지
+export { ReactComponent as AnalysisImg } from './sample_analysis.svg';
