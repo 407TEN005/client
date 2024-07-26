@@ -9,6 +9,8 @@ RUN yarn install
 
 COPY . .
 
+COPY .env .env
+
 RUN yarn build
 
 FROM nginx:1.23.2-alpine as start
