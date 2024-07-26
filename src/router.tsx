@@ -28,6 +28,10 @@ export const router = createBrowserRouter([
         path: 'commandment',
         Component: lazy(() => import('./pages/Commandment')),
       },
+      {
+        path: 'testresult',
+        Component: lazy(() => import('./pages/TestResult')),
+      },
     ],
   },
 ]);
