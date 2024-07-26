@@ -2,6 +2,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styles from './TestSurveyDetail.module.scss';
 import { Question1, Question2, Question3, Question4 } from '@images/index';
 import Button from '@src/components/Button';
+import { useState } from 'react';
+
+// todo : 성향 테스트 페이지 history 사용하도록 수정
 
 interface QuestionDateType {
   parent: Record<
@@ -113,6 +116,16 @@ const TestSurveyDetail = () => {
   const { surveyId } = useParams();
   const navigate = useNavigate();
 
+  const [selectedAnswer, setSelectedAnswer] = useState<number | undefined>(undefined);
+
+  const handleSelect = (value: number) => {
+    if (value === selectedAnswer) {
+      setSelectedAnswer(undefined);
+    } else {
+      setSelectedAnswer(value);
+    }
+  };
+
   if (!surveyId) {
     return null;
   }
@@ -123,31 +136,42 @@ const TestSurveyDetail = () => {
     if (isLastQuestion) {
       alert('결과 확인');
     } else {
+      setSelectedAnswer(undefined);
       navigate(`/test/survey/${Number(surveyId) + 1}`);
     }
   };
 
   const { icon, titles, questions } = QUESTION_DATA.parent[surveyId];
 
+  const isDisabled = selectedAnswer === undefined;
+
   return (
     <div className={styles.wrapper}>
       <progress max="4" value={surveyId} className={styles.progress}></progress>
 
-      <div>
-        <div>{icon}</div>
-        {titles.map((title) => (
-          <p>{title}</p>
-        ))}
-        {questions.map((question) => (
-          <Button size="xl" variant="outlined">
-            {question}
-          </Button>
-        ))}
-      </div>
+      <div className={styles.contentWrapper}>
+        <div className={styles.content}>
+          <div className={styles.icon}>{icon}</div>
+          <div className={styles.titles}>
+            {titles.map((title, index) => (
+              <p key={index}>{title}</p>
+            ))}
+          </div>
+          {questions.map((question, index) => (
+            <div
+              key={index}
+              className={`${styles.button} ${selectedAnswer === index ? styles.selected : ''}`}
+              onClick={() => handleSelect(index)}
+            >
+              {question}
+            </div>
+          ))}
+        </div>
 
-      <Button isActive onClick={handleClick}>
-        {isLastQuestion ? '결과 확인' : '다음'}
-      </Button>
+        <Button size="xl" isActive onClick={handleClick} disabled={isDisabled}>
+          {isLastQuestion ? '결과 확인' : '다음'}
+        </Button>
+      </div>
     </div>
   );
 };

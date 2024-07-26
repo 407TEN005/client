@@ -13,8 +13,6 @@ import {
   SelectedTestDaughter,
 } from '@images/index';
 
-// todo : 사진 추가 예정
-
 const TestSurvey = () => {
   const navigate = useNavigate();
 
