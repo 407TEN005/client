@@ -3,7 +3,7 @@ import styles from './Button.module.scss';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'xl' | 'l' | 'm';
   isActive?: boolean;
-  variant?: 'blue' | 'yellow' | 'green' | 'outlined';
+  variant?: 'blue' | 'yellow' | 'green' | 'gray' | 'outlined';
   className?: string;
 }
 

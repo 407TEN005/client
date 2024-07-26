@@ -1,6 +1,7 @@
 import styles from './Travel.module.scss';
 import Button from '@components/Button';
 import Modal from '@components/Modal';
+import LoadingSpinner from '@components/LoadingSpinner';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ const Travel = () => {
       timer = window.setTimeout(() => {
         setIsModalOpen(false);
         navigate('/commandment');
-      }, 3000);
+      }, 5000);
     }
     return () => {
       if (timer) window.clearTimeout(timer);
@@ -51,7 +52,7 @@ const Travel = () => {
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="10계명 생성중">
         <div className={styles.modalImage}></div>
-        <div>스피너</div>
+        <LoadingSpinner width={54} height={54} />
         <div>(테스트용: 3초 후 자동으로 이동합니다.)</div>
       </Modal>
     </div>
