@@ -1,8 +1,10 @@
-import Commandment from '../Commandment';
 import styles from './Travel.module.scss';
 import Button from '@components/Button';
+import Modal from '@components/Modal';
+import { useState } from 'react';
 
 const Travel = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleContainer}>
@@ -25,12 +27,16 @@ const Travel = () => {
             <div className={styles.info}>
               서로 다른 여행 성향을 파악하고 여행 10계명을 생성해 보세요!
             </div>
-            <Button variant="outlined" size="m">
+            <Button variant="outlined" size="m" onClick={() => setIsModalOpen(true)}>
               여행 10계명 생성하기
             </Button>
           </div>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="10계명 생성중">
+        <div className={styles.modalImage}></div>
+        <div></div>
+      </Modal>
     </div>
   );
 };
