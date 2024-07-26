@@ -21,7 +21,9 @@
       "@hooks/*": ["./src/hooks/*"],
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
-      "@styles/*": ["./src/assets/styles/*"]
+      "@styles/*": ["./src/assets/styles/*"],
+      "@images/*": ["./src/assets/images/*"],
+      "@animations/*": ["./src/assets/animations/*"]
     }
   },
   "include": ["src/**/*", "vite.config.ts"],
