@@ -29,7 +29,7 @@
       }
 
       .dateErrorMessage {
-        @include caption1;
+        @include caption;
         color: $error;
         margin-top: 8px;
       }
