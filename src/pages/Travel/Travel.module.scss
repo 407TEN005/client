@@ -94,13 +94,6 @@
   align-items: center;
 }
 
-.commandmentItem .image {
-  width: 88.8px;
-  height: 80.73px;
-
-  background-color: $gray100;
-}
-
 .commandmentItem .info {
   @include caption1;
   color: $gray300;

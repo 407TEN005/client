@@ -1,9 +1,9 @@
 .wrapper {
+  height: calc(100% - 68px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 24px 20px 36px 20px;
+  padding: 0 20px;
 }
 
 .subTitle {
@@ -20,17 +20,13 @@
 }
 
 .tagsWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(center, center, row);
   margin-bottom: 48px;
   gap: 0 2px;
 }
 
 .tag {
-  display: flex;
-  text-align: center;
-  justify-content: center;
+  @include flex(center, center, row);
   font-size: 12px;
   color: $p400;
   padding: 4px 8px;
@@ -38,13 +34,8 @@
   border: 1px solid $p100;
 }
 
-.characterImg {
-  width: 244px;
-}
-
 .descriptionWrapper {
-  max-height: 96px;
-  margin-top: 64px;
+  margin-top: 38px;
   margin-bottom: 83px;
 }
 
@@ -53,6 +44,7 @@
   @include Body2();
   display: flex;
   text-align: center;
+  justify-content: center;
   color: $gray300;
   // white-space: pre-wrap;
   // word-break: keep-all;

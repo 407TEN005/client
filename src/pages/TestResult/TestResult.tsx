@@ -1,4 +1,4 @@
-import { ResultSample } from '@src/assets/images';
+import { ResultP1 } from '@src/assets/images';
 import styles from './TestResult.module.scss';
 import Button from '@src/components/Button';
 import { useNavigate } from 'react-router-dom';
@@ -22,7 +22,7 @@ const TestResult = () => {
           </div>
         ))}
       </div>
-      <ResultSample className={styles.characterImg} />
+      <ResultP1 className={styles.characterImg} />
       <div className={styles.descriptionWrapper}>
         <div className={styles.description}>
           활기찬 여행 분위기를 조성하며 <br /> 새로운 경험에 언제나 활짝 열려있군요!
@@ -31,7 +31,7 @@ const TestResult = () => {
           다소 강한 감정 표현이 앞서 <br /> 갈등이 발생하지 않도록 주의하세요!
         </div>
       </div>
-      <Button variant="gray" size="xl" onClick={handleStartTenTen}>
+      <Button variant="gray" size="xl" isActive onClick={handleStartTenTen}>
         텐텐 시작하기
       </Button>
     </div>

@@ -1,26 +1,41 @@
 import styles from './Travel.module.scss';
 import Button from '@components/Button';
-import Modal from '@components/Modal';
-import LoadingSpinner from '@components/LoadingSpinner';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Analysis from '@src/components/Analysis';
+import { EmptyRoom } from '@src/assets/images';
 
 const Travel = () => {
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAnalysisOpen, setIsAnalysisOpen] = useState(false);
 
   useEffect(() => {
     let timer: number;
-    if (isModalOpen) {
+    if (isAnalysisOpen) {
       timer = window.setTimeout(() => {
-        setIsModalOpen(false);
+        setIsAnalysisOpen(false);
         navigate('/commandment');
       }, 5000);
     }
     return () => {
       if (timer) window.clearTimeout(timer);
     };
-  }, [isModalOpen, navigate]);
+  }, [isAnalysisOpen, navigate]);
+
+  const handleOpenAnalysis = () => {
+    setIsAnalysisOpen(true);
+  };
+
+  if (isAnalysisOpen) {
+    return (
+      <Analysis
+        title="여행 10계명 생성 시작!"
+        description="AI가 모든 가족 구성원의 성향을 반영해 
+맞춤형 10계명을 생성하고 있어요"
+        timeStatement={true}
+      />
+    );
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -37,24 +52,19 @@ const Travel = () => {
         </div>
       </div>
       <div className={styles.commandmentListContainer}>
-        <div className={styles.commandmentListTitle}>이번 여행의 10계명</div>
+        <div className={styles.commandmentListTitle}>서로를 배려하는 여행 10계명</div>
         <div>
           <div className={styles.commandmentItem}>
-            <div className={styles.image}></div>
+            <EmptyRoom />
             <div className={styles.info}>
               서로 다른 여행 성향을 파악하고 여행 10계명을 생성해 보세요!
             </div>
-            <Button variant="outlined" size="m" onClick={() => setIsModalOpen(true)}>
+            <Button variant="outlined" isActive size="m" onClick={handleOpenAnalysis}>
               여행 10계명 생성하기
             </Button>
           </div>
         </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="10계명 생성중">
-        <div className={styles.modalImage}></div>
-        <LoadingSpinner width={54} height={54} />
-        <div>(테스트용: 3초 후 자동으로 이동합니다.)</div>
-      </Modal>
     </div>
   );
 };
