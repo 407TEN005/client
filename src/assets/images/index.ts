@@ -19,3 +19,4 @@ export { ReactComponent as Question4 } from './question4.svg';
 
 // ? 성향 테스트 결과 이미지
 export { ReactComponent as ResultSample } from './testresult.svg';
+
