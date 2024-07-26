@@ -1,8 +1,5 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include flex(center, center, column);
   text-align: center;
   padding: 83px 20px;
 }
@@ -20,9 +17,7 @@
 }
 
 .imgwrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex($flexDirection: column);
 }
 
 .img {

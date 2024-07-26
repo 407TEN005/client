@@ -18,5 +18,10 @@ export { ReactComponent as Question3 } from './question3.svg';
 export { ReactComponent as Question4 } from './question4.svg';
 
 // ? 성향 테스트 결과 이미지
-export { ReactComponent as ResultSample } from './testresult.svg';
+export { ReactComponent as ResultSample } from './test_result.svg';
 
+// ? 10계명 생성 페이지
+export { ReactComponent as CommandmentIcon } from './commandment.svg';
+export { ReactComponent as Recreate } from './recreate.svg';
+export { ReactComponent as Share } from './share.svg';
+export { ReactComponent as DashLine } from './dash_line.svg';
