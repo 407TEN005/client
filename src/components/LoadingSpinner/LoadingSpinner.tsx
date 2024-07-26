@@ -6,7 +6,7 @@ interface LoadingSpinnerProps {
   height?: number | string;
 }
 
-const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ width = 200, height = 200 }) => {
+const LoadingSpinner = ({ width, height }: LoadingSpinnerProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 100 100">
       <foreignObject width="100%" height="100%">
