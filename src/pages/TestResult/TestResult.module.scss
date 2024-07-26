@@ -34,13 +34,8 @@
   border: 1px solid $p100;
 }
 
-.characterImg {
-  width: 244px;
-}
-
 .descriptionWrapper {
-  max-height: 96px;
-  margin-top: 64px;
+  margin-top: 38px;
   margin-bottom: 83px;
 }
 
@@ -49,6 +44,7 @@
   @include Body2();
   display: flex;
   text-align: center;
+  justify-content: center;
   color: $gray300;
   // white-space: pre-wrap;
   // word-break: keep-all;
