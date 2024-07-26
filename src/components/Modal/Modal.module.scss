@@ -34,4 +34,8 @@
 .modalBody {
   padding-top: 32px;
   padding-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

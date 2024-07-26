@@ -1,10 +1,26 @@
 import styles from './Travel.module.scss';
 import Button from '@components/Button';
 import Modal from '@components/Modal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Travel = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    let timer: number;
+    if (isModalOpen) {
+      timer = window.setTimeout(() => {
+        setIsModalOpen(false);
+        navigate('/commandment');
+      }, 3000);
+    }
+    return () => {
+      if (timer) window.clearTimeout(timer);
+    };
+  }, [isModalOpen, navigate]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleContainer}>
@@ -35,7 +51,8 @@ const Travel = () => {
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="10계명 생성중">
         <div className={styles.modalImage}></div>
-        <div></div>
+        <div>스피너</div>
+        <div>(테스트용: 3초 후 자동으로 이동합니다.)</div>
       </Modal>
     </div>
   );
