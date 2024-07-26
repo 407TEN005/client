@@ -1,17 +1,14 @@
-import ROUTES from '@constants/routes';
 import authUtil from '@utils/authUtil';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const HOME_URL = import.meta.env.VITE_HOME_URL;
+
 const Redirect = () => {
   const navigate = useNavigate();
 
-  console.log(1);
-
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-
-    console.log(params);
 
     const accessToken = params.get('accessToken');
 
@@ -19,7 +16,7 @@ const Redirect = () => {
       authUtil.setTokens({ accessToken });
     }
 
-    navigate(ROUTES.home);
+    window.location.href = HOME_URL;
   }, [navigate]);
 
   return <></>;

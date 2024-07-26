@@ -9,9 +9,6 @@ jobs:
   docker_push:
     runs-on: ubuntu-latest
 
-    env:
-      VITE_KAKAO_LOGIN_URL: ${{secrets.KAKAO_LOGIN_URL}}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -35,6 +32,10 @@ jobs:
           tags: ${{ secrets.NCP_CONTAINER_REGISTRY }}/client
           cache-from: type=registry,ref=${{ secrets.NCP_CONTAINER_REGISTRY }}/client
           cache-to: type=inline
+          build-args: |
+            "VITE_KAKAO_LOGIN_URL=${{secrets.KAKAO_LOGIN_URL}}"
+            "VITE_KAKAO_REDIRECT_URL=${{secrets.KAKAO_REDIRECT_URL}}"
+            "VITE_HOME_URL=${{secrets.HOME_URL}}"
 
   docker_pull_front:
     name: Connect server ssh and pull frontend from container registry
