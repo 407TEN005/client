@@ -11,7 +11,7 @@ const Header = ({ onBack }: { onBack?: () => void }) => {
 
   return (
     <div className={styles.wrapper}>
-      <div onClick={onBack}>
+      <div onClick={onBack ?? handleExit}>
         <LeftArrow />
       </div>
       <div onClick={handleExit}>

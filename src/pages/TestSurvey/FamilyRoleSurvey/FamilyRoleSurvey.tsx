@@ -11,12 +11,9 @@ import {
   SelectedTestSon,
   SelectedTestDaughter,
 } from '@images/index';
-import Header from '@src/components/Header';
-import { useNavigate } from 'react-router-dom';
+import Header from '@components/Header';
 
 const FamilyRoleSurvey = ({ onAnswer }: { onAnswer: (answer: string) => void }) => {
-  const navigate = useNavigate();
-
   const [selectedRole, setSelectedRole] = useState<string | undefined>(undefined);
 
   const handleSelect = (value: string) => {
@@ -33,19 +30,15 @@ const FamilyRoleSurvey = ({ onAnswer }: { onAnswer: (answer: string) => void }) 
     }
   };
 
-  const handleBack = () => {
-    navigate(-1);
-  };
-
   const isDisabled = !selectedRole;
 
   return (
     <>
-      <Header onBack={handleBack} />
+      <Header />
       <div className={styles.wrapper}>
         <div className={styles.content}>
           <p className={styles.title}>가족 중 어떤 구성원에 해당하나요?</p>
-          <p className={styles.subTitle}>테스트에 앞서 : ; 나의 역할을 선택해주세요.</p>
+          <p className={styles.subTitle}>테스트에 앞서 나의 역할을 선택해주세요.</p>
           <p className={styles.subTitle}>선택한 역할에 따라 맞춤형 질문이 제공됩니다.</p>
 
           <div className={styles.familyWrapper}>

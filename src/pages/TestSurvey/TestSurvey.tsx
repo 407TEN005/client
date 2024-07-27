@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import FamilyRoleSurvey from './FamilyRoleSurvey';
 import TestSurveyDetail from '../TestSurveyDetail';
-import useTestWithoutAuth from '@src/apis/useTestWithoutAuth';
+import useTestWithoutAuth from '@apis/useTestWithoutAuth';
 
 export type ContentType = 'familyRole' | 'question1' | 'question2' | 'question3' | 'question4';
 

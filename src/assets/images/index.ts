@@ -34,28 +34,52 @@ export { ReactComponent as Exit } from './exit.svg';
 //p : 부모, c : 자녀 성향 유형 이미지 입니다.
 //p1: 열정 넘치는 불꽃 부모
 export { ReactComponent as ResultP1 } from './result_p1.svg';
+export { ReactComponent as MiniP1 } from './mini_p1.svg';
+export { ReactComponent as SelectedMiniP1 } from './selected_mini_p1.svg';
 //p2: 긍정 에너지 만렙 부모
 export { ReactComponent as ResultP2 } from './result_p2.svg';
+export { ReactComponent as MiniP2 } from './mini_p2.svg';
+export { ReactComponent as SelectedMiniP2 } from './selected_mini_p2.svg';
 //p3: 걱정 많은 안전제일 부모
 export { ReactComponent as ResultP3 } from './result_p3.svg';
+export { ReactComponent as MiniP3 } from './mini_p3.svg';
+export { ReactComponent as SelectedMiniP3 } from './selected_mini_p3.svg';
 //p4: 느긋한 여유파 부모
 export { ReactComponent as ResultP4 } from './result_p4.svg';
+export { ReactComponent as MiniP4 } from './mini_p4.svg';
+export { ReactComponent as SelectedMiniP4 } from './selected_mini_p4.svg';
 //p5: 융통성 있는 중재자 부모
 export { ReactComponent as ResultP5 } from './result_p5.svg';
+export { ReactComponent as MiniP5 } from './mini_p5.svg';
+export { ReactComponent as SelectedMiniP5 } from './selected_mini_p5.svg';
 //p6: 꼼꼼한 현실주의 부모
 export { ReactComponent as ResultP6 } from './result_p6.svg';
+export { ReactComponent as MiniP6 } from './mini_p6.svg';
+export { ReactComponent as SelectedMiniP6 } from './selected_mini_p6.svg';
 //c1: 열정 가득 도전 자녀
 export { ReactComponent as ResultC1 } from './result_c1.svg';
+export { ReactComponent as MiniC1 } from './mini_c1.svg';
+export { ReactComponent as SelectedMiniC1 } from './selected_mini_c1.svg';
 //c2: 긍정 뿜뿜 모험 자녀
 export { ReactComponent as ResultC2 } from './result_c2.svg';
+export { ReactComponent as MiniC2 } from './mini_c2.svg';
+export { ReactComponent as SelectedMiniC2 } from './selected_mini_c2.svg';
 //c3: 걱정 많은 신중 자녀
 export { ReactComponent as ResultC3 } from './result_c3.svg';
+export { ReactComponent as MiniC3 } from './mini_c3.svg';
+export { ReactComponent as SelectedMiniC3 } from './selected_mini_c3.svg';
 //c4: 느긋한 안전 자녀
 export { ReactComponent as ResultC4 } from './result_c4.svg';
+export { ReactComponent as MiniC4 } from './mini_c4.svg';
+export { ReactComponent as SelectedMiniC4 } from './selected_mini_c4.svg';
 //c5: 균형 잡힌 협력 자녀
 export { ReactComponent as ResultC5 } from './result_c5.svg';
+export { ReactComponent as MiniC5 } from './mini_c5.svg';
+export { ReactComponent as SelectedMiniC5 } from './selected_mini_c5.svg';
 //c6: 꼼꼼한 실속 자녀
 export { ReactComponent as ResultC6 } from './result_c6.svg';
+export { ReactComponent as MiniC6 } from './mini_c6.svg';
+export { ReactComponent as SelectedMiniC6 } from './selected_mini_c6.svg';
 
 // ? 10계명 생성 페이지
 export { ReactComponent as CommandmentIcon } from './commandment.svg';

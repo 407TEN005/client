@@ -8,7 +8,7 @@
     @include flex(center, center, column);
 
     .title {
-      @include Heading2;
+      @include Heading2($color: $gray500);
     }
 
     .title + .title {
@@ -16,7 +16,7 @@
     }
 
     .subTitle {
-      @include Body1;
+      @include Body1($color: $gray300);
     }
 
     .subTitle + .subTitle {

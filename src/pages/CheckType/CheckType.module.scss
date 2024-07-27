@@ -1,0 +1,50 @@
+.wrapper {
+  @include flex(flex-start, space-between, column);
+  height: calc(100% - 68px);
+  padding: 32px 20px 36px 20px;
+
+  .title {
+    @include Heading2($color: $gray500);
+  }
+
+  .title + .title {
+    margin-bottom: 8px;
+  }
+
+  .subTitle {
+    @include Body2($color: $gray300);
+    margin-bottom: 40px;
+  }
+
+  .cardWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+
+    .card {
+      @include flex(center, center, column);
+      width: 110px;
+      height: 110px;
+      background-color: $gray10;
+      border-radius: 6px;
+      padding: 13px 20px;
+
+      .image {
+        margin-bottom: 8px;
+      }
+
+      P {
+        @include caption1($color: $gray300);
+      }
+    }
+
+    .selected {
+      box-shadow: 0 0 0 1px $p500 inset;
+      background-color: $p50;
+
+      p {
+        @include caption1($weight: 600, $color: $p500);
+      }
+    }
+  }
+}
