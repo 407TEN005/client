@@ -76,37 +76,37 @@ const CHILDREN_DATA = [
     value: 'C1',
     icon: <MiniP1 />,
     selectedIcon: <SelectedMiniP1 />,
-    tagName: ['열정 가득', '도전 자녀'],
+    tagName: ['열정 가득', '도전 부모'],
   },
   {
     value: 'C2',
     icon: <MiniP2 />,
     selectedIcon: <SelectedMiniP2 />,
-    tagName: ['긍정 뿜뿜', '모험 자녀'],
+    tagName: ['긍정 뿜뿜', '모험 부모'],
   },
   {
     value: 'C3',
     icon: <MiniP3 />,
     selectedIcon: <SelectedMiniP3 />,
-    tagName: ['걱정 많은', '신중 자녀'],
+    tagName: ['걱정 많은', '신중 부모'],
   },
   {
     value: 'C4',
     icon: <MiniP4 />,
     selectedIcon: <SelectedMiniP4 />,
-    tagName: ['느긋한', '안전 자녀'],
+    tagName: ['느긋한', '안전 부모'],
   },
   {
     value: 'C5',
     icon: <MiniP5 />,
     selectedIcon: <SelectedMiniP5 />,
-    tagName: ['균형 잡힌', '협력 자녀'],
+    tagName: ['균형 잡힌', '협력 부모'],
   },
   {
     value: 'C6',
     icon: <MiniP6 />,
     selectedIcon: <SelectedMiniP6 />,
-    tagName: ['꼼꼼한', '실속 자녀'],
+    tagName: ['꼼꼼한', '실속 부모'],
   },
 ];
 
@@ -128,7 +128,7 @@ const CheckType = () => {
   const isDisabled = selectedType === undefined;
 
   const handleClick = async () => {
-    await callClovaApi();
+    await callClovaApi('안녕');
   };
 
   return (
