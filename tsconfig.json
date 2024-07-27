@@ -22,10 +22,10 @@
       "@src/*": ["./src/*"],
       "@apis/*": ["./src/apis/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
-      "@constants/*": ["./src/constants/*"],
       "@utils/*": ["./src/utils/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@components/*": ["./src/components/*"],
       "@styles/*": ["./src/assets/styles/*"],
       "@images/*": ["./src/assets/images/*"],
       "@animations/*": ["./src/assets/animations/*"]

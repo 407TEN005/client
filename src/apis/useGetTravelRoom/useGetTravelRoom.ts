@@ -1,5 +1,5 @@
-import { axiosInstance } from '@src/constants/axios';
-import authUtil from '@src/utils/authUtil';
+import { axiosInstance } from '@constants/axios';
+import authUtil from '@utils/authUtil';
 import { useEffect, useState } from 'react';
 
 interface TravelRoomData {

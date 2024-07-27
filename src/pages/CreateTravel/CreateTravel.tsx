@@ -5,14 +5,15 @@ import styles from './CreateTravel.module.scss';
 import Input from '@components/Input';
 import Button from '@components/Button';
 import useDayPicker from '@hooks/useDayPicker';
+import useCreateTravelRoom from '@apis/useCreateTravelRoom';
 
 import { addDays, format } from 'date-fns';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
 // ? 여행 이름 constant
-const TRAVEL_NAME_PLACEHOLDER = 'ex. 우리 가족 첫 일본 여행';
-const TRAVEL_NAME_ERROR_MESSAGE = '최대 20자까지 입력 가능해요';
+const TRAVEL_ROOM_NAME_PLACEHOLDER = 'ex. 우리 가족 첫 일본 여행';
+const TRAVEL_ROOM_NAME_ERROR_MESSAGE = '최대 20자까지 입력 가능해요';
 
 // ? 여행 인원 수 constant
 const TRAVEL_FAMILY_COUNT_ERROR_MESSAGE = '숫자만 입력 가능해요.';
@@ -22,8 +23,8 @@ const TRAVEL_FAMILY_COUNT_PLACEHOLDER = 'ex. 4';
 const TRAVEL_DATE_ERROR_MESSAGE = '가는 날 이후 날짜를 선택해주세요.';
 
 const CreateTravel = () => {
-  const [name, setName] = useState<string | undefined>(undefined);
-  const [nameErrorMessage, setNameErrorMessage] = useState<string | undefined>(undefined);
+  const [roomName, setRoomName] = useState<string | undefined>(undefined);
+  const [roomNameErrorMessage, setRoomNameErrorMessage] = useState<string | undefined>(undefined);
 
   const [count, setCount] = useState<string | undefined>(undefined);
   const [countErrorMessage, setCountErrorMessage] = useState<string | undefined>(undefined);
@@ -32,25 +33,36 @@ const CreateTravel = () => {
   const { date: endDate, handleDateChange: handleEndDateChange } = useDayPicker();
   const [dateErrorMessage, setDateErrorMessage] = useState<string | undefined>();
 
-  const handleNameChange = (value: string) => {
-    setName(value);
+  const { fetchCreateTravelRoom } = useCreateTravelRoom();
+
+  const handleRoomNameChange = (value: string) => {
+    setRoomName(value);
   };
 
   const handleCountChange = (value: string) => {
     setCount(value);
   };
 
+  const handleButtonClick = async () => {
+    await fetchCreateTravelRoom({
+      roomName,
+      startDate,
+      endDate,
+      maxHeadCount: Number(count),
+    });
+  };
+
   const isButtonDisabled =
-    !(name && count && startDate && endDate) ||
-    !!(nameErrorMessage || countErrorMessage || dateErrorMessage);
+    !(roomName && count && startDate && endDate) ||
+    !!(roomNameErrorMessage || countErrorMessage || dateErrorMessage);
 
   useEffect(() => {
-    if (name && name.length > 20) {
-      setNameErrorMessage(TRAVEL_NAME_ERROR_MESSAGE);
+    if (roomName && roomName.length > 20) {
+      setRoomNameErrorMessage(TRAVEL_ROOM_NAME_ERROR_MESSAGE);
     } else {
-      setNameErrorMessage(undefined);
+      setRoomNameErrorMessage(undefined);
     }
-  }, [name]);
+  }, [roomName]);
 
   useEffect(() => {
     if (startDate && endDate && startDate > endDate) {
@@ -72,14 +84,14 @@ const CreateTravel = () => {
     <div className={styles.wrapper}>
       <div className={styles.inputWrapper}>
         <Input
-          id="travelName"
+          id="travelRoomName"
           label="어떤 여행인가요?"
-          value={name}
-          errorMessage={nameErrorMessage}
-          placeholder={TRAVEL_NAME_PLACEHOLDER}
+          value={roomName}
+          errorMessage={roomNameErrorMessage}
+          placeholder={TRAVEL_ROOM_NAME_PLACEHOLDER}
           isRequired
-          isError={Boolean(nameErrorMessage)}
-          onChange={(e) => handleNameChange(e.target.value)}
+          isError={Boolean(roomNameErrorMessage)}
+          onChange={(e) => handleRoomNameChange(e.target.value)}
         />
 
         <label className={styles.label}>
@@ -133,7 +145,7 @@ const CreateTravel = () => {
         className={styles.createButton}
         isActive
         disabled={isButtonDisabled}
-        onClick={() => alert('기능 준비중')}
+        onClick={handleButtonClick}
       >
         생성하기
       </Button>
