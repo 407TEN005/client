@@ -5,8 +5,6 @@ import ROUTES from '@constants/routes';
 const AuthLayout = ({ shouldProtect }: { shouldProtect: boolean }) => {
   const hasAuth = authUtil.isAuth();
 
-  console.log(hasAuth);
-
   if (!hasAuth && shouldProtect) {
     return <Navigate replace={true} to={ROUTES.login} />;
   }
