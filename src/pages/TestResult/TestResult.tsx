@@ -1,6 +1,6 @@
-import { ResultP1 } from '@src/assets/images';
+import { ResultP1 } from '@images/index';
 import styles from './TestResult.module.scss';
-import Button from '@src/components/Button';
+import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
 
 const TRAVEL_TYPE = {

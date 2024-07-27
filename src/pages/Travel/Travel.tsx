@@ -2,8 +2,8 @@ import styles from './Travel.module.scss';
 import Button from '@components/Button';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Analysis from '@src/components/Analysis';
-import { EmptyRoom, IconCallendar, IconCrown } from '@src/assets/images';
+import Analysis from '@components/Analysis';
+import { EmptyRoom, IconCallendar, IconCrown } from '@images/index';
 
 const TRAVEL_DATA = {
   id: 1,

@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './TestSurveyDetail.module.scss';
 import { Question1, Question2, Question3, Question4 } from '@images/index';
-import Button from '@src/components/Button';
+import Button from '@components/Button';
 import { useState } from 'react';
 
 // todo : 성향 테스트 페이지 history 사용하도록 수정
