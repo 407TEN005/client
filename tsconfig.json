@@ -24,6 +24,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pages/*"],
       "@utils/*": ["./src/utils/*"],
+      "@recoil/*": ["./src/recoil/*"],
       "@constants/*": ["./src/constants/*"],
       "@components/*": ["./src/components/*"],
       "@styles/*": ["./src/assets/styles/*"],

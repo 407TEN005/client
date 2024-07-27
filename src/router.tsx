@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       {
-        path: ROUTES.login,
+        path: '',
         Component: lazy(() => import('./pages/Login')),
       },
       {
@@ -66,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.testSurvey,
         Component: lazy(() => import('./pages/TestSurvey')),
+      },
+      {
+        path: ROUTES.testResult,
+        Component: lazy(() => import('./pages/TestResult')),
       },
     ],
   },

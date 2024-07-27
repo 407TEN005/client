@@ -2,6 +2,8 @@ import { ResultP1 } from '@images/index';
 import styles from './TestResult.module.scss';
 import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import testResponseAtom from '@recoil/testResponse';
 
 const TRAVEL_TYPE = {
   travelType: 'P1',
@@ -12,6 +14,10 @@ const TRAVEL_TYPE = {
 };
 
 const TestResult = () => {
+  const responseData = useRecoilValue(testResponseAtom);
+
+  console.log(responseData);
+
   const navigate = useNavigate();
   const handleStartTenTen = () => {
     navigate('/travel/:travelId');

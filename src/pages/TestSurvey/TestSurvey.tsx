@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FamilyRoleSurvey from './FamilyRoleSurvey';
 import TestSurveyDetail from '../TestSurveyDetail';
+import useTestWithoutAuth from '@src/apis/useTestWithoutAuth';
 
 export type ContentType = 'familyRole' | 'question1' | 'question2' | 'question3' | 'question4';
 
@@ -12,17 +13,24 @@ const TestSurvey = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
 
-  console.log('answers : ', answers);
+  const { createTestWithoutAuth } = useTestWithoutAuth();
 
-  const handleAnswer = (answer: string) => {
+  const parseAnswer = (value: string[]) => {
+    const [familyRole, ...answers] = value;
+
+    return {
+      familyRole,
+      answers,
+    };
+  };
+
+  const handleAnswer = async (answer: string) => {
     setAnswers((prevAnswers) => [...prevAnswers, answer]);
 
     if (questionIndex < 4) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      // 설문조사 완료, 서버로 데이터 전송
-      console.log('설문조사 완료', answers);
-      // 서버로 전송 로직 추가
+      await createTestWithoutAuth(parseAnswer([...answers, answer]));
     }
   };
 
