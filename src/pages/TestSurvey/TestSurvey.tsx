@@ -12,9 +12,12 @@ const TestSurvey = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
 
+  console.log('answers : ', answers);
+
   const handleAnswer = (answer: string) => {
     setAnswers((prevAnswers) => [...prevAnswers, answer]);
-    if (questionIndex < 5) {
+
+    if (questionIndex < 4) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
       // 설문조사 완료, 서버로 데이터 전송
