@@ -1,13 +1,12 @@
 .wrapper {
-  height: calc(100% - 68px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  height: 100%;
+  padding: 92px 20px 36px 20px;
 }
 
 .subTitle {
-  padding-top: 24px;
   @include SubHeading3;
   padding-bottom: 4px;
   color: $gray300;
@@ -36,7 +35,7 @@
 
 .descriptionWrapper {
   margin-top: 38px;
-  margin-bottom: 83px;
+  margin-bottom: auto;
 }
 
 .description {
