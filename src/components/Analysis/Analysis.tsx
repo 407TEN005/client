@@ -1,6 +1,6 @@
-import { AnalysisImg } from '@src/assets/images';
+import { AnalysisImg } from '@images/index';
 import styles from './Analysis.module.scss';
-import LoadingSpinner from '@src/components/LoadingSpinner';
+import LoadingSpinner from '@components/LoadingSpinner';
 
 interface AnalysisProps {
   title?: string | React.ReactNode;
