@@ -55,7 +55,7 @@ const TestResult = () => {
   const { travelType, description, hashtag, advantage, caution } = testResult;
 
   const handleStartTenTen = () => {
-    navigate('/travel/:travelId');
+    navigate('/checkType');
   };
 
   return (

@@ -1,0 +1,4 @@
+.wrapper {
+  @include flex(flex-start, space-between, column);
+  height: calc(100% - 68px);
+}

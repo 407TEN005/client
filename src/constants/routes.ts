@@ -10,6 +10,7 @@ export const ROUTES = {
   testResult: 'testResult',
   analysis: 'analysis',
   redirect: 'oauth2/redirect',
+  checkType: 'checkType',
 } as const;
 
 export default ROUTES;
