@@ -15,7 +15,7 @@ const Home = () => {
   };
 
   // ? 여행 방이 없을 때
-  if (travelRoomData.length < 1) {
+  if (!travelRoomData || travelRoomData.length < 1) {
     return <NoTravelRoom onClick={handleCreateTravel} />;
   }
 
