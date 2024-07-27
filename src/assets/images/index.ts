@@ -4,6 +4,10 @@ export { ReactComponent as KakaoLogo } from './kakao_logo.svg';
 export { ReactComponent as TestLogo } from './test_logo.svg';
 export { ReactComponent as NavLogo } from './nav_logo.svg';
 export { ReactComponent as HomeLogo } from './home_logo.svg';
+export { ReactComponent as TravelCardLogo } from './travel_card_logo.svg';
+
+// ? home
+export { ReactComponent as CheckButton } from './check_button.svg';
 
 // ? 성향 테스트 이미지
 export { ReactComponent as TestFather } from './test_father.svg';

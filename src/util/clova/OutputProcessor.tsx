@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './AIOutputProcessor.module.scss';
-import { CommandmentIcon } from '@src/assets/images';
+import { CommandmentIcon } from '@images/index';
 
 interface AIOutputProcessorProps {
   getAIOutput: () => Promise<string>;

@@ -13,25 +13,25 @@ interface TravelRoomData {
 }
 
 const useGetTravelRoom = () => {
-  const [data, setData] = useState<TravelRoomData[]>([]);
+  const [travelRoomData, setTravelRoomData] = useState<TravelRoomData[]>([]);
 
   const userId = authUtil.getUserId();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTravelRoomData = async () => {
       try {
         const response = await axiosInstance.get(`/users/${userId}/travel-rooms`);
 
-        setData(response.data);
+        setTravelRoomData(response.data);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchData();
+    fetchTravelRoomData();
   }, []);
 
-  return { data };
+  return { travelRoomData };
 };
 
 export default useGetTravelRoom;
