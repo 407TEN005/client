@@ -40,6 +40,7 @@ const Input = ({
           id={id}
           name={props.name}
           value={props.value}
+          autoComplete="off"
           spellCheck={false}
           onChange={props.onChange}
           disabled={props.disabled}

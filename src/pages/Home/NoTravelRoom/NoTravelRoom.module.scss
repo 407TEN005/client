@@ -1,0 +1,23 @@
+.wrapper {
+  @include flex(center, flex-start, column);
+  width: 100%;
+  height: calc(100% - 68px);
+  background-color: $gray10;
+
+  .image {
+    margin-top: 180px;
+  }
+
+  .title {
+    @include SubHeading1;
+    margin-bottom: 8px;
+  }
+
+  .subTitle {
+    @include Body2;
+  }
+
+  .subTitle + .subTitle {
+    margin-bottom: 28px;
+  }
+}

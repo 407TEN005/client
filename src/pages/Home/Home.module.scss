@@ -1,27 +1,103 @@
 .wrapper {
-  @include flex(center, center, column);
   width: 100%;
   height: calc(100% - 68px);
+  background-color: $gray10;
 
-  .image {
-    width: 184px;
-    height: 184px;
-    border: 1px solid black;
-    border-radius: 50%;
+  position: relative;
+  padding: 32px 24px 0 20px;
 
-    margin-bottom: 28px;
+  .plusButton {
+    @include flex(center, center);
+
+    width: 48px;
+    height: 48px;
+    background-color: $main01;
+    border-radius: 99px;
+
+    position: absolute;
+    bottom: 36px;
+    right: 20px;
+    cursor: pointer;
   }
 
-  .title {
-    @include SubHeading1;
-    margin-bottom: 12px;
-  }
+  .headline {
+    @include flex(center, flex-start);
+    @include SubHeading1($color: $black);
 
-  .subTitle {
-    @include Body2;
-  }
-
-  .subTitle + .subTitle {
     margin-bottom: 24px;
+  }
+
+  .card {
+    @include flex(flex-start, flex-start);
+
+    width: 100%;
+    height: 132px;
+    padding: 20px 16px 16px 16px;
+    border-radius: 12px;
+
+    margin-bottom: 12px;
+
+    background-color: white;
+    background-image: url('../../assets/images/travel_room_background.svg');
+
+    .image {
+      width: 60px;
+    }
+
+    .detail {
+      @include flex(flex-start, flex-start, column);
+      width: 100%;
+      margin-left: 12px;
+
+      .travelDetail {
+        margin-bottom: 11px;
+
+        .dday {
+          @include caption2($size: 12px, $weight: 600, $color: $p500);
+          width: fit-content;
+          padding: 0 8px;
+          background-color: $p50;
+          border-radius: 6px;
+          margin-bottom: 2px;
+        }
+
+        .roomName {
+          @include SubHeading2($color: $gray500);
+        }
+
+        .date {
+          @include caption1($color: $gray300);
+        }
+      }
+
+      .existCommandments {
+        @include flex(flex-end, flex-end, column);
+        width: 100%;
+
+        .button {
+          @include caption2($size: 12px, $weight: 600, $color: $p500);
+          padding: 3.5px 8px;
+          box-shadow: 0 0 0 1px $p300 inset;
+          border-radius: 37px;
+
+          p {
+            @include flex(center, center);
+
+            svg {
+              margin-left: 4px;
+            }
+          }
+        }
+
+        .selected {
+          box-shadow: none;
+          background-color: $p100;
+        }
+      }
+    }
+  }
+
+  .card + .card {
+    margin-bottom: 0;
   }
 }

@@ -1,23 +1,71 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.scss';
-import Button from '@components/Button';
+import { differenceInDays, format } from 'date-fns';
+import { CheckButton, Plus, TravelCardLogo } from '@images/index';
+import NoTravelRoom from './NoTravelRoom';
+import useGetTravelRoom from '@apis/useGetTravelRoom';
 
 const Home = () => {
+  const { travelRoomData } = useGetTravelRoom();
+
   const navigate = useNavigate();
 
   const handleCreateTravel = () => {
     navigate('/create');
   };
 
+  // ? 여행 방이 없을 때
+  if (!travelRoomData || travelRoomData.length < 1) {
+    return <NoTravelRoom onClick={handleCreateTravel} />;
+  }
+
+  // ? 여행 방이 있을 때
   return (
     <div className={styles.wrapper}>
-      <div className={styles.image}></div>
-      <p className={styles.title}>가족 여행을 계획중이신가요?</p>
-      <p className={styles.subTitle}>서로 다른 여행 성향을 파악하고</p>
-      <p className={styles.subTitle}>우리 가족만의 여행 10계명을 생성해 보세요!</p>
-      <Button variant="outlined" size="m" onClick={handleCreateTravel}>
-        여행방 만들기
-      </Button>
+      <div className={styles.plusButton} onClick={handleCreateTravel}>
+        <Plus />
+      </div>
+      <div className={styles.headline}>
+        <p>우리 가족 여행 방</p>
+      </div>
+      {travelRoomData.map((data) => {
+        const { id, roomName, startDate, endDate, existCommandments } = data;
+
+        const today = format(new Date(), 'yyyy-MM-dd');
+        const parsedStartedDate = differenceInDays(startDate, today);
+
+        const handleNavigateTravelRoom = () => {
+          navigate(`/travel/${id}`);
+        };
+
+        return (
+          <div key={id} className={styles.card} onClick={handleNavigateTravelRoom}>
+            <div className={styles.image}>
+              <TravelCardLogo />
+            </div>
+            <div className={styles.detail}>
+              <div className={styles.travelDetail}>
+                <div className={styles.dday}>D-{parsedStartedDate}</div>
+                <div className={styles.roomName}>{roomName}</div>
+                <div className={styles.date}>
+                  {format(startDate, 'yyyy.MM.dd')} ~ {format(endDate, 'yyyy.MM.dd')}
+                </div>
+              </div>
+              <div className={styles.existCommandments}>
+                <div className={`${styles.button} ${existCommandments ? styles.selected : ''}`}>
+                  {existCommandments ? (
+                    <p>
+                      10계명 생성 완료 <CheckButton />
+                    </p>
+                  ) : (
+                    '10계명 생성 전'
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
