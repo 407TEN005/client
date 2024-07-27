@@ -8,6 +8,7 @@ export { ReactComponent as TravelCardLogo } from './travel_card_logo.svg';
 
 // ? home
 export { ReactComponent as CheckButton } from './check_button.svg';
+export { ReactComponent as Plus } from './plus.svg';
 
 // ? 성향 테스트 이미지
 export { ReactComponent as TestFather } from './test_father.svg';

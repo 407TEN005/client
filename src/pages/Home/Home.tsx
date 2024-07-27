@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.scss';
 import { differenceInDays, format } from 'date-fns';
-import { CheckButton, TravelCardLogo } from '@images/index';
+import { CheckButton, Plus, TravelCardLogo } from '@images/index';
 import NoTravelRoom from './NoTravelRoom';
 import useGetTravelRoom from '@apis/useGetTravelRoom';
 
@@ -22,6 +22,9 @@ const Home = () => {
   // ? 여행 방이 있을 때
   return (
     <div className={styles.wrapper}>
+      <div className={styles.plusButton} onClick={handleCreateTravel}>
+        <Plus />
+      </div>
       <div className={styles.headline}>
         <p>우리 가족 여행 방</p>
       </div>
