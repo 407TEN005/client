@@ -36,6 +36,7 @@
         @include Body2($color: $gray100);
         text-decoration: underline;
         text-decoration-color: $gray100;
+        cursor: pointer;
       }
     }
   }
