@@ -17,10 +17,8 @@ const useCreateTravelRoom = () => {
   const fetchCreateTravelRoom = async (createRoomData: CreateRoomData) => {
     try {
       await axiosInstance.post(`/users/${userId}/travel-rooms`, createRoomData);
-
-      console.log(1);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       navigate('/home');
     }

@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - TASK-186
+      - develop
 
 jobs:
   docker_push:
