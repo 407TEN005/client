@@ -1,12 +1,10 @@
 import Button from '../Button';
 import styles from './Header.module.scss';
 
-// todo : 버튼 자리에 이미지 들어갈 예정
-
-const Header = () => {
+const Header = ({ onBack }: { onBack: () => void }) => {
   return (
     <div className={styles.wrapper}>
-      <Button variant="outlined" size="m">
+      <Button variant="outlined" size="m" onClick={onBack}>
         1
       </Button>
       <Button variant="outlined" size="m">
