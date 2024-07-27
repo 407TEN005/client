@@ -1,5 +1,5 @@
 import styles from './Commandment.module.scss';
-import { Share, Recreate, CommandmentIcon, DashLine } from '@images/index';
+import { Share, Recreate, CommandmentIcon, DashLine, CommandmentIlust } from '@images/index';
 
 const COMMANDMENT_ITEM = '즉흥적인 아빠는 계획이 있는 아들과 균형!';
 
@@ -16,18 +16,24 @@ const Commandment = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.title}>온가족이 함께 하는 방콕 휴가</div>
-      <div className={styles.subTitle}>2024.07.24 (수) 17:30 생성</div>
+      <div className={styles.titleContainer}>
+        <div className={styles.title}>온가족이 함께 하는 방콕 휴가</div>
+        <div className={styles.subTitle}>2024.07.24 (수) 17:30 생성</div>
+      </div>
+
       <div className={styles.commandmentWrapper}>
-        <div className={styles.commandmentTitle}>서로를 배려하는 여행 10계명</div>
-        <DashLine className={styles.line} />
-        <div className={styles.itemWrapper}>
-          {items.map((item, index) => (
-            <div key={index} className={styles.commandmentItem}>
-              <CommandmentIcon className={styles.icon} />
-              {item}
-            </div>
-          ))}
+        <CommandmentIlust className={styles.backgroundIllustration} />
+        <div className={styles.contentOverlay}>
+          <div className={styles.commandmentTitle}>서로를 배려하는 여행 10계명</div>
+          <DashLine className={styles.line} />
+          <div className={styles.itemWrapper}>
+            {items.map((item, index) => (
+              <div key={index} className={styles.commandmentItem}>
+                <CommandmentIcon className={styles.icon} />
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className={styles.buttonWrapper}>

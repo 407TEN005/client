@@ -1,0 +1,23 @@
+.commandmentItem {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 14px;
+  height: 24px;
+  color: $gray300;
+  margin: 4px;
+  padding-left: 12px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.icon {
+  margin-right: 4px;
+}
