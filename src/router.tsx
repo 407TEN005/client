@@ -1,10 +1,8 @@
 import { lazy } from 'react';
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 import Layout from '@components/Layout';
-import AuthLayout from '@components/AuthLayout';
 import ROUTES from '@constants/routes';
-import Login from '@pages/Login';
 import Redirect from '@pages/Redirect';
 
 export const layoutRouters = [
@@ -55,18 +53,23 @@ export const layoutRouters = [
 export const router = createBrowserRouter([
   {
     path: '/',
+    Component: Layout,
     children: [
       {
-        index: true,
-        Component: () => <Navigate to={ROUTES.home} />,
+        path: '',
+        Component: lazy(() => import('./pages/Login')),
       },
       {
-        Component: () => AuthLayout({ shouldProtect: false }),
-        children: [{ path: ROUTES.login, Component: Login }],
+        path: ROUTES.test,
+        Component: lazy(() => import('./pages/Test')),
       },
       {
-        Component: () => AuthLayout({ shouldProtect: true }),
-        children: layoutRouters,
+        path: ROUTES.testSurvey,
+        Component: lazy(() => import('./pages/TestSurvey')),
+      },
+      {
+        path: ROUTES.testResult,
+        Component: lazy(() => import('./pages/TestResult')),
       },
     ],
   },

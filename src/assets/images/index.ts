@@ -27,6 +27,9 @@ export { ReactComponent as Question2 } from './question2.svg';
 export { ReactComponent as Question3 } from './question3.svg';
 export { ReactComponent as Question4 } from './question4.svg';
 
+export { ReactComponent as LeftArrow } from './left_arrow.svg';
+export { ReactComponent as Exit } from './exit.svg';
+
 // ? 성향 테스트 결과 이미지
 //p : 부모, c : 자녀 성향 유형 이미지 입니다.
 //p1: 열정 넘치는 불꽃 부모

@@ -1,17 +1,22 @@
-import Button from '../Button';
+import { useNavigate } from 'react-router-dom';
 import styles from './Header.module.scss';
+import { Exit, LeftArrow } from '@images/index';
 
-// todo : 버튼 자리에 이미지 들어갈 예정
+const Header = ({ onBack }: { onBack?: () => void }) => {
+  const navigate = useNavigate();
 
-const Header = () => {
+  const handleExit = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={styles.wrapper}>
-      <Button variant="outlined" size="m">
-        1
-      </Button>
-      <Button variant="outlined" size="m">
-        2
-      </Button>
+      <div onClick={onBack}>
+        <LeftArrow />
+      </div>
+      <div onClick={handleExit}>
+        <Exit />
+      </div>
     </div>
   );
 };

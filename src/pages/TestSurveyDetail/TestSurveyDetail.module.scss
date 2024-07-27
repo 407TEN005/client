@@ -1,6 +1,6 @@
 .wrapper {
   @include flex(flex-start, flex-start, column);
-  height: calc(100% - 72px);
+  height: 100%;
 
   .progress {
     width: 100%;

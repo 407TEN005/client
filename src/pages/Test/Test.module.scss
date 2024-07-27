@@ -1,8 +1,8 @@
 .wrapper {
   @include flex(center, space-between, column);
 
-  height: calc(100% - 68px);
-  padding: 56px 20px 36px 20px;
+  height: 100%;
+  padding: 124px 20px 36px 20px;
 
   .content {
     @include flex(center, center, column);
