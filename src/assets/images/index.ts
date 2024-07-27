@@ -2,6 +2,8 @@
 export { ReactComponent as MainLogo } from './main_logo.svg';
 export { ReactComponent as KakaoLogo } from './kakao_logo.svg';
 export { ReactComponent as TestLogo } from './test_logo.svg';
+export { ReactComponent as NavLogo } from './nav_logo.svg';
+export { ReactComponent as HomeLogo } from './home_logo.svg';
 
 // ? 성향 테스트 이미지
 export { ReactComponent as TestFather } from './test_father.svg';
