@@ -128,7 +128,7 @@ const CheckType = () => {
   const isDisabled = selectedType === undefined;
 
   const handleClick = async () => {
-    await callClovaApi('안녕');
+    await callClovaApi();
   };
 
   return (
