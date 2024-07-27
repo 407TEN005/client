@@ -30,6 +30,7 @@ import { useRecoilValue } from 'recoil';
 import testResponseAtom from '@recoil/testResponse';
 import { useState } from 'react';
 import Button from '@src/components/Button';
+import useClova from '@src/apis/useClova';
 
 const PARENT_DATA = [
   {
@@ -112,6 +113,8 @@ const CHILDREN_DATA = [
 const CheckType = () => {
   const testResult = useRecoilValue(testResponseAtom);
 
+  const { callClovaApi } = useClova();
+
   const [selectedType, setSelectedType] = useState<string | undefined>(undefined);
 
   if (!testResult) {
@@ -123,6 +126,10 @@ const CheckType = () => {
   const isParent = travelType.includes('P');
 
   const isDisabled = selectedType === undefined;
+
+  const handleClick = async () => {
+    await callClovaApi();
+  };
 
   return (
     <>
@@ -159,7 +166,7 @@ const CheckType = () => {
             })}
           </div>
         </div>
-        <Button size="xl" isActive disabled={isDisabled}>
+        <Button size="xl" isActive disabled={isDisabled} onClick={handleClick}>
           이 조합으로 10계명 생성하기
         </Button>
       </div>

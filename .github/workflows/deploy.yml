@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - develop
+      - TASK-188
 
 jobs:
   docker_push:
@@ -37,6 +37,10 @@ jobs:
             "VITE_KAKAO_REDIRECT_URL=${{secrets.KAKAO_REDIRECT_URL}}"
             "VITE_HOME_URL=${{secrets.HOME_URL}}"
             "VITE_API_BASE_URL=${{secrets.API_BASE_URL}}"
+            "VITE_CLOVA_API_URL=${{secrets.CLOVA_API_URL}}"
+            "VITE_NCP_CLOVASTUDIO_API_KEY=${{secrets.NCP_CLOVASTUDIO_API_KEY}}"
+            "VITE_NCP_APIGW_API_KEY=${{secrets.NCP_APIGW_API_KEY}}"
+            "VITE_NCP_CLOVASTUDIO_REQUEST_ID=${{secrets.NCP_CLOVASTUDIO_REQUEST_ID}}"
 
   docker_pull_front:
     name: Connect server ssh and pull frontend from container registry
