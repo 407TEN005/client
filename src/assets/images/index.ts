@@ -18,17 +18,30 @@ export { ReactComponent as Question3 } from './question3.svg';
 export { ReactComponent as Question4 } from './question4.svg';
 
 // ? 성향 테스트 결과 이미지
+//p : 부모, c : 자녀 성향 유형 이미지 입니다.
+//p1: 열정 넘치는 불꽃 부모
 export { ReactComponent as ResultP1 } from './result_p1.svg';
+//p2: 긍정 에너지 만렙 부모
 export { ReactComponent as ResultP2 } from './result_p2.svg';
+//p3: 걱정 많은 안전제일 부모
 export { ReactComponent as ResultP3 } from './result_p3.svg';
+//p4: 느긋한 여유파 부모
 export { ReactComponent as ResultP4 } from './result_p4.svg';
+//p5: 융통성 있는 중재자 부모
 export { ReactComponent as ResultP5 } from './result_p5.svg';
+//p6: 꼼꼼한 현실주의 부모
 export { ReactComponent as ResultP6 } from './result_p6.svg';
+//c1: 열정 가득 도전 자녀
 export { ReactComponent as ResultC1 } from './result_c1.svg';
+//c2: 긍정 뿜뿜 모험 자녀
 export { ReactComponent as ResultC2 } from './result_c2.svg';
+//c3: 걱정 많은 신중 자녀
 export { ReactComponent as ResultC3 } from './result_c3.svg';
+//c4: 느긋한 안전 자녀
 export { ReactComponent as ResultC4 } from './result_c4.svg';
+//c5: 균형 잡힌 협력 자녀
 export { ReactComponent as ResultC5 } from './result_c5.svg';
+//c6: 꼼꼼한 실속 자녀
 export { ReactComponent as ResultC6 } from './result_c6.svg';
 
 // ? 10계명 생성 페이지
