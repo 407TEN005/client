@@ -13,7 +13,7 @@ interface TravelRoomData {
 }
 
 const useGetTravelRoom = () => {
-  const [travelRoomData, setTravelRoomData] = useState<TravelRoomData[]>([]);
+  const [travelRoomData, setTravelRoomData] = useState<TravelRoomData[] | undefined>(undefined);
 
   const userId = authUtil.getUserId();
 
