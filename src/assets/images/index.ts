@@ -61,3 +61,6 @@ export { ReactComponent as AnalysisImg } from './sample_analysis.svg';
 export { ReactComponent as EmptyRoom } from './empty_room_img.svg';
 export { ReactComponent as IconCallendar } from './icon_callendar.svg';
 export { ReactComponent as IconCrown } from './icon_crown.svg';
+
+// ? 404 페이지
+export { ReactComponent as Error404 } from './error_404.svg';

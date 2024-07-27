@@ -74,4 +74,8 @@ export const router = createBrowserRouter([
     path: ROUTES.redirect,
     Component: Redirect,
   },
+  {
+    path: '*',
+    Component: lazy(() => import('./pages/Page404')),
+  },
 ]);
