@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
 
 import { KakaoLogo, MainLogo } from '@images/index';
-import ROUTES from '@src/constants/routes';
+import ROUTES from '@constants/routes';
 
 const KAKAO_LOGIN_URL = import.meta.env.VITE_KAKAO_LOGIN_URL;
 
@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    window.location.href = KAKAO_LOGIN_URL;
+    navigate(`/${ROUTES.loading}`);
   };
 
   const handleNotLoginClick = () => {

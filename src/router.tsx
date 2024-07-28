@@ -75,6 +75,10 @@ export const router = createBrowserRouter([
         path: ROUTES.checkType,
         Component: lazy(() => import('./pages/CheckType')),
       },
+      {
+        path: ROUTES.loading,
+        Component: lazy(() => import('./pages/Loading')),
+      },
     ],
   },
   {
