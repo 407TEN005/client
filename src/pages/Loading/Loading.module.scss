@@ -1,0 +1,26 @@
+.layout {
+  display: flex;
+  justify-content: center;
+
+  height: 100vh;
+  overflow: auto;
+
+  .wrapper {
+    @include flex(center, flex-start, column);
+    width: 390px;
+    height: 812px;
+
+    .image {
+      margin-top: 200px;
+    }
+
+    .title {
+      @include SubHeading1($color: $black);
+      margin-bottom: 333px;
+    }
+
+    .button {
+      width: 350px;
+    }
+  }
+}

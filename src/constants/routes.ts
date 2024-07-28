@@ -1,5 +1,5 @@
 export const ROUTES = {
-  home: 'home',
+  home: '',
   login: 'login',
   createTravel: 'create',
   test: 'test',
@@ -11,6 +11,7 @@ export const ROUTES = {
   analysis: 'analysis',
   redirect: 'oauth2/redirect',
   checkType: 'checkType',
+  loading: 'loading',
 } as const;
 
 export default ROUTES;
