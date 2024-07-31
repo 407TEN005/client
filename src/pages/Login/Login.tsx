@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/${ROUTES.loading}`);
+    navigate(KAKAO_LOGIN_URL);
   };
 
   const handleNotLoginClick = () => {
