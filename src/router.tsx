@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import Layout from '@components/Layout';
 import ROUTES from '@constants/routes';
@@ -50,34 +50,41 @@ export const layoutRouters = [
   },
 ];
 
+const nonLoginRouters = [
+  {
+    path: ROUTES.test,
+    Component: lazy(() => import('./pages/Test')),
+  },
+  {
+    path: ROUTES.testSurvey,
+    Component: lazy(() => import('./pages/TestSurvey')),
+  },
+  {
+    path: ROUTES.testResult,
+    Component: lazy(() => import('./pages/TestResult')),
+  },
+  {
+    path: ROUTES.checkType,
+    Component: lazy(() => import('./pages/CheckType')),
+  },
+  {
+    path: ROUTES.loading,
+    Component: lazy(() => import('./pages/Loading')),
+  },
+];
+
 export const router = createBrowserRouter([
   {
     path: '/',
     Component: Layout,
     children: [
       {
-        path: '',
-        Component: lazy(() => import('./pages/Login')),
+        index: true,
+        Component: () => <Navigate to={ROUTES.home} />,
       },
       {
-        path: ROUTES.test,
-        Component: lazy(() => import('./pages/Test')),
-      },
-      {
-        path: ROUTES.testSurvey,
-        Component: lazy(() => import('./pages/TestSurvey')),
-      },
-      {
-        path: ROUTES.testResult,
-        Component: lazy(() => import('./pages/TestResult')),
-      },
-      {
-        path: ROUTES.checkType,
-        Component: lazy(() => import('./pages/CheckType')),
-      },
-      {
-        path: ROUTES.loading,
-        Component: lazy(() => import('./pages/Loading')),
+        // Component
+        children: nonLoginRouters,
       },
     ],
   },
