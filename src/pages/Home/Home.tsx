@@ -4,7 +4,7 @@ import { differenceInDays, format } from 'date-fns';
 import { CheckButton, Plus, TravelCardLogo } from '@images/index';
 import NoTravelRoom from './NoTravelRoom';
 import useGetTravelRoom from '@apis/useGetTravelRoom';
-import ROUTES from '@src/constants/routes';
+import ROUTES from '@constants/routes';
 
 const Home = () => {
   const { travelRoomData } = useGetTravelRoom();

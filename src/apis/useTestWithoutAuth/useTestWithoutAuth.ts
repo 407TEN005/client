@@ -1,6 +1,6 @@
 import { axiosInstance } from '@constants/axios';
 import testResponseAtom from '@recoil/testResponse';
-import ROUTES from '@src/constants/routes';
+import ROUTES from '@constants/routes';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 

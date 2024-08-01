@@ -2,7 +2,7 @@ import { TestLogo } from '@images/index';
 import Button from '@components/Button';
 import styles from './Test.module.scss';
 import { useNavigate } from 'react-router-dom';
-import ROUTES from '@src/constants/routes';
+import ROUTES from '@constants/routes';
 
 const Test = () => {
   const navigate = useNavigate();
