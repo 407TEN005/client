@@ -18,7 +18,6 @@ const useTestWithoutAuth = () => {
     try {
       const response = await axiosInstance.post(`/test-without-auth`, answerData);
 
-      console.log('response : ', response.data);
       setTestResponseData(response.data);
     } catch (error) {
       console.error(error);
