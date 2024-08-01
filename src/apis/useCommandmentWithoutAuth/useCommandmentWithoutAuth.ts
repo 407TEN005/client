@@ -1,5 +1,7 @@
 import { axiosInstance } from '@src/constants/axios';
+import commandmentAtom from '@src/recoil/commandment/atom';
 import { useState } from 'react';
+import { useSetRecoilState } from 'recoil';
 
 interface CommandmentsData {
   role: string;
@@ -9,6 +11,8 @@ interface CommandmentsData {
 }
 
 const useCommandmentWithoutAuth = () => {
+  const setCommandment = useSetRecoilState(commandmentAtom);
+
   const [loading, setLoading] = useState<boolean>(false);
 
   const createCommandmentWithoutAuth = async (commandmentsData: CommandmentsData) => {
@@ -21,6 +25,7 @@ const useCommandmentWithoutAuth = () => {
       );
 
       console.log('response : ', response);
+      setCommandment(response.data);
     } catch (error) {
       console.error(error);
     } finally {
