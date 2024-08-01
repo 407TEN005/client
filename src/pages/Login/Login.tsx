@@ -9,8 +9,8 @@ const KAKAO_LOGIN_URL = import.meta.env.VITE_KAKAO_LOGIN_URL;
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(KAKAO_LOGIN_URL);
+  const handleLoginClick = () => {
+    window.location.href = KAKAO_LOGIN_URL;
   };
 
   const handleNotLoginClick = () => {
@@ -24,7 +24,7 @@ const Login = () => {
           <MainLogo />
         </div>
         <div className={styles.buttons}>
-          <div className={styles.kakaoButton} onClick={handleClick}>
+          <div className={styles.kakaoButton} onClick={handleLoginClick}>
             <KakaoLogo />
             <p>카카오로 간편 회원가입</p>
           </div>

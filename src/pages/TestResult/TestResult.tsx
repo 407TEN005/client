@@ -17,6 +17,7 @@ import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import testResponseAtom from '@recoil/testResponse';
+import ROUTES from '@src/constants/routes';
 
 type TravelType = 'P1' | 'P2' | 'P3' | 'P4' | 'P5' | 'P6' | 'C1' | 'C2' | 'C3' | 'C4' | 'C5' | 'C6';
 
@@ -55,7 +56,7 @@ const TestResult = () => {
   const { travelType, description, hashtag, advantage, caution } = testResult;
 
   const handleStartTenTen = () => {
-    navigate('/checkType');
+    navigate(ROUTES.checkType);
   };
 
   return (

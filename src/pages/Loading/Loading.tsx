@@ -2,12 +2,13 @@ import Button from '@components/Button';
 import styles from './Loading.module.scss';
 import { LoadingLogo } from '@images/index';
 import { useNavigate } from 'react-router-dom';
+import ROUTES from '@src/constants/routes';
 
 const Loading = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/test');
+    navigate(ROUTES.test);
   };
 
   return (

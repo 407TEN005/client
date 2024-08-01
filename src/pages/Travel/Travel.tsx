@@ -5,16 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import Analysis from '@components/Analysis';
 import { EmptyRoom, IconCallendar, IconCrown } from '@images/index';
 
-const TRAVEL_DATA = {
-  id: 1,
-  roomName: '가족들과 3박 4일 오사카 여행4',
-  startDate: '2024-08-13',
-  endDate: '2024-08-17',
-  headcount: 2,
-  maxHeadcount: 4,
-  existCommandments: false,
-};
-
 const FAMILY_MEMBERS = [
   { id: 1, name: '엄마', isLeader: true },
   { id: 2, name: '아빠', isLeader: false },

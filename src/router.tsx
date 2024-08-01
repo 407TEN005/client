@@ -73,7 +73,7 @@ const nonLoginRouters = [
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '',
     Component: Layout,
     children: [
       {
