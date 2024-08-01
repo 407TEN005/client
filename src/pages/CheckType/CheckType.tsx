@@ -30,6 +30,11 @@ import { useRecoilValue } from 'recoil';
 import testResponseAtom from '@recoil/testResponse';
 import { useState } from 'react';
 import Button from '@components/Button';
+import testAnswersAtom from '@src/recoil/testAnswers/atom';
+import useCommandmentWithoutAuth from '@src/apis/useCommandmentWithoutAuth';
+import Analysis from '@src/components/Analysis';
+import commandmentAtom from '@src/recoil/commandment/atom';
+import Commandment from './Commandment';
 
 const PARENT_DATA = [
   {
@@ -111,18 +116,38 @@ const CHILDREN_DATA = [
 
 const CheckType = () => {
   const testResult = useRecoilValue(testResponseAtom);
+  const testAnswers = useRecoilValue(testAnswersAtom);
+  const commandment = useRecoilValue(commandmentAtom);
 
   const [selectedType, setSelectedType] = useState<string | undefined>(undefined);
 
-  if (!testResult) {
+  const { loading, createCommandmentWithoutAuth } = useCommandmentWithoutAuth();
+
+  if (!testResult || !testAnswers) {
     return null;
   }
 
-  const handleClick = () => {
-    alert('AI 연동 준비중');
-  };
-
   const { travelType } = testResult;
+  const [role, ...answers] = testAnswers;
+
+  if (loading) {
+    return <Analysis />;
+  }
+
+  if (commandment.length > 0) {
+    return <Commandment travelType={travelType} selectedTravelType={selectedType} />;
+  }
+
+  const handleClick = async () => {
+    if (selectedType) {
+      await createCommandmentWithoutAuth({
+        role,
+        myTravelType: travelType,
+        answers,
+        targetTravelType: selectedType,
+      });
+    }
+  };
 
   const isParent = travelType.includes('P');
 

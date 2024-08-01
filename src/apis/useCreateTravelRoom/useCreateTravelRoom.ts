@@ -1,4 +1,5 @@
 import { axiosInstance } from '@constants/axios';
+import ROUTES from '@constants/routes';
 import authUtil from '@utils/authUtil';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +21,7 @@ const useCreateTravelRoom = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      navigate('/home');
+      navigate(ROUTES.home);
     }
   };
 

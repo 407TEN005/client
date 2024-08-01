@@ -2,6 +2,8 @@ import { useState } from 'react';
 import FamilyRoleSurvey from './FamilyRoleSurvey';
 import TestSurveyDetail from '../TestSurveyDetail';
 import useTestWithoutAuth from '@apis/useTestWithoutAuth';
+import { useRecoilState } from 'recoil';
+import testAnswersAtom from '@recoil/testAnswers';
 
 export type ContentType = 'familyRole' | 'question1' | 'question2' | 'question3' | 'question4';
 
@@ -10,8 +12,8 @@ export interface Answer {
 }
 
 const TestSurvey = () => {
+  const [answers, setAnswers] = useRecoilState(testAnswersAtom);
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
 
   const { createTestWithoutAuth } = useTestWithoutAuth();
 

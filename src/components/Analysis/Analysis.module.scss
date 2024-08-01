@@ -2,35 +2,28 @@
   @include flex(center, center, column);
   text-align: center;
   padding: 83px 20px;
-}
 
-.title {
-  @include Heading2;
-  color: $gray500;
-  margin-bottom: 20px;
-}
-
-.description {
-  @include Body1;
-  color: $gray300;
-  margin-bottom: 82px;
-
-  &.withStatement {
-    margin-bottom: 8px;
+  .title {
+    @include Heading2($color: $gray500);
+    margin-bottom: 23px;
   }
-}
 
-.imgwrapper {
-  @include flex($flexDirection: column);
-}
+  .description {
+    .subTitle {
+      @include SubHeading3($color: $gray300);
+    }
 
-.img {
-  margin-bottom: 24px;
-}
+    .subTitle + .subTitle {
+      margin-bottom: 9px;
+    }
 
-.statement {
-  @include caption1;
-  color: $p400;
-  height: 18px;
-  margin-bottom: 56px;
+    .statement {
+      @include caption1($color: $p400);
+      margin-bottom: 56px;
+    }
+  }
+
+  .imgWrapper {
+    margin-bottom: 20px;
+  }
 }

@@ -1,5 +1,6 @@
 import { axiosInstance } from '@constants/axios';
 import testResponseAtom from '@recoil/testResponse';
+import ROUTES from '@constants/routes';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
@@ -17,12 +18,11 @@ const useTestWithoutAuth = () => {
     try {
       const response = await axiosInstance.post(`/test-without-auth`, answerData);
 
-      console.log('response : ', response.data);
       setTestResponseData(response.data);
     } catch (error) {
       console.error(error);
     } finally {
-      navigate('/testResult');
+      navigate(ROUTES.testResult);
     }
   };
 

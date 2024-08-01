@@ -4,6 +4,7 @@ import { differenceInDays, format } from 'date-fns';
 import { CheckButton, Plus, TravelCardLogo } from '@images/index';
 import NoTravelRoom from './NoTravelRoom';
 import useGetTravelRoom from '@apis/useGetTravelRoom';
+import ROUTES from '@constants/routes';
 
 const Home = () => {
   const { travelRoomData } = useGetTravelRoom();
@@ -11,7 +12,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleCreateTravel = () => {
-    navigate('/create');
+    navigate(ROUTES.createTravel);
   };
 
   // ? 여행 방이 없을 때
