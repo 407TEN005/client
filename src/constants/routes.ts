@@ -9,7 +9,6 @@ export const ROUTES = {
   createTravel: '/createTravel',
   testSurveyDetail: '/test/survey/:surveyId',
   travel: '/travel/:travelId',
-  commandment: '/commandment',
   analysis: '/analysis',
   redirect: '/oauth2/redirect',
 
@@ -18,6 +17,7 @@ export const ROUTES = {
   testSurvey: '/test/survey',
   testResult: '/testResult',
   checkType: '/checkType',
+  commandment: '/commandment',
 } as const;
 
 export default ROUTES;

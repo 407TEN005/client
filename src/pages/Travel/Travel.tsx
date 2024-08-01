@@ -41,14 +41,7 @@ const Travel = () => {
   };
 
   if (isAnalysisOpen) {
-    return (
-      <Analysis
-        title="여행 10계명 생성 시작!"
-        description="AI가 모든 가족 구성원의 성향을 반영해 
-맞춤형 10계명을 생성하고 있어요"
-        timeStatement={true}
-      />
-    );
+    return <Analysis />;
   }
 
   const renderInfoMessage = (message: string) => {

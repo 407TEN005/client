@@ -32,6 +32,7 @@ import { useState } from 'react';
 import Button from '@components/Button';
 import testAnswersAtom from '@src/recoil/testAnswers/atom';
 import useCommandmentWithoutAuth from '@src/apis/useCommandmentWithoutAuth';
+import Analysis from '@src/components/Analysis';
 
 const PARENT_DATA = [
   {
@@ -123,8 +124,8 @@ const CheckType = () => {
     return null;
   }
 
-  if (loading) {
-    return <div>로딩중</div>;
+  if (!loading) {
+    return <Analysis />;
   }
 
   const { travelType } = testResult;
