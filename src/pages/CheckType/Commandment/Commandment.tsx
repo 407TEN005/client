@@ -27,9 +27,9 @@ const Commandment = ({
     <div className={styles.wrapper}>
       <div className={styles.header}></div>
       <div className={styles.titleContainer}>
-        <div className={styles.title}>{TRAVEL_DESCRIPTION[travelType as TravelType]} 와</div>
+        <div className={styles.title}>{TRAVEL_DESCRIPTION[travelType as TravelType]}와</div>
         <div className={styles.title}>
-          {TRAVEL_DESCRIPTION[selectedTravelType as TravelType]} 가 함께 여행을 간다면?
+          {TRAVEL_DESCRIPTION[selectedTravelType as TravelType]}가 함께 여행을 간다면?
         </div>
       </div>
 

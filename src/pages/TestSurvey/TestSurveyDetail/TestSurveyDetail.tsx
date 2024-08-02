@@ -236,6 +236,7 @@ const TestSurveyDetail = ({
   const handleClick = () => {
     if (selectedAnswer) {
       onAnswer(selectedAnswer);
+      setSelectedAnswer(undefined);
     }
   };
 
