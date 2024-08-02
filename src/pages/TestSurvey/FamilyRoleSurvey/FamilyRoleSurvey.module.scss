@@ -8,12 +8,12 @@
     @include flex(flex-start, flex-start, column);
 
     .title {
-      @include Heading2;
+      @include Heading2($color: $gray500);
       margin-bottom: 20px;
     }
 
     .subTitle {
-      @include Body1;
+      @include Body1($color: $gray300);
     }
 
     .subTitle + .subTitle {
