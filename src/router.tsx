@@ -5,7 +5,6 @@ import Layout from '@components/Layout';
 import ROUTES from '@constants/routes';
 import Redirect from '@pages/Redirect';
 import AuthLayout from './components/AuthLayout';
-import Login from './pages/Login';
 
 export const loginRouters: RouteObject[] = [
   {
@@ -49,6 +48,7 @@ export const loginRouters: RouteObject[] = [
 ];
 
 const nonLoginRouters = [
+  { path: ROUTES.login, Component: lazy(() => import('./pages/Login')) },
   {
     path: ROUTES.test,
     Component: lazy(() => import('./pages/Test')),
@@ -81,16 +81,12 @@ export const router = createBrowserRouter([
         Component: () => <Navigate to={ROUTES.home} />,
       },
       {
-        // Component
+        Component: () => AuthLayout({ shouldProtect: false }),
         children: nonLoginRouters,
       },
       {
         Component: () => AuthLayout({ shouldProtect: true }),
         children: loginRouters,
-      },
-      {
-        Component: () => AuthLayout({ shouldProtect: false }),
-        children: [{ path: ROUTES.login, Component: Login }],
       },
     ],
   },
