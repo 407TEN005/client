@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   const handleNotLoginClick = () => {
-    navigate(`/${ROUTES.test}`);
+    navigate(ROUTES.test);
   };
 
   return (
