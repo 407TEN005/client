@@ -2,6 +2,7 @@
   font-size: $size;
   font-weight: $weight;
   line-height: 140%;
+  letter-spacing: calc($size * -0.0025);
 
   @if $color != null {
     color: $color;

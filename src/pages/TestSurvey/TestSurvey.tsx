@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import FamilyRoleSurvey from './FamilyRoleSurvey';
-import TestSurveyDetail from '../TestSurveyDetail';
+import TestSurveyDetail from './TestSurveyDetail';
 import useTestWithoutAuth from '@apis/useTestWithoutAuth';
 import { useRecoilState } from 'recoil';
 import testAnswersAtom from '@recoil/testAnswers';

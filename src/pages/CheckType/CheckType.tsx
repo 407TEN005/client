@@ -38,37 +38,37 @@ import Commandment from './Commandment';
 
 const PARENT_DATA = [
   {
-    value: 'P1',
+    value: 'C1',
     icon: <MiniC1 />,
     selectedIcon: <SelectedMiniC1 />,
     tagName: ['열정 가득', '도전 자녀'],
   },
   {
-    value: 'P2',
+    value: 'C2',
     icon: <MiniC2 />,
     selectedIcon: <SelectedMiniC2 />,
     tagName: ['긍정 뿜뿜', '모험 자녀'],
   },
   {
-    value: 'P3',
+    value: 'C3',
     icon: <MiniC3 />,
     selectedIcon: <SelectedMiniC3 />,
     tagName: ['걱정 많은', '신중 자녀'],
   },
   {
-    value: 'P4',
+    value: 'C4',
     icon: <MiniC4 />,
     selectedIcon: <SelectedMiniC4 />,
     tagName: ['느긋한', '안전 자녀'],
   },
   {
-    value: 'P5',
+    value: 'C5',
     icon: <MiniC5 />,
     selectedIcon: <SelectedMiniC5 />,
     tagName: ['균형 잡힌', '협력 자녀'],
   },
   {
-    value: 'P6',
+    value: 'C6',
     icon: <MiniC6 />,
     selectedIcon: <SelectedMiniC6 />,
     tagName: ['꼼꼼한', '실속 자녀'],
@@ -77,37 +77,37 @@ const PARENT_DATA = [
 
 const CHILDREN_DATA = [
   {
-    value: 'C1',
+    value: 'P1',
     icon: <MiniP1 />,
     selectedIcon: <SelectedMiniP1 />,
     tagName: ['열정 가득', '도전 부모'],
   },
   {
-    value: 'C2',
+    value: 'P2',
     icon: <MiniP2 />,
     selectedIcon: <SelectedMiniP2 />,
     tagName: ['긍정 뿜뿜', '모험 부모'],
   },
   {
-    value: 'C3',
+    value: 'P3',
     icon: <MiniP3 />,
     selectedIcon: <SelectedMiniP3 />,
     tagName: ['걱정 많은', '신중 부모'],
   },
   {
-    value: 'C4',
+    value: 'P4',
     icon: <MiniP4 />,
     selectedIcon: <SelectedMiniP4 />,
     tagName: ['느긋한', '안전 부모'],
   },
   {
-    value: 'C5',
+    value: 'P5',
     icon: <MiniP5 />,
     selectedIcon: <SelectedMiniP5 />,
     tagName: ['균형 잡힌', '협력 부모'],
   },
   {
-    value: 'C6',
+    value: 'P6',
     icon: <MiniP6 />,
     selectedIcon: <SelectedMiniP6 />,
     tagName: ['꼼꼼한', '실속 부모'],
