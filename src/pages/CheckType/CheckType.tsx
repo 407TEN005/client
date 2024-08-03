@@ -28,14 +28,6 @@ const CheckType = () => {
   const { travelType } = testResult;
   const [role, ...answers] = testAnswers;
 
-  if (loading) {
-    return <Analysis />;
-  }
-
-  if (commandment.length > 0) {
-    return <Commandment travelType={travelType} selectedTravelType={selectedType} />;
-  }
-
   const handleClick = async () => {
     if (selectedType) {
       await createCommandmentWithoutAuth({
@@ -46,6 +38,21 @@ const CheckType = () => {
       });
     }
   };
+
+  if (loading) {
+    return <Analysis />;
+  }
+
+  if (commandment.length > 0) {
+    return (
+      <Commandment
+        onClick={handleClick}
+        commandments={commandment}
+        travelType={travelType}
+        selectedTravelType={selectedType}
+      />
+    );
+  }
 
   const isParent = travelType.includes('P');
 

@@ -1,7 +1,5 @@
-import { useRecoilValue } from 'recoil';
 import styles from './Commandment.module.scss';
-import { Share, DashLine, CommandmentIlust } from '@images/index';
-import commandmentAtom from '@recoil/commandment';
+import { Share, DashLine, CommandmentIlust, Refresh } from '@images/index';
 import { TRAVEL_DESCRIPTION, TravelType } from '@constants/testResult';
 import { useNavigate } from 'react-router-dom';
 import ROUTES from '@src/constants/routes';
@@ -9,13 +7,15 @@ import ROUTES from '@src/constants/routes';
 const Commandment = ({
   travelType,
   selectedTravelType,
+  commandments,
+  onClick,
 }: {
   travelType: string;
   selectedTravelType?: string;
+  commandments: string[];
+  onClick: () => Promise<void>;
 }) => {
   const navigate = useNavigate();
-
-  const commandments = useRecoilValue(commandmentAtom);
 
   const handleBackFront = () => {
     navigate(ROUTES.login);
@@ -57,6 +57,10 @@ const Commandment = ({
         <button className={styles.button} onClick={handleShareCommandment}>
           <Share className={styles.icon} />
           <div className={styles.info}>공유하기</div>
+        </button>
+        <button className={styles.button} onClick={onClick}>
+          <Refresh className={styles.icon} />
+          <div className={styles.info}>재생성하기</div>
         </button>
       </div>
     </div>

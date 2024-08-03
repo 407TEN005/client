@@ -89,7 +89,7 @@ export { ReactComponent as DashLine } from './dash_line.svg';
 export { ReactComponent as CommandmentIlust } from './commandment_ilust.svg';
 export { ReactComponent as CommandmentCharacter } from './commandment_character.svg';
 export { ReactComponent as CommandmentBackground } from './commandment_background.svg';
-
+export { ReactComponent as Refresh } from './refresh.svg';
 // ? 분석 컴포넌트 이미지
 export { ReactComponent as AnalysisImg } from './sample_analysis.svg';
 

@@ -14,6 +14,7 @@ export interface Answer {
 const TestSurvey = () => {
   const [answers, setAnswers] = useRecoilState(testAnswersAtom);
   const resetAnswers = useResetRecoilState(testAnswersAtom);
+  const [initialized, setInitialized] = useState(false);
 
   const [questionIndex, setQuestionIndex] = useState(0);
 
@@ -27,8 +28,6 @@ const TestSurvey = () => {
       answers,
     };
   };
-
-  console.log(answers);
 
   const handleAnswer = async (answer: string) => {
     setAnswers((prevAnswers) => [...prevAnswers, answer]);
@@ -48,10 +47,11 @@ const TestSurvey = () => {
   };
 
   useEffect(() => {
-    return () => {
+    if (!initialized) {
       resetAnswers();
-    };
-  }, [resetAnswers]);
+      setInitialized(true);
+    }
+  }, [initialized, resetAnswers]);
 
   if (questionIndex === 0) {
     return <FamilyRoleSurvey onAnswer={handleAnswer} />;

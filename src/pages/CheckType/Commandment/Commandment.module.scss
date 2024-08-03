@@ -84,17 +84,26 @@
   margin-top: 24px;
   height: 24px;
 
-  .button .icon {
-    margin-right: 4px;
+  .icon {
+    margin-right: 8px;
   }
 
   .button {
     @include flex(center, center, row);
-    background-color: transparent;
-    padding: 2px 4px;
-    margin: 0 4px;
     @include SubHeading3($color: $p50);
+    background-color: transparent;
+    height: 24px;
+
     border: none;
     cursor: pointer;
+
+    .info {
+      @include flex(center, center);
+      padding: 2px 4px;
+    }
+  }
+
+  .button + .button {
+    margin-left: 12px;
   }
 }
