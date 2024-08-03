@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FamilyRoleSurvey from './FamilyRoleSurvey';
 import TestSurveyDetail from './TestSurveyDetail';
 import useTestWithoutAuth from '@apis/useTestWithoutAuth';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import testAnswersAtom from '@recoil/testAnswers';
 
 export type ContentType = 'familyRole' | 'question1' | 'question2' | 'question3' | 'question4';
@@ -13,6 +13,8 @@ export interface Answer {
 
 const TestSurvey = () => {
   const [answers, setAnswers] = useRecoilState(testAnswersAtom);
+  const resetAnswers = useResetRecoilState(testAnswersAtom);
+
   const [questionIndex, setQuestionIndex] = useState(0);
 
   const { createTestWithoutAuth } = useTestWithoutAuth();
@@ -25,6 +27,8 @@ const TestSurvey = () => {
       answers,
     };
   };
+
+  console.log(answers);
 
   const handleAnswer = async (answer: string) => {
     setAnswers((prevAnswers) => [...prevAnswers, answer]);
@@ -42,6 +46,12 @@ const TestSurvey = () => {
       setAnswers((prevAnswers) => prevAnswers.slice(0, -1));
     }
   };
+
+  useEffect(() => {
+    return () => {
+      resetAnswers();
+    };
+  }, [resetAnswers]);
 
   if (questionIndex === 0) {
     return <FamilyRoleSurvey onAnswer={handleAnswer} />;

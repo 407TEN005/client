@@ -1,14 +1,10 @@
 import { useRecoilValue } from 'recoil';
 import styles from './Commandment.module.scss';
-import {
-  Share,
-  CommandmentIcon,
-  DashLine,
-  CommandmentIlust,
-  CommandmentCharacter,
-} from '@images/index';
+import { Share, DashLine, CommandmentIlust } from '@images/index';
 import commandmentAtom from '@recoil/commandment';
 import { TRAVEL_DESCRIPTION, TravelType } from '@constants/testResult';
+import { useNavigate } from 'react-router-dom';
+import ROUTES from '@src/constants/routes';
 
 const Commandment = ({
   travelType,
@@ -17,7 +13,13 @@ const Commandment = ({
   travelType: string;
   selectedTravelType?: string;
 }) => {
+  const navigate = useNavigate();
+
   const commandments = useRecoilValue(commandmentAtom);
+
+  const handleBackFront = () => {
+    navigate(ROUTES.login);
+  };
 
   const handleShareCommandment = () => {
     alert('공유 기능 구현 예정');
@@ -25,7 +27,11 @@ const Commandment = ({
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.header}></div>
+      <div className={styles.header}>
+        <button className={styles.goBackButton} onClick={handleBackFront}>
+          처음으로
+        </button>
+      </div>
       <div className={styles.titleContainer}>
         <div className={styles.title}>{TRAVEL_DESCRIPTION[travelType as TravelType]}와</div>
         <div className={styles.title}>
@@ -33,18 +39,16 @@ const Commandment = ({
         </div>
       </div>
 
-      <CommandmentCharacter className={styles.commandmentCharacter} />
       <div className={styles.commandmentWrapper}>
         <CommandmentIlust className={styles.backgroundIllustration} />
         <div className={styles.contentOverlay}>
           <div className={styles.commandmentTitle}>서로를 배려하는 여행 10계명</div>
-          <DashLine className={styles.line} />
+          <DashLine />
           <div className={styles.itemWrapper}>
             {commandments.map((commandment, index) => (
-              <div key={index} className={styles.commandmentItem}>
-                <CommandmentIcon className={styles.icon} />
+              <p key={index} className={styles.commandmentItem}>
                 {commandment}
-              </div>
+              </p>
             ))}
           </div>
         </div>

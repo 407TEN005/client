@@ -1,15 +1,25 @@
 import styles from './TestResult.module.scss';
 import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 import testResponseAtom from '@recoil/testResponse';
 import ROUTES from '@constants/routes';
 import { TRAVEL_TYPE, TravelType } from '@constants/testResult';
 import { splitTextWithLineBreaks } from '@utils/textUtil';
+import commandmentAtom from '@src/recoil/commandment/atom';
+import { useEffect } from 'react';
 
 const TestResult = () => {
   const testResult = useRecoilValue(testResponseAtom);
   const navigate = useNavigate();
+
+  const resetCommandment = useResetRecoilState(commandmentAtom);
+
+  useEffect(() => {
+    return () => {
+      resetCommandment();
+    };
+  }, [resetCommandment]);
 
   if (!testResult) {
     return null;

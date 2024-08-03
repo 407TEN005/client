@@ -83,12 +83,12 @@ export { ReactComponent as MiniC6 } from './mini_c6.svg';
 export { ReactComponent as SelectedMiniC6 } from './selected_mini_c6.svg';
 
 // ? 10계명 생성 페이지
-export { ReactComponent as CommandmentIcon } from './commandment.svg';
 export { ReactComponent as Recreate } from './recreate.svg';
 export { ReactComponent as Share } from './share.svg';
 export { ReactComponent as DashLine } from './dash_line.svg';
 export { ReactComponent as CommandmentIlust } from './commandment_ilust.svg';
 export { ReactComponent as CommandmentCharacter } from './commandment_character.svg';
+export { ReactComponent as CommandmentBackground } from './commandment_background.svg';
 
 // ? 분석 컴포넌트 이미지
 export { ReactComponent as AnalysisImg } from './sample_analysis.svg';
