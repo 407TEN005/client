@@ -3,6 +3,7 @@ import { Share, DashLine, CommandmentIlust, Refresh } from '@images/index';
 import { TRAVEL_DESCRIPTION, TravelType } from '@constants/testResult';
 import { useNavigate } from 'react-router-dom';
 import ROUTES from '@src/constants/routes';
+import Tooltip from '@src/components/Tooltip';
 
 const Commandment = ({
   travelType,
@@ -54,14 +55,21 @@ const Commandment = ({
         </div>
       </div>
       <div className={styles.buttonWrapper}>
-        <button className={styles.button} onClick={handleShareCommandment}>
-          <Share className={styles.icon} />
-          <div className={styles.info}>공유하기</div>
-        </button>
-        <button className={styles.button} onClick={onClick}>
-          <Refresh className={styles.icon} />
-          <div className={styles.info}>재생성하기</div>
-        </button>
+        <div className={styles.buttons}>
+          <button className={styles.button} onClick={handleShareCommandment}>
+            <Share className={styles.icon} />
+            <div className={styles.info}>공유하기</div>
+          </button>
+        </div>
+        {commandments.length < 10 && (
+          <div className={styles.buttons}>
+            <Tooltip content="10계명이 모두 나타나지 않았다면? 클릭!" />
+            <button className={styles.button} onClick={onClick}>
+              <Refresh className={styles.icon} />
+              <div className={styles.info}>재생성하기</div>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
