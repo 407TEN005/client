@@ -1,118 +1,16 @@
 import Header from '@components/Header';
 import styles from './CheckType.module.scss';
-import {
-  MiniC1,
-  MiniC2,
-  MiniC3,
-  MiniC4,
-  MiniC5,
-  MiniC6,
-  MiniP1,
-  MiniP2,
-  MiniP3,
-  MiniP4,
-  MiniP5,
-  MiniP6,
-  SelectedMiniC1,
-  SelectedMiniC2,
-  SelectedMiniC3,
-  SelectedMiniC4,
-  SelectedMiniC5,
-  SelectedMiniC6,
-  SelectedMiniP1,
-  SelectedMiniP2,
-  SelectedMiniP3,
-  SelectedMiniP4,
-  SelectedMiniP5,
-  SelectedMiniP6,
-} from '@images/index';
+
 import { useRecoilValue } from 'recoil';
 import testResponseAtom from '@recoil/testResponse';
 import { useState } from 'react';
 import Button from '@components/Button';
-import testAnswersAtom from '@src/recoil/testAnswers/atom';
-import useCommandmentWithoutAuth from '@src/apis/useCommandmentWithoutAuth';
-import Analysis from '@src/components/Analysis';
-import commandmentAtom from '@src/recoil/commandment/atom';
+import testAnswersAtom from '@recoil/testAnswers';
+import useCommandmentWithoutAuth from '@apis/useCommandmentWithoutAuth';
+import Analysis from '@components/Analysis';
+import commandmentAtom from '@recoil/commandment';
 import Commandment from './Commandment';
-
-const PARENT_DATA = [
-  {
-    value: 'C1',
-    icon: <MiniC1 />,
-    selectedIcon: <SelectedMiniC1 />,
-    tagName: ['열정 가득', '도전 자녀'],
-  },
-  {
-    value: 'C2',
-    icon: <MiniC2 />,
-    selectedIcon: <SelectedMiniC2 />,
-    tagName: ['긍정 뿜뿜', '모험 자녀'],
-  },
-  {
-    value: 'C3',
-    icon: <MiniC3 />,
-    selectedIcon: <SelectedMiniC3 />,
-    tagName: ['걱정 많은', '신중 자녀'],
-  },
-  {
-    value: 'C4',
-    icon: <MiniC4 />,
-    selectedIcon: <SelectedMiniC4 />,
-    tagName: ['느긋한', '안전 자녀'],
-  },
-  {
-    value: 'C5',
-    icon: <MiniC5 />,
-    selectedIcon: <SelectedMiniC5 />,
-    tagName: ['균형 잡힌', '협력 자녀'],
-  },
-  {
-    value: 'C6',
-    icon: <MiniC6 />,
-    selectedIcon: <SelectedMiniC6 />,
-    tagName: ['꼼꼼한', '실속 자녀'],
-  },
-];
-
-const CHILDREN_DATA = [
-  {
-    value: 'P1',
-    icon: <MiniP1 />,
-    selectedIcon: <SelectedMiniP1 />,
-    tagName: ['열정 가득', '도전 부모'],
-  },
-  {
-    value: 'P2',
-    icon: <MiniP2 />,
-    selectedIcon: <SelectedMiniP2 />,
-    tagName: ['긍정 뿜뿜', '모험 부모'],
-  },
-  {
-    value: 'P3',
-    icon: <MiniP3 />,
-    selectedIcon: <SelectedMiniP3 />,
-    tagName: ['걱정 많은', '신중 부모'],
-  },
-  {
-    value: 'P4',
-    icon: <MiniP4 />,
-    selectedIcon: <SelectedMiniP4 />,
-    tagName: ['느긋한', '안전 부모'],
-  },
-  {
-    value: 'P5',
-    icon: <MiniP5 />,
-    selectedIcon: <SelectedMiniP5 />,
-    tagName: ['균형 잡힌', '협력 부모'],
-  },
-  {
-    value: 'P6',
-    icon: <MiniP6 />,
-    selectedIcon: <SelectedMiniP6 />,
-    tagName: ['꼼꼼한', '실속 부모'],
-  },
-];
+import { CHILDREN_DATA, PARENT_DATA } from '@constants/testResult';
 
 const CheckType = () => {
   const testResult = useRecoilValue(testResponseAtom);
@@ -130,14 +28,6 @@ const CheckType = () => {
   const { travelType } = testResult;
   const [role, ...answers] = testAnswers;
 
-  if (loading) {
-    return <Analysis />;
-  }
-
-  if (commandment.length > 0) {
-    return <Commandment travelType={travelType} selectedTravelType={selectedType} />;
-  }
-
   const handleClick = async () => {
     if (selectedType) {
       await createCommandmentWithoutAuth({
@@ -148,6 +38,21 @@ const CheckType = () => {
       });
     }
   };
+
+  if (loading) {
+    return <Analysis />;
+  }
+
+  if (commandment.length > 0) {
+    return (
+      <Commandment
+        onClick={handleClick}
+        commandments={commandment}
+        travelType={travelType}
+        selectedTravelType={selectedType}
+      />
+    );
+  }
 
   const isParent = travelType.includes('P');
 

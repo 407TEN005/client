@@ -1,4 +1,28 @@
 import {
+  MiniC1,
+  MiniC2,
+  MiniC3,
+  MiniC4,
+  MiniC5,
+  MiniC6,
+  MiniP1,
+  MiniP2,
+  MiniP3,
+  MiniP4,
+  MiniP5,
+  MiniP6,
+  SelectedMiniC1,
+  SelectedMiniC2,
+  SelectedMiniC3,
+  SelectedMiniC4,
+  SelectedMiniC5,
+  SelectedMiniC6,
+  SelectedMiniP1,
+  SelectedMiniP2,
+  SelectedMiniP3,
+  SelectedMiniP4,
+  SelectedMiniP5,
+  SelectedMiniP6,
   ResultC1,
   ResultC2,
   ResultC3,
@@ -56,3 +80,81 @@ export const TRAVEL_DESCRIPTION: Record<TravelType, string> = {
   C5: '균형 잡힌 협력 자녀',
   C6: '꼼꼼한 실속 자녀',
 };
+
+export const PARENT_DATA = [
+  {
+    value: 'C1',
+    icon: <MiniC1 />,
+    selectedIcon: <SelectedMiniC1 />,
+    tagName: ['열정 가득', '도전 자녀'],
+  },
+  {
+    value: 'C2',
+    icon: <MiniC2 />,
+    selectedIcon: <SelectedMiniC2 />,
+    tagName: ['긍정 뿜뿜', '모험 자녀'],
+  },
+  {
+    value: 'C3',
+    icon: <MiniC3 />,
+    selectedIcon: <SelectedMiniC3 />,
+    tagName: ['걱정 많은', '신중 자녀'],
+  },
+  {
+    value: 'C4',
+    icon: <MiniC4 />,
+    selectedIcon: <SelectedMiniC4 />,
+    tagName: ['느긋한', '안전 자녀'],
+  },
+  {
+    value: 'C5',
+    icon: <MiniC5 />,
+    selectedIcon: <SelectedMiniC5 />,
+    tagName: ['균형 잡힌', '협력 자녀'],
+  },
+  {
+    value: 'C6',
+    icon: <MiniC6 />,
+    selectedIcon: <SelectedMiniC6 />,
+    tagName: ['꼼꼼한', '실속 자녀'],
+  },
+];
+
+export const CHILDREN_DATA = [
+  {
+    value: 'P1',
+    icon: <MiniP1 />,
+    selectedIcon: <SelectedMiniP1 />,
+    tagName: ['열정 가득', '도전 부모'],
+  },
+  {
+    value: 'P2',
+    icon: <MiniP2 />,
+    selectedIcon: <SelectedMiniP2 />,
+    tagName: ['긍정 뿜뿜', '모험 부모'],
+  },
+  {
+    value: 'P3',
+    icon: <MiniP3 />,
+    selectedIcon: <SelectedMiniP3 />,
+    tagName: ['걱정 많은', '신중 부모'],
+  },
+  {
+    value: 'P4',
+    icon: <MiniP4 />,
+    selectedIcon: <SelectedMiniP4 />,
+    tagName: ['느긋한', '안전 부모'],
+  },
+  {
+    value: 'P5',
+    icon: <MiniP5 />,
+    selectedIcon: <SelectedMiniP5 />,
+    tagName: ['균형 잡힌', '협력 부모'],
+  },
+  {
+    value: 'P6',
+    icon: <MiniP6 />,
+    selectedIcon: <SelectedMiniP6 />,
+    tagName: ['꼼꼼한', '실속 부모'],
+  },
+];

@@ -1,23 +1,26 @@
-import { useRecoilValue } from 'recoil';
 import styles from './Commandment.module.scss';
-import {
-  Share,
-  CommandmentIcon,
-  DashLine,
-  CommandmentIlust,
-  CommandmentCharacter,
-} from '@images/index';
-import commandmentAtom from '@recoil/commandment';
+import { Share, DashLine, CommandmentIlust, Refresh } from '@images/index';
 import { TRAVEL_DESCRIPTION, TravelType } from '@constants/testResult';
+import { useNavigate } from 'react-router-dom';
+import ROUTES from '@src/constants/routes';
+import Tooltip from '@src/components/Tooltip';
 
 const Commandment = ({
   travelType,
   selectedTravelType,
+  commandments,
+  onClick,
 }: {
   travelType: string;
   selectedTravelType?: string;
+  commandments: string[];
+  onClick: () => Promise<void>;
 }) => {
-  const commandments = useRecoilValue(commandmentAtom);
+  const navigate = useNavigate();
+
+  const handleBackFront = () => {
+    navigate(ROUTES.login);
+  };
 
   const handleShareCommandment = () => {
     alert('공유 기능 구현 예정');
@@ -25,7 +28,11 @@ const Commandment = ({
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.header}></div>
+      <div className={styles.header}>
+        <button className={styles.goBackButton} onClick={handleBackFront}>
+          처음으로
+        </button>
+      </div>
       <div className={styles.titleContainer}>
         <div className={styles.title}>{TRAVEL_DESCRIPTION[travelType as TravelType]}와</div>
         <div className={styles.title}>
@@ -33,27 +40,36 @@ const Commandment = ({
         </div>
       </div>
 
-      <CommandmentCharacter className={styles.commandmentCharacter} />
       <div className={styles.commandmentWrapper}>
         <CommandmentIlust className={styles.backgroundIllustration} />
         <div className={styles.contentOverlay}>
           <div className={styles.commandmentTitle}>서로를 배려하는 여행 10계명</div>
-          <DashLine className={styles.line} />
+          <DashLine />
           <div className={styles.itemWrapper}>
             {commandments.map((commandment, index) => (
-              <div key={index} className={styles.commandmentItem}>
-                <CommandmentIcon className={styles.icon} />
+              <p key={index} className={styles.commandmentItem}>
                 {commandment}
-              </div>
+              </p>
             ))}
           </div>
         </div>
       </div>
       <div className={styles.buttonWrapper}>
-        <button className={styles.button} onClick={handleShareCommandment}>
-          <Share className={styles.icon} />
-          <div className={styles.info}>공유하기</div>
-        </button>
+        <div className={styles.buttons}>
+          <button className={styles.button} onClick={handleShareCommandment}>
+            <Share className={styles.icon} />
+            <div className={styles.info}>공유하기</div>
+          </button>
+        </div>
+        {commandments.length < 10 && (
+          <div className={styles.buttons}>
+            <Tooltip content="10계명이 모두 나타나지 않았다면? 클릭!" />
+            <button className={styles.button} onClick={onClick}>
+              <Refresh className={styles.icon} />
+              <div className={styles.info}>재생성하기</div>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
