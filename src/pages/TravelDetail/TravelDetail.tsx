@@ -1,4 +1,4 @@
-import styles from './Travel.module.scss';
+import styles from './TravelDetail.module.scss';
 import Button from '@components/Button';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ const COMMANDMENTS_INFO_MESSAGE = [
   '함께하는 가족 구성원이 모두 모였다면 \n이번 여행을 위한 10계명을 생성해 보세요!',
 ];
 
-const Travel = () => {
+const TravelDetail = () => {
   const navigate = useNavigate();
   const [isAnalysisOpen, setIsAnalysisOpen] = useState(false);
 
@@ -110,4 +110,4 @@ const Travel = () => {
   );
 };
 
-export default Travel;
+export default TravelDetail;

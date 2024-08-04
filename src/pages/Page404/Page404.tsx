@@ -8,7 +8,7 @@ const Page404 = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(ROUTES.home);
+    navigate(ROUTES.travel);
   };
 
   return (

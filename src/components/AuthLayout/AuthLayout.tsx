@@ -10,7 +10,7 @@ const AuthLayout = ({ shouldProtect }: { shouldProtect: boolean }) => {
   }
 
   if (hasAuth && !shouldProtect) {
-    return <Navigate replace={true} to={ROUTES.home} />;
+    return <Navigate replace={true} to={ROUTES.travel} />;
   }
 
   return <Outlet />;

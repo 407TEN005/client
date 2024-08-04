@@ -21,7 +21,7 @@ const useCreateTravelRoom = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      navigate(ROUTES.home);
+      navigate(ROUTES.travel);
     }
   };
 

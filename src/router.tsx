@@ -23,18 +23,17 @@ export const loginRouters: RouteObject[] = [
         Component: lazy(() => import('./pages/TestResult')),
       },
       {
-        path: ROUTES.home,
+        path: ROUTES.travel,
         Component: lazy(() => import('./pages/Home')),
       },
       {
         path: ROUTES.createTravel,
         Component: lazy(() => import('./pages/CreateTravel')),
       },
-
-      // {
-      //   path: ROUTES.travel,
-      //   Component: lazy(() => import('./pages/Travel')),
-      // },
+      {
+        path: ROUTES.travelDetail,
+        Component: lazy(() => import('./pages/TravelDetail')),
+      },
       // {
       //   path: ROUTES.commandment,
       //   Component: lazy(() => import('./pages/Commandment')),
@@ -83,7 +82,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: () => <Navigate to={ROUTES.home} />,
+        Component: () => <Navigate to={ROUTES.travel} />,
       },
       {
         Component: () => AuthLayout({ shouldProtect: false }),

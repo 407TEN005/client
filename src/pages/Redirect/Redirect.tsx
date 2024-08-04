@@ -28,7 +28,7 @@ const Redirect = () => {
         if (travelTypes && travelTypes.length < 1) {
           window.location.href = `${HOME_URL}${ROUTES.authTest}`;
         } else {
-          window.location.href = `${HOME_URL}${ROUTES.home}`;
+          window.location.href = `${HOME_URL}${ROUTES.travel}`;
         }
       } catch (error) {
         console.error(error);
