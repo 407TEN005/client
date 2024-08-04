@@ -25,7 +25,7 @@ const Redirect = () => {
 
         const { travelTypes } = response.data;
 
-        if (travelTypes && travelTypes.length < 1) {
+        if (travelTypes && travelTypes.length > 0) {
           console.log('테스트가 없습니다 . ');
 
           window.location.href = `${HOME_URL}${ROUTES.authTest}`;
