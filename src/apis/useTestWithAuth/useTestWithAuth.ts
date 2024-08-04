@@ -1,33 +1,37 @@
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
+import authUtil from '@utils/authUtil';
 import ROUTES from '@constants/routes';
 import { axiosInstance } from '@constants/axios';
-import testResponseAtom from '@recoil/testResponse';
+import testResponseAtom from '@recoil/testResponse/atom';
 
 interface AnswerData {
   familyRole: string;
   answers: string[];
 }
 
-const useTestWithoutAuth = () => {
+const useTestWithAuth = () => {
   const navigate = useNavigate();
+  const userId = authUtil.getUserId();
 
   const setTestResponseData = useSetRecoilState(testResponseAtom);
 
-  const createTestWithoutAuth = async (answerData: AnswerData) => {
+  const createTestWithAuth = async (answerData: AnswerData) => {
     try {
-      const response = await axiosInstance.post(`/test-without-auth`, answerData);
+      const response = await axiosInstance.post(`/users/${userId}/tests`, answerData);
+
+      console.log(response);
 
       setTestResponseData(response.data);
     } catch (error) {
       console.error(error);
     } finally {
-      navigate(ROUTES.testResult);
+      navigate(ROUTES.authTestResult);
     }
   };
 
-  return { createTestWithoutAuth };
+  return { createTestWithAuth };
 };
 
-export default useTestWithoutAuth;
+export default useTestWithAuth;

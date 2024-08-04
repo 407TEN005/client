@@ -19,6 +19,10 @@ export const loginRouters: RouteObject[] = [
         Component: lazy(() => import('./pages/TestSurvey')),
       },
       {
+        path: ROUTES.authTestResult,
+        Component: lazy(() => import('./pages/TestResult')),
+      },
+      {
         path: ROUTES.home,
         Component: lazy(() => import('./pages/Home')),
       },

@@ -4,6 +4,8 @@ import TestSurveyDetail from './TestSurveyDetail';
 import useTestWithoutAuth from '@apis/useTestWithoutAuth';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import testAnswersAtom from '@recoil/testAnswers';
+import useTestWithAuth from '@apis/useTestWithAuth';
+import { useLocation } from 'react-router-dom';
 
 export type ContentType = 'familyRole' | 'question1' | 'question2' | 'question3' | 'question4';
 
@@ -12,6 +14,10 @@ export interface Answer {
 }
 
 const TestSurvey = () => {
+  const { pathname } = useLocation();
+
+  const isLogin = pathname.includes('auth');
+
   const [answers, setAnswers] = useRecoilState(testAnswersAtom);
   const resetAnswers = useResetRecoilState(testAnswersAtom);
   const [initialized, setInitialized] = useState(false);
@@ -19,6 +25,7 @@ const TestSurvey = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
 
   const { createTestWithoutAuth } = useTestWithoutAuth();
+  const { createTestWithAuth } = useTestWithAuth();
 
   const parseAnswer = (value: string[]) => {
     const [familyRole, ...answers] = value;
@@ -34,6 +41,8 @@ const TestSurvey = () => {
 
     if (questionIndex < 4) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
+    } else if (isLogin) {
+      await createTestWithAuth(parseAnswer([...answers, answer]));
     } else {
       await createTestWithoutAuth(parseAnswer([...answers, answer]));
     }

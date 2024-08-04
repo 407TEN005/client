@@ -1,14 +1,21 @@
 import { TestLogo } from '@images/index';
 import Button from '@components/Button';
 import styles from './Test.module.scss';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ROUTES from '@constants/routes';
 
 const Test = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const isLogin = pathname.includes('auth');
 
   const handleButtonClick = () => {
-    navigate(ROUTES.testSurvey);
+    if (isLogin) {
+      navigate(ROUTES.authTestSurvey);
+    } else {
+      navigate(ROUTES.testSurvey);
+    }
   };
 
   return (
