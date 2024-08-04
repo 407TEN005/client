@@ -5,6 +5,9 @@ export const ROUTES = {
 
   // ? 로그인
   // todo : home -> travel 변경 예정
+  authTest: '/auth/test',
+  authTestSurvey: '/auth/test/survey',
+
   home: '/travel',
   createTravel: '/createTravel',
   testSurveyDetail: '/test/survey/:surveyId',

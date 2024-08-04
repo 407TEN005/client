@@ -11,6 +11,14 @@ export const loginRouters: RouteObject[] = [
     Component: Layout,
     children: [
       {
+        path: ROUTES.authTest,
+        Component: lazy(() => import('./pages/Test')),
+      },
+      {
+        path: ROUTES.authTestSurvey,
+        Component: lazy(() => import('./pages/TestSurvey')),
+      },
+      {
         path: ROUTES.home,
         Component: lazy(() => import('./pages/Home')),
       },
@@ -18,14 +26,7 @@ export const loginRouters: RouteObject[] = [
         path: ROUTES.createTravel,
         Component: lazy(() => import('./pages/CreateTravel')),
       },
-      {
-        path: ROUTES.test,
-        Component: lazy(() => import('./pages/Test')),
-      },
-      {
-        path: ROUTES.testSurvey,
-        Component: lazy(() => import('./pages/TestSurvey')),
-      },
+
       // {
       //   path: ROUTES.travel,
       //   Component: lazy(() => import('./pages/Travel')),
