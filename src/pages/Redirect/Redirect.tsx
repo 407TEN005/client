@@ -25,12 +25,9 @@ const Redirect = () => {
 
         const { travelTypes } = response.data;
 
-        if (travelTypes && travelTypes.length > 0) {
-          console.log('테스트가 없습니다 . ');
-
+        if (travelTypes && travelTypes.length < 1) {
           window.location.href = `${HOME_URL}${ROUTES.authTest}`;
         } else {
-          console.log('테스트가 있습니다 . ');
           window.location.href = `${HOME_URL}${ROUTES.home}`;
         }
       } catch (error) {
