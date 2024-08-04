@@ -1,4 +1,4 @@
-import { axiosInstance } from '@constants/axios';
+import { tentenInstance } from '@constants/axios';
 import ROUTES from '@constants/routes';
 import authUtil from '@utils/authUtil';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ const useCreateTravelRoom = () => {
 
   const fetchCreateTravelRoom = async (createRoomData: CreateRoomData) => {
     try {
-      await axiosInstance.post(`/users/${userId}/travel-rooms`, createRoomData);
+      await tentenInstance.post(`/users/${userId}/travel-rooms`, createRoomData);
     } catch (error) {
       console.error(error);
     } finally {

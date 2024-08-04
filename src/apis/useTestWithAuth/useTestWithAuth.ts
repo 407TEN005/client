@@ -3,7 +3,7 @@ import { useSetRecoilState } from 'recoil';
 
 import authUtil from '@utils/authUtil';
 import ROUTES from '@constants/routes';
-import { axiosInstance } from '@constants/axios';
+import { tentenInstance } from '@constants/axios';
 import testResponseAtom from '@recoil/testResponse/atom';
 
 interface AnswerData {
@@ -19,7 +19,7 @@ const useTestWithAuth = () => {
 
   const createTestWithAuth = async (answerData: AnswerData) => {
     try {
-      const response = await axiosInstance.post(`/users/${userId}/tests`, answerData);
+      const response = await tentenInstance.post(`/users/${userId}/tests`, answerData);
 
       console.log(response);
 

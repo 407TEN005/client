@@ -1,4 +1,4 @@
-import { axiosInstance } from '@constants/axios';
+import { tentenInstance } from '@constants/axios';
 import authUtil from '@utils/authUtil';
 import { useEffect, useState } from 'react';
 
@@ -20,7 +20,7 @@ const useGetTravelRoom = () => {
   useEffect(() => {
     const fetchTravelRoomData = async () => {
       try {
-        const response = await axiosInstance.get(`/users/${userId}/travel-rooms`);
+        const response = await tentenInstance.get(`/users/${userId}/travel-rooms`);
 
         setTravelRoomData(response.data);
       } catch (error) {

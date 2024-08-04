@@ -9,6 +9,8 @@ import ROUTES from '@constants/routes';
 const Home = () => {
   const { travelRoomData } = useGetTravelRoom();
 
+  console.log(travelRoomData);
+
   const navigate = useNavigate();
 
   const handleCreateTravel = () => {
@@ -29,44 +31,45 @@ const Home = () => {
       <div className={styles.headline}>
         <p>우리 가족 여행 방</p>
       </div>
-      {travelRoomData.map((data) => {
-        const { id, roomName, startDate, endDate, existCommandments } = data;
+      {travelRoomData &&
+        travelRoomData.map((data) => {
+          const { id, roomName, startDate, endDate, existCommandments } = data;
 
-        const today = format(new Date(), 'yyyy-MM-dd');
-        const parsedStartedDate = differenceInDays(startDate, today);
+          const today = format(new Date(), 'yyyy-MM-dd');
+          const parsedStartedDate = differenceInDays(startDate, today);
 
-        const handleNavigateTravelRoom = () => {
-          navigate(`/travel/${id}`);
-        };
+          const handleNavigateTravelRoom = () => {
+            navigate(`/travel/${id}`);
+          };
 
-        return (
-          <div key={id} className={styles.card} onClick={handleNavigateTravelRoom}>
-            <div className={styles.image}>
-              <TravelCardLogo />
-            </div>
-            <div className={styles.detail}>
-              <div className={styles.travelDetail}>
-                <div className={styles.dday}>D-{parsedStartedDate}</div>
-                <div className={styles.roomName}>{roomName}</div>
-                <div className={styles.date}>
-                  {format(startDate, 'yyyy.MM.dd')} ~ {format(endDate, 'yyyy.MM.dd')}
+          return (
+            <div key={id} className={styles.card} onClick={handleNavigateTravelRoom}>
+              <div className={styles.image}>
+                <TravelCardLogo />
+              </div>
+              <div className={styles.detail}>
+                <div className={styles.travelDetail}>
+                  <div className={styles.dday}>D-{parsedStartedDate}</div>
+                  <div className={styles.roomName}>{roomName}</div>
+                  <div className={styles.date}>
+                    {format(startDate, 'yyyy.MM.dd')} ~ {format(endDate, 'yyyy.MM.dd')}
+                  </div>
+                </div>
+                <div className={styles.existCommandments}>
+                  <div className={`${styles.button} ${existCommandments ? styles.selected : ''}`}>
+                    {existCommandments ? (
+                      <p>
+                        10계명 생성 완료 <CheckButton />
+                      </p>
+                    ) : (
+                      '10계명 생성 전'
+                    )}
+                  </div>
                 </div>
               </div>
-              <div className={styles.existCommandments}>
-                <div className={`${styles.button} ${existCommandments ? styles.selected : ''}`}>
-                  {existCommandments ? (
-                    <p>
-                      10계명 생성 완료 <CheckButton />
-                    </p>
-                  ) : (
-                    '10계명 생성 전'
-                  )}
-                </div>
-              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };
