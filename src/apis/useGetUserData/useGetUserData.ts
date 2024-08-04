@@ -1,6 +1,4 @@
-import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from '@src/constants/axios';
-import ROUTES from '@src/constants/routes';
 import { useState } from 'react';
 
 const useGetUserData = () => {
