@@ -12,11 +12,11 @@ const useGetUserData = () => {
 
       console.log('travelTypes : ', travelTypes);
 
-      if (travelTypes && travelTypes.length < 1) {
-        console.log(2);
+      // if (travelTypes && travelTypes.length < 1) {
+      //   console.log(2);
 
-        setData(travelTypes);
-      }
+      //   setData(travelTypes);
+      // }
     } catch (error) {
       console.error(error);
     }

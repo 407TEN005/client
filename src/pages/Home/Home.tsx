@@ -9,8 +9,6 @@ import ROUTES from '@constants/routes';
 const Home = () => {
   const { travelRoomData } = useGetTravelRoom();
 
-  console.log(travelRoomData);
-
   const navigate = useNavigate();
 
   const handleCreateTravel = () => {

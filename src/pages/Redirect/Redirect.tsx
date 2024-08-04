@@ -1,3 +1,4 @@
+import { tentenInstance } from '@src/constants/axios';
 import authUtil from '@utils/authUtil';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +18,27 @@ const Redirect = () => {
       authUtil.setTokens({ accessToken, userId });
     }
 
-    window.location.href = HOME_URL;
+    const fetchUserData = async () => {
+      try {
+        const response = await tentenInstance.get('/users/current');
+
+        const { travelTypes } = response.data;
+
+        console.log('travelTypes : ', travelTypes);
+
+        // if (travelTypes && travelTypes.length < 1) {
+        //   console.log(2);
+
+        //   setData(travelTypes);
+        // }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUserData();
+
+    // window.location.href = HOME_URL;
   }, [navigate]);
 
   return <></>;

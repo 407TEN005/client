@@ -24,7 +24,6 @@ const useCommandmentWithoutAuth = () => {
         commandmentsData,
       );
 
-      console.log('response : ', response);
       setCommandment(response.data);
     } catch (error) {
       console.error(error);

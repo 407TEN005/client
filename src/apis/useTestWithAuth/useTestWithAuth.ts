@@ -21,8 +21,6 @@ const useTestWithAuth = () => {
     try {
       const response = await tentenInstance.post(`/users/${userId}/tests`, answerData);
 
-      console.log(response);
-
       setTestResponseData(response.data);
     } catch (error) {
       console.error(error);
