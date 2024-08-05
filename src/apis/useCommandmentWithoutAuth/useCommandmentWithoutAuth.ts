@@ -1,5 +1,5 @@
-import { axiosInstance } from '@src/constants/axios';
-import commandmentAtom from '@src/recoil/commandment/atom';
+import { axiosInstance } from '@constants/axios';
+import commandmentAtom from '@recoil/commandment';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 

@@ -1,7 +1,7 @@
 import styles from './NoTravelRoom.module.scss';
 import { HomeLogo } from '@images/index';
 import Button from '@components/Button';
-import MainHeader from '@src/components/MainHeader';
+import MainHeader from '@components/MainHeader';
 
 const NoTravelRoom = ({ onClick }: { onClick: () => void }) => {
   return (

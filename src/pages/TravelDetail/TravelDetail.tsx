@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Analysis from '@components/Analysis';
 import { EmptyRoom, IconCallendar, IconCrown } from '@images/index';
-import useGetTravelRoomDetail from '@src/apis/useGetTravelRoomDetail';
+import useGetTravelRoomDetail from '@apis/useGetTravelRoomDetail';
 import { format } from 'date-fns';
-import { TRAVEL_ICON, TravelType } from '@src/constants/testResult';
+import { TRAVEL_ICON, TravelType } from '@constants/testResult';
 
 const COMMANDMENTS_INFO_MESSAGE = [
   '이번 가족 여행을 위한 10계명 공개 직전! 모두 입장할 때까지 잠시만 기다려주세요...',

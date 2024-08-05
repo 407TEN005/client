@@ -3,7 +3,7 @@ import { useSetRecoilState } from 'recoil';
 
 import ROUTES from '@constants/routes';
 import { tentenInstance } from '@constants/axios';
-import testResponseAtom from '@recoil/testResponse/atom';
+import testResponseAtom from '@recoil/testResponse';
 
 interface AnswerData {
   familyRole: string;

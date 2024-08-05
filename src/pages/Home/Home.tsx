@@ -5,7 +5,7 @@ import { CheckButton, Plus, TravelCardLogo } from '@images/index';
 import NoTravelRoom from './NoTravelRoom';
 import useGetTravelRoom from '@apis/useGetTravelRoom';
 import ROUTES from '@constants/routes';
-import MainHeader from '@src/components/MainHeader';
+import MainHeader from '@components/MainHeader';
 
 const Home = () => {
   const { travelRoomData } = useGetTravelRoom();

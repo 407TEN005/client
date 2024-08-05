@@ -1,5 +1,5 @@
-import { tentenInstance } from '@src/constants/axios';
-import ROUTES from '@src/constants/routes';
+import { tentenInstance } from '@constants/axios';
+import ROUTES from '@constants/routes';
 import authUtil from '@utils/authUtil';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

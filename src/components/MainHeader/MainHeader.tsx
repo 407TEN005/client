@@ -1,4 +1,4 @@
-import { HeaderLogo } from '@src/assets/images';
+import { HeaderLogo } from '@images/index';
 import styles from './MainHeader.module.scss';
 
 const MainHeader = () => {

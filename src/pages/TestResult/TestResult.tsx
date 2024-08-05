@@ -6,7 +6,7 @@ import testResponseAtom from '@recoil/testResponse';
 import ROUTES from '@constants/routes';
 import { TRAVEL_TYPE, TravelType } from '@constants/testResult';
 import { splitTextWithLineBreaks } from '@utils/textUtil';
-import commandmentAtom from '@src/recoil/commandment/atom';
+import commandmentAtom from '@recoil/commandment';
 import { useEffect } from 'react';
 
 const TestResult = () => {
