@@ -13,10 +13,9 @@ const Redirect = () => {
     const params = new URLSearchParams(window.location.search);
 
     const accessToken = params.get('accessToken');
-    const userId = params.get('userId');
 
-    if (accessToken && userId) {
-      authUtil.setTokens({ accessToken, userId });
+    if (accessToken) {
+      authUtil.setTokens({ accessToken });
     }
 
     const fetchUserData = async () => {
