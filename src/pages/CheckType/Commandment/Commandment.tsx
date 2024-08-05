@@ -5,6 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import ROUTES from '@src/constants/routes';
 import Tooltip from '@src/components/Tooltip';
 
+const kakao = (window as any).Kakao;
+
+interface TextSendData {
+  objectType: 'text';
+  text: string;
+  link: {
+    webUrl: string;
+  };
+  buttonTitle?: string;
+}
+
 const Commandment = ({
   travelType,
   selectedTravelType,
@@ -23,7 +34,16 @@ const Commandment = ({
   };
 
   const handleShareCommandment = () => {
-    alert('공유 기능 구현 예정');
+    const sendData: TextSendData = {
+      objectType: 'text',
+      text: '서로를 배려하는 여행 10계명 \n \n' + commandments.join('\n'),
+      link: {
+        webUrl: 'https://tenten.potenday-sixgarlic.site/login',
+      },
+      buttonTitle: '텐텐 시작하기',
+    };
+
+    kakao.Share.sendDefault(sendData);
   };
 
   return (
