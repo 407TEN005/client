@@ -84,10 +84,6 @@
   margin-top: 24px;
   height: 24px;
 
-  .icon {
-    margin-right: 8px;
-  }
-
   .button {
     @include flex(center, center, row);
     @include SubHeading3($color: $p50);
@@ -99,7 +95,7 @@
 
     .info {
       @include flex(center, center);
-      padding: 2px 4px;
+      padding: 2px 4px 2px 8px;
     }
   }
 
