@@ -1,9 +1,9 @@
 import styles from './Commandment.module.scss';
-import { Share, DashLine, CommandmentIlust, Refresh } from '@images/index';
+import { DashLine, CommandmentIlust, Refresh, Home } from '@images/index';
 import { TRAVEL_DESCRIPTION, TravelType } from '@constants/testResult';
 import { useNavigate } from 'react-router-dom';
-import ROUTES from '@src/constants/routes';
-import Tooltip from '@src/components/Tooltip';
+import ROUTES from '@constants/routes';
+import Tooltip from '@components/Tooltip';
 
 const Commandment = ({
   travelType,
@@ -22,17 +22,9 @@ const Commandment = ({
     navigate(ROUTES.login);
   };
 
-  const handleShareCommandment = () => {
-    alert('공유 기능 구현 예정');
-  };
-
   return (
     <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <button className={styles.goBackButton} onClick={handleBackFront}>
-          처음으로
-        </button>
-      </div>
+      <div className={styles.header}></div>
       <div className={styles.titleContainer}>
         <div className={styles.title}>{TRAVEL_DESCRIPTION[travelType as TravelType]}와</div>
         <div className={styles.title}>
@@ -56,16 +48,16 @@ const Commandment = ({
       </div>
       <div className={styles.buttonWrapper}>
         <div className={styles.buttons}>
-          <button className={styles.button} onClick={handleShareCommandment}>
-            <Share className={styles.icon} />
-            <div className={styles.info}>공유하기</div>
+          <button className={styles.button} onClick={handleBackFront}>
+            <Home />
+            <div className={styles.info}>처음으로</div>
           </button>
         </div>
         {commandments.length < 10 && (
           <div className={styles.buttons}>
             <Tooltip content="10계명이 모두 나타나지 않았다면? 클릭!" />
             <button className={styles.button} onClick={onClick}>
-              <Refresh className={styles.icon} />
+              <Refresh />
               <div className={styles.info}>재생성하기</div>
             </button>
           </div>

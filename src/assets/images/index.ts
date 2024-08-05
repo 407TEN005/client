@@ -6,6 +6,7 @@ export { ReactComponent as NavLogo } from './nav_logo.svg';
 export { ReactComponent as HomeLogo } from './home_logo.svg';
 export { ReactComponent as TravelCardLogo } from './travel_card_logo.svg';
 export { ReactComponent as LoadingLogo } from './loading_logo.svg';
+export { ReactComponent as HeaderLogo } from './header_logo.svg';
 
 // ? home
 export { ReactComponent as CheckButton } from './check_button.svg';
@@ -29,6 +30,7 @@ export { ReactComponent as Question3 } from './question3.svg';
 export { ReactComponent as Question4 } from './question4.svg';
 
 export { ReactComponent as LeftArrow } from './left_arrow.svg';
+export { ReactComponent as LeftArrowWhite } from './left_arrow_white.svg';
 export { ReactComponent as Exit } from './exit.svg';
 
 // ? 성향 테스트 결과 이미지
@@ -91,6 +93,7 @@ export { ReactComponent as CommandmentCharacter } from './commandment_character.
 export { ReactComponent as CommandmentBackground } from './commandment_background.svg';
 export { ReactComponent as Refresh } from './refresh.svg';
 export { ReactComponent as TooltipArrow } from './tooltip_arrow.svg';
+export { ReactComponent as Home } from './home.svg';
 
 // ? 분석 컴포넌트 이미지
 export { ReactComponent as AnalysisImg } from './sample_analysis.svg';

@@ -1,0 +1,129 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/travel_room_background.svg');
+  padding: 0 20px;
+}
+
+.header {
+  width: 100%;
+  height: 68px;
+
+  padding: 24px 0;
+
+  .back {
+    cursor: pointer;
+  }
+}
+
+.titleContainer {
+  margin-bottom: 48px;
+  padding-top: 3px;
+
+  .dday {
+    @include flex(center, center);
+    @include caption2($weight: 600, $color: $p500);
+    padding: 2px 8px;
+    background-color: $p100;
+    width: 42px;
+    height: 21px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    @include SubHeading2($size: 22px, $color: white);
+    margin-bottom: 4px;
+  }
+
+  .travelDate {
+    @include flex(center, start, row);
+    @include Body2($color: $p100);
+    gap: 4px;
+  }
+}
+
+.familyMemberTitle {
+  @include SubHeading2($size: 16px, $color: white);
+  margin-bottom: 8px;
+}
+
+.familyMemberContainer {
+  @include flex(start, start, row);
+  margin-top: 8px;
+  margin-bottom: 23px;
+}
+
+.familyWrapper {
+  @include flex(center, center, column);
+
+  .familyMemberList {
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    background-color: white;
+    position: relative;
+
+    &.familyAdminImg {
+      background-color: $p50;
+      border: 1px solid $p500;
+    }
+
+    &.familyMemberImg {
+      background-color: $gray10;
+      border: 1px solid $gray50;
+    }
+
+    .icon {
+      position: absolute;
+      right: 0;
+    }
+
+    .travelIcon {
+      @include flex(center, center);
+      padding: 10px;
+    }
+  }
+
+  .familyMemberName {
+    @include caption1($size: 10px, $color: white);
+    margin-top: 8px;
+  }
+}
+
+.commandmentListContainer {
+  height: 474px;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.commandmentListTitle {
+  @include SubHeading1($size: 18px, $color: $gray400);
+  padding: 20px;
+}
+
+.commandmentItem {
+  @include flex(center, center, column);
+  margin-top: 85px;
+
+  .info {
+    @include flex(center, center, column);
+    @include caption1($color: $gray300);
+    padding-top: 12px;
+    padding-bottom: 28px;
+  }
+}
+
+.buttonPlaceholder {
+  height: 100%;
+  width: 100%;
+}
+
+.buttonWrapper {
+  height: 44px;
+}
+
+.button {
+  border: 1px solid $p300;
+}

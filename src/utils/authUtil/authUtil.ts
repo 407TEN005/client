@@ -12,9 +12,8 @@ const getUserId = () => {
   return localStorage.getItem(USER_ID);
 };
 
-const setTokens = ({ accessToken, userId }: { accessToken: string; userId: string }) => {
+const setTokens = ({ accessToken }: { accessToken: string }) => {
   localStorage.setItem(ACCESS_TOKEN, accessToken);
-  localStorage.setItem(USER_ID, userId);
 };
 
 const clearStorage = () => {

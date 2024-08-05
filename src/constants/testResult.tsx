@@ -158,3 +158,18 @@ export const CHILDREN_DATA = [
     tagName: ['꼼꼼한', '실속 부모'],
   },
 ];
+
+export const TRAVEL_ICON: Record<TravelType, React.ReactNode> = {
+  P1: <SelectedMiniP1 />,
+  P2: <SelectedMiniP2 />,
+  P3: <SelectedMiniP3 />,
+  P4: <SelectedMiniP4 />,
+  P5: <SelectedMiniP5 />,
+  P6: <SelectedMiniP6 />,
+  C1: <SelectedMiniC1 />,
+  C2: <SelectedMiniC2 />,
+  C3: <SelectedMiniC3 />,
+  C4: <SelectedMiniC4 />,
+  C5: <SelectedMiniC5 />,
+  C6: <SelectedMiniC6 />,
+};

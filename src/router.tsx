@@ -11,7 +11,19 @@ export const loginRouters: RouteObject[] = [
     Component: Layout,
     children: [
       {
-        path: ROUTES.home,
+        path: ROUTES.authTest,
+        Component: lazy(() => import('./pages/Test')),
+      },
+      {
+        path: ROUTES.authTestSurvey,
+        Component: lazy(() => import('./pages/TestSurvey')),
+      },
+      {
+        path: ROUTES.authTestResult,
+        Component: lazy(() => import('./pages/TestResult')),
+      },
+      {
+        path: ROUTES.travel,
         Component: lazy(() => import('./pages/Home')),
       },
       {
@@ -19,17 +31,9 @@ export const loginRouters: RouteObject[] = [
         Component: lazy(() => import('./pages/CreateTravel')),
       },
       {
-        path: ROUTES.test,
-        Component: lazy(() => import('./pages/Test')),
+        path: ROUTES.travelDetail,
+        Component: lazy(() => import('./pages/TravelDetail')),
       },
-      {
-        path: ROUTES.testSurvey,
-        Component: lazy(() => import('./pages/TestSurvey')),
-      },
-      // {
-      //   path: ROUTES.travel,
-      //   Component: lazy(() => import('./pages/Travel')),
-      // },
       // {
       //   path: ROUTES.commandment,
       //   Component: lazy(() => import('./pages/Commandment')),
@@ -78,7 +82,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: () => <Navigate to={ROUTES.home} />,
+        Component: () => <Navigate to={ROUTES.travel} />,
       },
       {
         Component: () => AuthLayout({ shouldProtect: false }),

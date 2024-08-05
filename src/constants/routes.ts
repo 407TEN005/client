@@ -4,11 +4,13 @@ export const ROUTES = {
   loading: '/loading',
 
   // ? 로그인
-  // todo : home -> travel 변경 예정
-  home: '/travel',
+  authTest: '/auth/test',
+  authTestSurvey: '/auth/test/survey',
+  authTestResult: '/auth/testResult',
+
+  travel: '/travel',
   createTravel: '/createTravel',
-  testSurveyDetail: '/test/survey/:surveyId',
-  travel: '/travel/:travelId',
+  travelDetail: '/travel/:travelId',
   analysis: '/analysis',
   redirect: '/oauth2/redirect',
 

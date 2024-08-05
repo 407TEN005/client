@@ -1,5 +1,4 @@
-import { axiosInstance } from '@constants/axios';
-import authUtil from '@utils/authUtil';
+import { tentenInstance } from '@constants/axios';
 import { useEffect, useState } from 'react';
 
 interface TravelRoomData {
@@ -15,12 +14,10 @@ interface TravelRoomData {
 const useGetTravelRoom = () => {
   const [travelRoomData, setTravelRoomData] = useState<TravelRoomData[] | undefined>(undefined);
 
-  const userId = authUtil.getUserId();
-
   useEffect(() => {
     const fetchTravelRoomData = async () => {
       try {
-        const response = await axiosInstance.get(`/users/${userId}/travel-rooms`);
+        const response = await tentenInstance.get(`/travel-rooms`);
 
         setTravelRoomData(response.data);
       } catch (error) {

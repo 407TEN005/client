@@ -37,6 +37,8 @@ jobs:
             "VITE_KAKAO_REDIRECT_URL=${{secrets.KAKAO_REDIRECT_URL}}"
             "VITE_HOME_URL=${{secrets.HOME_URL}}"
             "VITE_API_BASE_URL=${{secrets.API_BASE_URL}}"
+            "VITE_INTEGRITY_VALUE=${{secrets.KAKAO_INTEGRITY_VALUE}}"
+            "VITE_JAVASCRIPT_KEY=${{secrets.KAKAO_JAVASCRIPT_KEY}}"
 
   docker_pull_front:
     name: Connect server ssh and pull frontend from container registry

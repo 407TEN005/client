@@ -1,10 +1,12 @@
 import styles from './NoTravelRoom.module.scss';
 import { HomeLogo } from '@images/index';
 import Button from '@components/Button';
+import MainHeader from '@components/MainHeader';
 
 const NoTravelRoom = ({ onClick }: { onClick: () => void }) => {
   return (
     <div className={styles.wrapper}>
+      <MainHeader />
       <div className={styles.image}>
         <HomeLogo />
       </div>

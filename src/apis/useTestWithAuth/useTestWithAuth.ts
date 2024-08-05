@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
 import ROUTES from '@constants/routes';
-import { axiosInstance } from '@constants/axios';
+import { tentenInstance } from '@constants/axios';
 import testResponseAtom from '@recoil/testResponse';
 
 interface AnswerData {
@@ -10,24 +10,24 @@ interface AnswerData {
   answers: string[];
 }
 
-const useTestWithoutAuth = () => {
+const useTestWithAuth = () => {
   const navigate = useNavigate();
 
   const setTestResponseData = useSetRecoilState(testResponseAtom);
 
-  const createTestWithoutAuth = async (answerData: AnswerData) => {
+  const createTestWithAuth = async (answerData: AnswerData) => {
     try {
-      const response = await axiosInstance.post(`/test-without-auth`, answerData);
+      const response = await tentenInstance.post(`/tests`, answerData);
 
       setTestResponseData(response.data);
     } catch (error) {
       console.error(error);
     } finally {
-      navigate(ROUTES.testResult);
+      navigate(ROUTES.authTestResult);
     }
   };
 
-  return { createTestWithoutAuth };
+  return { createTestWithAuth };
 };
 
-export default useTestWithoutAuth;
+export default useTestWithAuth;
