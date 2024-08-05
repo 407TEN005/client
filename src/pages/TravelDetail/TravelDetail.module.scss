@@ -1,12 +1,23 @@
 .wrapper {
   width: 100%;
-  height: calc(100% - 68px);
-  background-color: $p400;
+  height: 100%;
+  background-image: url('../../assets/images/travel_room_background.svg');
   padding: 0 20px;
 }
 
+.header {
+  width: 100%;
+  height: 68px;
+
+  padding: 24px 0;
+
+  .back {
+    cursor: pointer;
+  }
+}
+
 .titleContainer {
-  margin-bottom: 49px;
+  margin-bottom: 48px;
   padding-top: 3px;
 
   .dday {
@@ -70,6 +81,7 @@
 
     .travelIcon {
       @include flex(center, center);
+      padding: 10px;
     }
   }
 
@@ -80,35 +92,29 @@
 }
 
 .commandmentListContainer {
-  height: 469px;
+  height: 474px;
   background-color: white;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
 .commandmentListTitle {
-  @include SubHeading1;
-  color: $gray400;
-  padding-left: 20px;
-  padding-top: 20px;
-  height: 25px;
+  @include SubHeading1($size: 18px, $color: $gray400);
+  padding: 20px;
 }
 
 .commandmentItem {
   @include flex(center, center, column);
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 105px;
-  width: 218px;
-  height: 200px;
+  margin-top: 85px;
+
+  .info {
+    @include flex(center, center, column);
+    @include caption1($color: $gray300);
+    padding-top: 12px;
+    padding-bottom: 28px;
+  }
 }
 
-.commandmentItem .info {
-  @include caption1;
-  color: $gray300;
-  padding-top: 8px;
-  padding-bottom: 28px;
-}
 .buttonPlaceholder {
   height: 100%;
   width: 100%;
@@ -119,8 +125,5 @@
 }
 
 .button {
-  border-color: $p300;
-}
-
-.iconWrapper {
+  border: 1px solid $p300;
 }

@@ -17,7 +17,7 @@ const useTestWithAuth = () => {
 
   const createTestWithAuth = async (answerData: AnswerData) => {
     try {
-      const response = await tentenInstance.post(`/users/tests`, answerData);
+      const response = await tentenInstance.post(`/tests`, answerData);
 
       setTestResponseData(response.data);
     } catch (error) {

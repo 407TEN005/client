@@ -1,6 +1,5 @@
 import { tentenInstance } from '@constants/axios';
 import ROUTES from '@constants/routes';
-import authUtil from '@utils/authUtil';
 import { useNavigate } from 'react-router-dom';
 
 interface CreateRoomData {
@@ -13,11 +12,9 @@ interface CreateRoomData {
 const useCreateTravelRoom = () => {
   const navigate = useNavigate();
 
-  const userId = authUtil.getUserId();
-
   const fetchCreateTravelRoom = async (createRoomData: CreateRoomData) => {
     try {
-      await tentenInstance.post(`/users/${userId}/travel-rooms`, createRoomData);
+      await tentenInstance.post(`/travel-rooms`, createRoomData);
     } catch (error) {
       console.error(error);
     } finally {

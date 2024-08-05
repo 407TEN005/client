@@ -30,6 +30,7 @@ export { ReactComponent as Question3 } from './question3.svg';
 export { ReactComponent as Question4 } from './question4.svg';
 
 export { ReactComponent as LeftArrow } from './left_arrow.svg';
+export { ReactComponent as LeftArrowWhite } from './left_arrow_white.svg';
 export { ReactComponent as Exit } from './exit.svg';
 
 // ? 성향 테스트 결과 이미지

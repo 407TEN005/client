@@ -14,19 +14,19 @@ interface TravelRoomData {
 const useGetTravelRoom = () => {
   const [travelRoomData, setTravelRoomData] = useState<TravelRoomData[] | undefined>(undefined);
 
-  // useEffect(() => {
-  //   const fetchTravelRoomData = async () => {
-  //     try {
-  //       const response = await tentenInstance.get(`/users/travel-rooms`);
+  useEffect(() => {
+    const fetchTravelRoomData = async () => {
+      try {
+        const response = await tentenInstance.get(`/travel-rooms`);
 
-  //       setTravelRoomData(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
+        setTravelRoomData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-  //   fetchTravelRoomData();
-  // }, []);
+    fetchTravelRoomData();
+  }, []);
 
   return { travelRoomData };
 };
