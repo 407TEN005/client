@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
-import authUtil from '@utils/authUtil';
 import ROUTES from '@constants/routes';
 import { tentenInstance } from '@constants/axios';
 import testResponseAtom from '@recoil/testResponse/atom';
@@ -13,13 +12,12 @@ interface AnswerData {
 
 const useTestWithAuth = () => {
   const navigate = useNavigate();
-  const userId = authUtil.getUserId();
 
   const setTestResponseData = useSetRecoilState(testResponseAtom);
 
   const createTestWithAuth = async (answerData: AnswerData) => {
     try {
-      const response = await tentenInstance.post(`/users/${userId}/tests`, answerData);
+      const response = await tentenInstance.post(`/users/tests`, answerData);
 
       setTestResponseData(response.data);
     } catch (error) {

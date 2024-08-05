@@ -5,6 +5,7 @@ import { CheckButton, Plus, TravelCardLogo } from '@images/index';
 import NoTravelRoom from './NoTravelRoom';
 import useGetTravelRoom from '@apis/useGetTravelRoom';
 import ROUTES from '@constants/routes';
+import MainHeader from '@src/components/MainHeader';
 
 const Home = () => {
   const { travelRoomData } = useGetTravelRoom();
@@ -23,6 +24,7 @@ const Home = () => {
   // ? 여행 방이 있을 때
   return (
     <div className={styles.wrapper}>
+      <MainHeader />
       <div className={styles.plusButton} onClick={handleCreateTravel}>
         <Plus />
       </div>

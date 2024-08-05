@@ -6,6 +6,7 @@ export { ReactComponent as NavLogo } from './nav_logo.svg';
 export { ReactComponent as HomeLogo } from './home_logo.svg';
 export { ReactComponent as TravelCardLogo } from './travel_card_logo.svg';
 export { ReactComponent as LoadingLogo } from './loading_logo.svg';
+export { ReactComponent as HeaderLogo } from './header_logo.svg';
 
 // ? home
 export { ReactComponent as CheckButton } from './check_button.svg';

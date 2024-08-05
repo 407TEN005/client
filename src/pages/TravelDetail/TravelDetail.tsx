@@ -1,16 +1,12 @@
 import styles from './TravelDetail.module.scss';
 import Button from '@components/Button';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Analysis from '@components/Analysis';
 import { EmptyRoom, IconCallendar, IconCrown } from '@images/index';
-
-const FAMILY_MEMBERS = [
-  { id: 1, name: '엄마', isLeader: true },
-  { id: 2, name: '아빠', isLeader: false },
-  { id: 3, name: '아들', isLeader: false },
-  { id: 4, name: '딸', isLeader: false },
-];
+import useGetTravelRoomDetail from '@src/apis/useGetTravelRoomDetail';
+import { format } from 'date-fns';
+import { TRAVEL_ICON, TravelType } from '@src/constants/testResult';
 
 const COMMANDMENTS_INFO_MESSAGE = [
   '이번 가족 여행을 위한 10계명 공개 직전! 모두 입장할 때까지 잠시만 기다려주세요...',
@@ -18,10 +14,16 @@ const COMMANDMENTS_INFO_MESSAGE = [
 ];
 
 const TravelDetail = () => {
+  const { travelId } = useParams();
   const navigate = useNavigate();
+
+  const { travelRoomData, fetchTravelRoomDetail } = useGetTravelRoomDetail();
+
   const [isAnalysisOpen, setIsAnalysisOpen] = useState(false);
 
-  const isLeader = true;
+  useEffect(() => {
+    fetchTravelRoomDetail(travelId);
+  }, []);
 
   useEffect(() => {
     let timer: number;
@@ -35,6 +37,14 @@ const TravelDetail = () => {
       if (timer) window.clearTimeout(timer);
     };
   }, [isAnalysisOpen, navigate]);
+
+  if (!travelRoomData) {
+    return null;
+  }
+
+  const { startDate, endDate, roomName, users, commandments } = travelRoomData;
+
+  const isLeader = true;
 
   const handleOpenAnalysis = () => {
     setIsAnalysisOpen(true);
@@ -57,25 +67,26 @@ const TravelDetail = () => {
     <div className={styles.wrapper}>
       <div className={styles.titleContainer}>
         <div className={styles.dday}>D-17</div>
-        <div className={styles.title}>온가족이 함께 하는 방콕 휴가</div>
+        <div className={styles.title}>{roomName}</div>
         <div className={styles.travelDate}>
           <IconCallendar />
-          2024.08.12 - 2024.08.20
+          {format(startDate, 'yyyy.MM.dd')} - {format(endDate, 'yyyy.MM.dd')}
         </div>
       </div>
 
       <div className={styles.familyMemberTitle}>함께하는 우리 가족</div>
       <div className={styles.familyMemberContainer}>
-        {FAMILY_MEMBERS.map((member, index) => (
-          <div key={index} className={styles.familyMemberList}>
-            <div className={member.isLeader ? styles.familyAdminImg : styles.familyMemberImg}>
-              {member.isLeader && (
-                <div className={styles.iconWrapper}>
-                  <IconCrown className={styles.icon} />
-                </div>
-              )}
+        {users.map(({ admin, id, travelType }) => (
+          <div className={styles.familyWrapper}>
+            <div
+              key={id}
+              className={`${styles.familyMemberList} 
+              ${admin ? styles.familyAdminImg : styles.familyMemberImg}`}
+            >
+              {admin && <IconCrown className={styles.icon} />}
+              <div className={styles.travelIcon}>{TRAVEL_ICON[travelType as TravelType]}</div>
             </div>
-            <div className={styles.familyMemberName}>{member.name}</div>
+            <div className={styles.familyMemberName}>테스트</div>
           </div>
         ))}
       </div>

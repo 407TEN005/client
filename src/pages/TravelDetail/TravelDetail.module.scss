@@ -6,88 +6,77 @@
 }
 
 .titleContainer {
-  margin-bottom: 48px;
-  height: 88px;
+  margin-bottom: 49px;
   padding-top: 3px;
-}
 
-.title {
-  font-size: 22px;
-  font-weight: 700;
-  padding-bottom: 4px;
-  color: white;
-}
+  .dday {
+    @include flex(center, center);
+    @include caption2($weight: 600, $color: $p500);
+    padding: 2px 8px;
+    background-color: $p100;
+    width: 42px;
+    height: 21px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
 
-.dday {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 8px;
-  color: $p500;
-  background-color: $p100;
-  width: 44px;
-  height: 22px;
-  border-radius: 6px;
-  @include caption2;
-}
+  .title {
+    @include SubHeading2($size: 22px, $color: white);
+    margin-bottom: 4px;
+  }
 
-.travelDate {
-  @include flex(center, start, row);
-  text-align: center;
-  color: $p100;
-  @include Body2;
-  height: 20px;
-  gap: 4px;
+  .travelDate {
+    @include flex(center, start, row);
+    @include Body2($color: $p100);
+    gap: 4px;
+  }
 }
 
 .familyMemberTitle {
-  @include SubHeading2;
-  color: white;
+  @include SubHeading2($size: 16px, $color: white);
   margin-bottom: 8px;
-  height: 22px;
 }
 
 .familyMemberContainer {
   @include flex(start, start, row);
-  height: 109px;
   margin-top: 8px;
+  margin-bottom: 23px;
 }
 
-.familyMemberList {
-  margin-right: 10px;
-  width: 60px;
-}
+.familyWrapper {
+  @include flex(center, center, column);
 
-.familyAdminImg {
-  width: 60px;
-  height: 60px;
-  border-radius: 999px;
-  background-color: $p50;
-  border: 1px solid $p500;
-}
+  .familyMemberList {
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    background-color: white;
+    position: relative;
 
-.familyMemberImg {
-  width: 60px;
-  height: 60px;
-  border-radius: 999px;
-  background-color: $gray10;
-  border: 1px solid $gray50;
-}
+    &.familyAdminImg {
+      background-color: $p50;
+      border: 1px solid $p500;
+    }
 
-.familyAdminImg .icon {
-  position: absolute;
-  left: 61px;
-}
+    &.familyMemberImg {
+      background-color: $gray10;
+      border: 1px solid $gray50;
+    }
 
-.familyMemberName {
-  text-align: center;
-  width: 60px;
-  height: 10px;
-  font-size: 10px;
-  font-weight: 400;
-  color: white;
-  margin-top: 8px;
+    .icon {
+      position: absolute;
+      right: 0;
+    }
+
+    .travelIcon {
+      @include flex(center, center);
+    }
+  }
+
+  .familyMemberName {
+    @include caption1($size: 10px, $color: white);
+    margin-top: 8px;
+  }
 }
 
 .commandmentListContainer {
@@ -131,4 +120,7 @@
 
 .button {
   border-color: $p300;
+}
+
+.iconWrapper {
 }
