@@ -24,6 +24,7 @@
   }
 
   .imgWrapper {
+    @include flex(center, center);
     margin-bottom: 20px;
   }
 }
