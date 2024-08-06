@@ -4,6 +4,7 @@
 
   height: 100vh; /* 화면 전체 높이 */
   overflow: auto; /* 스크롤 생성을 위한 속성 */
+  position: relative;
 
   .outletWrapper {
     width: 390px;

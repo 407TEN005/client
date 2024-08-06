@@ -6,7 +6,7 @@ import userDataAtom from '@recoil/userData';
 import { useRecoilState } from 'recoil';
 import { TRAVEL_MINI_ICON, TravelType } from '@src/constants/testResult';
 
-const MainHeader = () => {
+const MainHeader = ({ handleOpen }: { handleOpen: () => void }) => {
   const [userData, setUserData] = useRecoilState(userDataAtom);
 
   useEffect(() => {
@@ -26,7 +26,9 @@ const MainHeader = () => {
   return (
     <div className={styles.wrapper}>
       <HeaderLogo />
-      <div className={styles.sideLogo}>{TRAVEL_MINI_ICON[userData?.travelType as TravelType]}</div>
+      <div className={styles.sideLogo} onClick={handleOpen}>
+        {TRAVEL_MINI_ICON[userData?.travelType as TravelType]}
+      </div>
     </div>
   );
 };

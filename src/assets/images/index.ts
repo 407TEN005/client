@@ -123,3 +123,5 @@ export { ReactComponent as MiniIconP3 } from './mini_icon_p3.svg';
 export { ReactComponent as MiniIconP4 } from './mini_icon_p4.svg';
 export { ReactComponent as MiniIconP5 } from './mini_icon_p5.svg';
 export { ReactComponent as MiniIconP6 } from './mini_icon_p6.svg';
+
+export { ReactComponent as Logout } from './logout.svg';

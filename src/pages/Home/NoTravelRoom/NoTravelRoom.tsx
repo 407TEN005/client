@@ -3,10 +3,18 @@ import { HomeLogo } from '@images/index';
 import Button from '@components/Button';
 import MainHeader from '@components/MainHeader';
 
-const NoTravelRoom = ({ onClick }: { onClick: () => void }) => {
+const NoTravelRoom = ({
+  onClick,
+  handleOpen,
+  handleClose,
+}: {
+  onClick: () => void;
+  handleOpen: () => void;
+  handleClose: () => void;
+}) => {
   return (
-    <div className={styles.wrapper}>
-      <MainHeader />
+    <div className={styles.wrapper} onClick={handleClose}>
+      <MainHeader handleOpen={handleOpen} />
       <div className={styles.image}>
         <HomeLogo />
       </div>
