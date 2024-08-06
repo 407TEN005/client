@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 92px 20px 36px 20px;
+}
+
+.subTitle {
+  @include SubHeading3;
+  padding-bottom: 4px;
+  color: $gray300;
+}
+
+.title {
+  @include Heading1;
+  color: $p500;
+  padding-bottom: 12px;
+}
+
+.tagsWrapper {
+  @include flex(center, center, row);
+  margin-bottom: 48px;
+  gap: 0 2px;
+}
+
+.tag {
+  @include flex(center, center, row);
+  font-size: 12px;
+  color: $p400;
+  padding: 4px 8px;
+  border-radius: 99px;
+  border: 1px solid $p100;
+}
+
+.descriptionWrapper {
+  margin-top: 38px;
+  margin-bottom: auto;
+}
+
+.description {
+  margin-bottom: 16px;
+  @include Body2();
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: $gray300;
+  // white-space: pre-wrap;
+  // word-break: keep-all;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

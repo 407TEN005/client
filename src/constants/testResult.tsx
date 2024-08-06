@@ -35,6 +35,18 @@ import {
   ResultP4,
   ResultP5,
   ResultP6,
+  MiniIconC1,
+  MiniIconC2,
+  MiniIconC3,
+  MiniIconC4,
+  MiniIconC5,
+  MiniIconC6,
+  MiniIconP1,
+  MiniIconP2,
+  MiniIconP3,
+  MiniIconP4,
+  MiniIconP5,
+  MiniIconP6,
 } from '@images/index';
 
 export type TravelType =
@@ -172,4 +184,19 @@ export const TRAVEL_ICON: Record<TravelType, React.ReactNode> = {
   C4: <SelectedMiniC4 />,
   C5: <SelectedMiniC5 />,
   C6: <SelectedMiniC6 />,
+};
+
+export const TRAVEL_MINI_ICON: Record<TravelType, React.ReactNode> = {
+  P1: <MiniIconP1 />,
+  P2: <MiniIconP2 />,
+  P3: <MiniIconP3 />,
+  P4: <MiniIconP4 />,
+  P5: <MiniIconP5 />,
+  P6: <MiniIconP6 />,
+  C1: <MiniIconC1 />,
+  C2: <MiniIconC2 />,
+  C3: <MiniIconC3 />,
+  C4: <MiniIconC4 />,
+  C5: <MiniIconC5 />,
+  C6: <MiniIconC6 />,
 };

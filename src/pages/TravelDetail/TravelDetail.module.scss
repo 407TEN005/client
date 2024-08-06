@@ -84,11 +84,11 @@
       padding: 10px;
     }
   }
+}
 
-  .familyMemberName {
-    @include caption1($size: 10px, $color: white);
-    margin-top: 8px;
-  }
+.familyMemberName {
+  @include caption1($size: 10px, $color: white);
+  margin-top: 8px;
 }
 
 .commandmentListContainer {
@@ -126,4 +126,8 @@
 
 .button {
   border: 1px solid $p300;
+}
+
+.familyWrapper + .familyWrapper {
+  margin-left: 10px;
 }

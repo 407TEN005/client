@@ -1,28 +1,77 @@
-.mainWrapper {
-  height: 100%;
+.sideBar {
+  width: 231px;
+  height: 812px;
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  border-radius: 20px 0 0 0;
+
+  padding: 32px 0 0 20px;
+
+  .sideBarHeader {
+    @include flex(center, flex-start);
+
+    .sideBarIcon {
+      @include flex(center, center);
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      border: 1px solid $gray50;
+      background-color: $gray10;
+      margin-right: 12px;
+    }
+
+    .sideBarFamily {
+      .sideBarRole {
+        @include Body2($color: $gray500);
+        margin-bottom: 2px;
+      }
+
+      .sideBarDescription {
+        @include caption1($size: 12px, $color: $gray200);
+      }
+    }
+  }
+
+  .sideBarTest {
+    @include flex(center, center);
+    width: 172px;
+    box-shadow: 0 0 0 1px $gray50 inset;
+    border-radius: 99px;
+    cursor: pointer;
+    margin-top: 32px;
+    margin-left: 9.5px;
+
+    p {
+      @include SubHeading3($color: $gray200);
+      padding: 8px;
+    }
+  }
+
+  .logout {
+    cursor: pointer;
+    position: absolute;
+    bottom: 32px;
+    right: 20px;
+
+    @include flex(center, flex-end);
+
+    p {
+      @include SubHeading2($color: $gray300);
+      margin-left: 8px;
+    }
+  }
 }
 
 .wrapper {
   width: 100%;
-  min-height: 812px;
+  height: 812px;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   background-color: $gray10;
-
   position: relative;
-
-  .plusButton {
-    @include flex(center, center);
-
-    width: 48px;
-    height: 48px;
-    background-color: $main01;
-    border-radius: 99px;
-
-    position: absolute;
-    bottom: 36px;
-    right: 20px;
-    cursor: pointer;
-  }
 
   .headline {
     @include flex(center, flex-start);
@@ -49,7 +98,7 @@
 
       position: relative;
 
-      svg {
+      img {
         border-radius: 12px 0 0 12px;
       }
 
@@ -124,4 +173,25 @@
   .card + .card {
     margin-top: 12px;
   }
+
+  .buttonWrapper {
+    @include flex(center, flex-end);
+    padding: 84px 20px 36px 0;
+
+    .plusButton {
+      @include flex(center, center);
+
+      width: 48px;
+      height: 48px;
+      background-color: $main01;
+      border-radius: 99px;
+
+      cursor: pointer;
+    }
+  }
+}
+
+.open {
+  overflow-y: hidden;
+  filter: brightness(50%);
 }

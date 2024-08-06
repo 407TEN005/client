@@ -102,23 +102,26 @@ export { ReactComponent as AnalysisImg } from './sample_analysis.svg';
 export { ReactComponent as EmptyRoom } from './empty_room_img.svg';
 export { ReactComponent as IconCallendar } from './icon_callendar.svg';
 export { ReactComponent as IconCrown } from './icon_crown.svg';
+export { ReactComponent as PlusWhite } from './plus_white.svg';
 
 // ? 404 페이지
 export { ReactComponent as Error404 } from './error_404.svg';
 
 // ? 여행방 썸네일
-export { ReactComponent as Thumbnail1 } from './travel_room_thumbnail1.svg';
-export { ReactComponent as Thumbnail2 } from './travel_room_thumbnail2.svg';
-export { ReactComponent as Thumbnail3 } from './travel_room_thumbnail3.svg';
-export { ReactComponent as Thumbnail4 } from './travel_room_thumbnail4.svg';
-export { ReactComponent as Thumbnail5 } from './travel_room_thumbnail5.svg';
-export { ReactComponent as Thumbnail6 } from './travel_room_thumbnail6.svg';
-
-export { ReactComponent as CardThumbnail1 } from './card_thumbnail1.svg';
-export { ReactComponent as CardThumbnail2 } from './card_thumbnail2.svg';
-export { ReactComponent as CardThumbnail3 } from './card_thumbnail3.svg';
-export { ReactComponent as CardThumbnail4 } from './card_thumbnail4.svg';
-export { ReactComponent as CardThumbnail5 } from './card_thumbnail5.svg';
-export { ReactComponent as CardThumbnail6 } from './card_thumbnail6.svg';
-
 export { ReactComponent as UserCount } from './user_count.svg';
+
+export { ReactComponent as MiniIconC1 } from './mini_icon_c1.svg';
+export { ReactComponent as MiniIconC2 } from './mini_icon_c2.svg';
+export { ReactComponent as MiniIconC3 } from './mini_icon_c3.svg';
+export { ReactComponent as MiniIconC4 } from './mini_icon_c4.svg';
+export { ReactComponent as MiniIconC5 } from './mini_icon_c5.svg';
+export { ReactComponent as MiniIconC6 } from './mini_icon_c6.svg';
+
+export { ReactComponent as MiniIconP1 } from './mini_icon_p1.svg';
+export { ReactComponent as MiniIconP2 } from './mini_icon_p2.svg';
+export { ReactComponent as MiniIconP3 } from './mini_icon_p3.svg';
+export { ReactComponent as MiniIconP4 } from './mini_icon_p4.svg';
+export { ReactComponent as MiniIconP5 } from './mini_icon_p5.svg';
+export { ReactComponent as MiniIconP6 } from './mini_icon_p6.svg';
+
+export { ReactComponent as Logout } from './logout.svg';
