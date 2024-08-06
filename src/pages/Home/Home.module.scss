@@ -1,28 +1,11 @@
-.mainWrapper {
-  height: 100%;
-}
-
 .wrapper {
   width: 100%;
-  min-height: 812px;
+  height: 812px;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   background-color: $gray10;
-
   position: relative;
-
-  .plusButton {
-    @include flex(center, center);
-
-    width: 48px;
-    height: 48px;
-    background-color: $main01;
-    border-radius: 99px;
-
-    position: absolute;
-    bottom: 36px;
-    right: 20px;
-    cursor: pointer;
-  }
 
   .headline {
     @include flex(center, flex-start);
@@ -123,5 +106,21 @@
 
   .card + .card {
     margin-top: 12px;
+  }
+
+  .buttonWrapper {
+    @include flex(center, flex-end);
+    padding: 84px 20px 36px 0;
+
+    .plusButton {
+      @include flex(center, center);
+
+      width: 48px;
+      height: 48px;
+      background-color: $main01;
+      border-radius: 99px;
+
+      cursor: pointer;
+    }
   }
 }

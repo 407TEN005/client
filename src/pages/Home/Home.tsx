@@ -13,6 +13,10 @@ import TRAVEL_ROOM_THUMBNAIL3 from '@images/travel_room_thumbnail3.png';
 import TRAVEL_ROOM_THUMBNAIL4 from '@images/travel_room_thumbnail4.png';
 import TRAVEL_ROOM_THUMBNAIL5 from '@images/travel_room_thumbnail5.png';
 import TRAVEL_ROOM_THUMBNAIL6 from '@images/travel_room_thumbnail6.png';
+import { useEffect } from 'react';
+import { tentenInstance } from '@src/constants/axios';
+import userDataAtom from '@src/recoil/userData/atom';
+import { useSetRecoilState } from 'recoil';
 
 const THUMBNAIL_IMAGES = [
   TRAVEL_ROOM_THUMBNAIL1,
@@ -24,6 +28,7 @@ const THUMBNAIL_IMAGES = [
 ];
 
 const Home = () => {
+  const setUserData = useSetRecoilState(userDataAtom);
   const { travelRoomData } = useGetTravelRoom();
 
   const navigate = useNavigate();
@@ -31,6 +36,20 @@ const Home = () => {
   const handleCreateTravel = () => {
     navigate(ROUTES.createTravel);
   };
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await tentenInstance.get('/users/current');
+
+        setUserData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   // ? 여행 방이 없을 때
   if (!travelRoomData || travelRoomData.length < 1) {
@@ -41,9 +60,7 @@ const Home = () => {
   return (
     <div className={styles.wrapper}>
       <MainHeader />
-      <div className={styles.plusButton} onClick={handleCreateTravel}>
-        <Plus />
-      </div>
+
       <div className={styles.headline}>
         <p>우리 가족 여행 방</p>
       </div>
@@ -95,6 +112,12 @@ const Home = () => {
             </div>
           );
         })}
+
+      <div className={styles.buttonWrapper}>
+        <div className={styles.plusButton} onClick={handleCreateTravel}>
+          <Plus />
+        </div>
+      </div>
     </div>
   );
 };

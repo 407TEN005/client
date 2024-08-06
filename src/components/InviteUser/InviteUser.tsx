@@ -1,4 +1,4 @@
-import { Exit, KakaoLogo, UserCount } from '@images/index';
+import { Exit, IconCrown, KakaoLogo, UserCount } from '@images/index';
 import styles from './InviteUser.module.scss';
 
 import CARD_THUMBNAIL1 from '@images/card_thumbnail1.png';
@@ -9,6 +9,9 @@ import CARD_THUMBNAIL5 from '@images/card_thumbnail5.png';
 import CARD_THUMBNAIL6 from '@images/card_thumbnail6.png';
 import { format } from 'date-fns';
 import { dday } from '@utils/dateUtil';
+import { useRecoilValue } from 'recoil';
+import { userTravelTypeSelector } from '@recoil/userData/selector';
+import { TRAVEL_ICON, TravelType } from '@src/constants/testResult';
 
 const CARD_THUMBNAIL_LIST = [
   CARD_THUMBNAIL1,
@@ -34,6 +37,8 @@ const InviteUser = ({
   maxHeadcount = '',
   handleGoTravelRoom,
 }: InviteUserProps) => {
+  const userTravelType = useRecoilValue(userTravelTypeSelector);
+
   const getRandomInt = () => {
     return Math.floor(Math.random() * 6);
   };
@@ -53,7 +58,8 @@ const InviteUser = ({
             <div className={styles.dday}>{dday(startDate)}</div>
             <img src={CARD_THUMBNAIL_LIST[getRandomInt()]} />
           </div>
-          <div className={styles.icon}></div>
+          <div className={styles.badge}>{TRAVEL_ICON[userTravelType as TravelType]}</div>
+          <IconCrown className={styles.icon} />
           <div className={styles.roomName}>{roomName}</div>
           <div className={styles.date}>
             {format(startDate, 'yyyy.MM.dd')} ~ {format(endDate, 'yyyy.MM.dd')}

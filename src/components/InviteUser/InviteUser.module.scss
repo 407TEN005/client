@@ -58,6 +58,24 @@
         }
       }
 
+      .badge {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        background-color: white;
+        position: absolute;
+        top: 178px;
+        left: 16px;
+        background-color: $p50;
+        border: 1px solid $p500;
+      }
+
+      .icon {
+        position: absolute;
+        top: 178px;
+        left: 48px;
+      }
+
       .roomName {
         @include SubHeading2($color: $gray500);
         padding: 0 20px;
