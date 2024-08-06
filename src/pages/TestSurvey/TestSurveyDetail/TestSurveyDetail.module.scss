@@ -33,7 +33,7 @@
         margin-bottom: 48px;
 
         p {
-          @include Heading2;
+          @include Heading2($color: $gray500);
         }
       }
 
