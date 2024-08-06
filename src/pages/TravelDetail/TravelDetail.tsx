@@ -4,14 +4,22 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Analysis from '@components/Analysis';
 import { EmptyRoom, IconCallendar, IconCrown, LeftArrowWhite } from '@images/index';
-import useGetTravelRoomDetail from '@apis/useGetTravelRoomDetail';
-import { differenceInDays, format } from 'date-fns';
+import useGetTravelRoomDetail, { FamilyRole } from '@apis/useGetTravelRoomDetail';
+import { format } from 'date-fns';
 import { TRAVEL_ICON, TravelType } from '@constants/testResult';
 import ROUTES from '@constants/routes';
+import { dday } from '@utils/dateUtil';
 
 const COMMANDMENTS_INFO_MESSAGE = [
   '함께하는 가족 구성원이 모두 모였다면 \n이번 여행을 위한 10계명을 생성해 보세요!',
 ];
+
+const FAMILY_DESCRIPTION: Record<FamilyRole, string> = {
+  DAD: '아빠',
+  MOM: '엄마',
+  SON: '아들',
+  DAUGHTER: '딸',
+};
 
 const TravelDetail = () => {
   const { travelId } = useParams();
@@ -52,9 +60,6 @@ const TravelDetail = () => {
     ));
   };
 
-  const today = format(new Date(), 'yyyy-MM-dd');
-  const parsedStartedDate = differenceInDays(startDate, today);
-
   const hasCommandment = commandments && commandments.length > 1;
 
   return (
@@ -65,7 +70,7 @@ const TravelDetail = () => {
         </div>
       </div>
       <div className={styles.titleContainer}>
-        <div className={styles.dday}>D-{parsedStartedDate}</div>
+        <div className={styles.dday}>{dday(startDate)}</div>
         <div className={styles.title}>{roomName}</div>
         <div className={styles.travelDate}>
           <IconCallendar />
@@ -75,7 +80,7 @@ const TravelDetail = () => {
 
       <div className={styles.familyMemberTitle}>함께하는 우리 가족</div>
       <div className={styles.familyMemberContainer}>
-        {users.map(({ admin, id, travelType }) => (
+        {users.map(({ admin, id, travelType, familyRole }) => (
           <div key={id} className={styles.familyWrapper}>
             <div
               key={id}
@@ -85,7 +90,7 @@ const TravelDetail = () => {
               {admin && <IconCrown className={styles.icon} />}
               <div className={styles.travelIcon}>{TRAVEL_ICON[travelType as TravelType]}</div>
             </div>
-            <div className={styles.familyMemberName}>테스트</div>
+            <div className={styles.familyMemberName}>{FAMILY_DESCRIPTION[familyRole]}</div>
           </div>
         ))}
       </div>

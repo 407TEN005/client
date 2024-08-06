@@ -9,6 +9,7 @@ interface TravelRoomData {
   startDate: string;
   endDate: string;
   existCommandments: boolean;
+  admin: boolean;
 }
 
 const useGetTravelRoom = () => {

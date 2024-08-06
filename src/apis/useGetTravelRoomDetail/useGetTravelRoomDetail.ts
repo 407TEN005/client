@@ -1,6 +1,8 @@
 import { tentenInstance } from '@constants/axios';
 import { useState } from 'react';
 
+export type FamilyRole = 'DAD' | 'MOM' | 'SON' | 'DAUGHTER';
+
 interface TravelRoomData {
   id: number;
   headCount: number;
@@ -12,6 +14,7 @@ interface TravelRoomData {
     id: number;
     admin: boolean;
     travelType: string;
+    familyRole: FamilyRole;
   }[];
   commandments: string[];
 }

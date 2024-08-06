@@ -6,7 +6,7 @@ interface CreateRoomData {
   roomName?: string;
   startDate?: string;
   endDate?: string;
-  maxHeadCount?: number;
+  maxHeadcount?: number;
 }
 
 const useCreateTravelRoom = () => {
