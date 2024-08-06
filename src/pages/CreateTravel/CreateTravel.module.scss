@@ -1,3 +1,19 @@
+.header {
+  @include flex(center, space-between);
+  @include SubHeading2($color: $black);
+
+  width: 100%;
+  height: 68px;
+
+  padding: 24px 130px 20px 20px;
+
+  .goBack {
+    @include flex(center, center);
+
+    cursor: pointer;
+  }
+}
+
 .wrapper {
   @include flex(center, space-between, column);
 
