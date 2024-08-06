@@ -3,7 +3,7 @@ import Button from '@components/Button';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Analysis from '@components/Analysis';
-import { EmptyRoom, IconCallendar, IconCrown, LeftArrowWhite } from '@images/index';
+import { EmptyRoom, IconCallendar, IconCrown, LeftArrowWhite, PlusWhite } from '@images/index';
 import useGetTravelRoomDetail, { FamilyRole } from '@apis/useGetTravelRoomDetail';
 import { format } from 'date-fns';
 import { TRAVEL_ICON, TravelType } from '@constants/testResult';
@@ -37,7 +37,8 @@ const TravelDetail = () => {
     return null;
   }
 
-  const { startDate, endDate, roomName, users, commandments } = travelRoomData;
+  const { startDate, endDate, roomName, users, commandments, headcount, maxHeadcount } =
+    travelRoomData;
 
   const handleOpenAnalysis = () => {
     setIsAnalysisOpen(true);
@@ -93,6 +94,12 @@ const TravelDetail = () => {
             <div className={styles.familyMemberName}>{FAMILY_DESCRIPTION[familyRole]}</div>
           </div>
         ))}
+        {maxHeadcount > headcount && (
+          <div className={styles.familyWrapper}>
+            <PlusWhite />
+            <div className={styles.familyMemberName}>초대</div>
+          </div>
+        )}
       </div>
       <div className={styles.commandmentListContainer}>
         <div className={styles.commandmentListTitle}>서로를 배려하는 여행 10계명</div>

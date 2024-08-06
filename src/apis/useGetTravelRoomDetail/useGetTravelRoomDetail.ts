@@ -5,8 +5,8 @@ export type FamilyRole = 'DAD' | 'MOM' | 'SON' | 'DAUGHTER';
 
 interface TravelRoomData {
   id: number;
-  headCount: number;
-  maxHeadCount: number;
+  headcount: number;
+  maxHeadcount: number;
   roomName: string;
   startDate: string;
   endDate: string;

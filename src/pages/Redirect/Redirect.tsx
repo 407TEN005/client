@@ -22,9 +22,9 @@ const Redirect = () => {
       try {
         const response = await tentenInstance.get('/users/current');
 
-        const { travelTypes } = response.data;
+        const { status } = response.data;
 
-        if (travelTypes && travelTypes.length < 1) {
+        if (status === 'NEW') {
           window.location.href = `${HOME_URL}${ROUTES.authTest}`;
         } else {
           window.location.href = `${HOME_URL}${ROUTES.travel}`;

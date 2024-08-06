@@ -1,6 +1,4 @@
 import { tentenInstance } from '@constants/axios';
-import ROUTES from '@constants/routes';
-import { useNavigate } from 'react-router-dom';
 
 interface CreateRoomData {
   roomName?: string;
@@ -9,18 +7,18 @@ interface CreateRoomData {
   maxHeadcount?: number;
 }
 
-const useCreateTravelRoom = () => {
-  const navigate = useNavigate();
-
+const useCreateTravelRoom = (
+  setRoomId: React.Dispatch<React.SetStateAction<string | undefined>>,
+) => {
   const fetchCreateTravelRoom = async (createRoomData: CreateRoomData) => {
     try {
       const response = await tentenInstance.post(`/travel-rooms`, createRoomData);
 
-      console.log('response :', response.data);
+      const { roomId } = response.data;
+
+      setRoomId(roomId);
     } catch (error) {
       console.error(error);
-    } finally {
-      navigate(ROUTES.travel);
     }
   };
 

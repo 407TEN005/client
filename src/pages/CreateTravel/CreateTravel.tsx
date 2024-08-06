@@ -13,6 +13,7 @@ import 'react-day-picker/lib/style.css';
 import { LeftArrow } from '@images/index';
 import { useNavigate } from 'react-router-dom';
 import ROUTES from '@constants/routes';
+import InviteUser from '@components/InviteUser';
 
 // ? 여행 이름 constant
 const TRAVEL_ROOM_NAME_PLACEHOLDER = 'ex. 우리 가족 첫 일본 여행';
@@ -28,6 +29,8 @@ const TRAVEL_DATE_ERROR_MESSAGE = '가는 날 이후 날짜를 선택해주세�
 const CreateTravel = () => {
   const navigate = useNavigate();
 
+  const [roomId, setRoomId] = useState<string | undefined>(undefined);
+
   const [roomName, setRoomName] = useState<string | undefined>(undefined);
   const [roomNameErrorMessage, setRoomNameErrorMessage] = useState<string | undefined>(undefined);
 
@@ -38,7 +41,7 @@ const CreateTravel = () => {
   const { date: endDate, handleDateChange: handleEndDateChange } = useDayPicker();
   const [dateErrorMessage, setDateErrorMessage] = useState<string | undefined>();
 
-  const { fetchCreateTravelRoom } = useCreateTravelRoom();
+  const { fetchCreateTravelRoom } = useCreateTravelRoom(setRoomId);
 
   const handleRoomNameChange = (value: string) => {
     setRoomName(value);
@@ -59,6 +62,10 @@ const CreateTravel = () => {
 
   const handleGoHome = () => {
     navigate(ROUTES.travel);
+  };
+
+  const handleGoTravelRoom = () => {
+    navigate(`/travel/${roomId}`);
   };
 
   const isButtonDisabled =
@@ -88,6 +95,18 @@ const CreateTravel = () => {
       setCountErrorMessage(undefined);
     }
   }, [count]);
+
+  if (roomId) {
+    return (
+      <InviteUser
+        handleGoTravelRoom={handleGoTravelRoom}
+        roomName={roomName}
+        startDate={startDate}
+        endDate={endDate}
+        maxHeadcount={count}
+      />
+    );
+  }
 
   return (
     <>

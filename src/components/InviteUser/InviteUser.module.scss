@@ -1,0 +1,97 @@
+.wrapper {
+  width: 100%;
+  height: 812px;
+
+  .header {
+    @include flex(center, flex-start);
+    width: 100%;
+    height: 68px;
+    padding: 24px 0 20px 20px;
+    margin-bottom: 53px;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  .content {
+    @include flex(center, flex-start, column);
+
+    .title {
+      @include Heading2($color: $gray500);
+      margin-bottom: 12px;
+    }
+
+    .subTitle {
+      @include Body1($color: $gray300);
+    }
+
+    .subTitle + .subTitle {
+      margin-bottom: 40px;
+    }
+
+    .card {
+      width: 234px;
+      height: 325px;
+      border-radius: 18px;
+      box-shadow: 6px 4px 20px 0 rgba(78, 79, 92, 0.15);
+      margin-bottom: 100px;
+      position: relative;
+
+      .image {
+        position: relative;
+        margin-bottom: 28px;
+
+        .dday {
+          @include caption1($size: 12px, $weight: 600, $color: $p500);
+          text-align: center;
+          padding: 0.5px 8px;
+          background-color: $p50;
+          border-radius: 6px;
+          position: absolute;
+          top: 14px;
+          left: 14px;
+        }
+
+        img {
+          border-radius: 18px 18px 0 0;
+        }
+      }
+
+      .roomName {
+        @include SubHeading2($color: $gray500);
+        padding: 0 20px;
+      }
+
+      .date {
+        @include caption1($size: 12px, $color: $gray100);
+        padding: 0 20px;
+        margin-bottom: 20px;
+      }
+
+      .headCount {
+        @include flex(center, flex-end);
+        @include caption1($size: 12px, $color: $gray50);
+        padding: 0 20px;
+      }
+    }
+
+    .invite {
+      @include flex(center, center);
+      @include SubHeading3($color: $black);
+      background-color: #fee500;
+      padding: 12px 28px;
+      border-radius: 46px;
+      cursor: pointer;
+
+      p {
+        @include flex(center, center);
+        padding: 0 12px;
+      }
+
+      svg {
+        margin-right: auto;
+      }
+    }
+  }
+}
