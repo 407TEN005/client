@@ -1,29 +1,26 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.scss';
 import { format } from 'date-fns';
-import {
-  Plus,
-  CardThumbnail1,
-  CardThumbnail2,
-  CardThumbnail3,
-  CardThumbnail4,
-  CardThumbnail5,
-  CardThumbnail6,
-  UserCount,
-} from '@images/index';
+import { Plus, UserCount } from '@images/index';
 import NoTravelRoom from './NoTravelRoom';
 import useGetTravelRoom from '@apis/useGetTravelRoom';
 import ROUTES from '@constants/routes';
 import MainHeader from '@components/MainHeader';
 import { dday } from '@utils/dateUtil';
+import TRAVEL_ROOM_THUMBNAIL1 from '../../assets/images/travel_room_thumbnail1.png';
+import TRAVEL_ROOM_THUMBNAIL2 from '../../assets/images/travel_room_thumbnail2.png';
+import TRAVEL_ROOM_THUMBNAIL3 from '../../assets/images/travel_room_thumbnail3.png';
+import TRAVEL_ROOM_THUMBNAIL4 from '../../assets/images/travel_room_thumbnail4.png';
+import TRAVEL_ROOM_THUMBNAIL5 from '../../assets/images/travel_room_thumbnail5.png';
+import TRAVEL_ROOM_THUMBNAIL6 from '../../assets/images/travel_room_thumbnail6.png';
 
-const CARD_THUMBNAIL_IMAGE = [
-  <CardThumbnail1 />,
-  <CardThumbnail2 />,
-  <CardThumbnail3 />,
-  <CardThumbnail4 />,
-  <CardThumbnail5 />,
-  <CardThumbnail6 />,
+const THUMBNAIL_IMAGES = [
+  TRAVEL_ROOM_THUMBNAIL1,
+  TRAVEL_ROOM_THUMBNAIL2,
+  TRAVEL_ROOM_THUMBNAIL3,
+  TRAVEL_ROOM_THUMBNAIL4,
+  TRAVEL_ROOM_THUMBNAIL5,
+  TRAVEL_ROOM_THUMBNAIL6,
 ];
 
 const Home = () => {
@@ -70,7 +67,7 @@ const Home = () => {
           return (
             <div key={id} className={styles.card} onClick={handleNavigateTravelRoom}>
               <div className={styles.image}>
-                {CARD_THUMBNAIL_IMAGE[index % 6]}
+                <img src={THUMBNAIL_IMAGES[index % 6]} />
                 {isAdmin && <div className={styles.admin}>방장</div>}
               </div>
               <div className={styles.detail}>
