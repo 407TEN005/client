@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 interface TravelRoomData {
   id: number;
-  headCount: number;
+  headcount: number;
   maxHeadcount: number;
   roomName: string;
   startDate: string;

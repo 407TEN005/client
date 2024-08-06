@@ -105,3 +105,20 @@ export { ReactComponent as IconCrown } from './icon_crown.svg';
 
 // ? 404 페이지
 export { ReactComponent as Error404 } from './error_404.svg';
+
+// ? 여행방 썸네일
+export { ReactComponent as Thumbnail1 } from './travel_room_thumbnail1.svg';
+export { ReactComponent as Thumbnail2 } from './travel_room_thumbnail2.svg';
+export { ReactComponent as Thumbnail3 } from './travel_room_thumbnail3.svg';
+export { ReactComponent as Thumbnail4 } from './travel_room_thumbnail4.svg';
+export { ReactComponent as Thumbnail5 } from './travel_room_thumbnail5.svg';
+export { ReactComponent as Thumbnail6 } from './travel_room_thumbnail6.svg';
+
+export { ReactComponent as CardThumbnail1 } from './card_thumbnail1.svg';
+export { ReactComponent as CardThumbnail2 } from './card_thumbnail2.svg';
+export { ReactComponent as CardThumbnail3 } from './card_thumbnail3.svg';
+export { ReactComponent as CardThumbnail4 } from './card_thumbnail4.svg';
+export { ReactComponent as CardThumbnail5 } from './card_thumbnail5.svg';
+export { ReactComponent as CardThumbnail6 } from './card_thumbnail6.svg';
+
+export { ReactComponent as UserCount } from './user_count.svg';
