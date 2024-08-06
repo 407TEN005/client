@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { tentenInstance } from '@constants/axios';
 import userDataAtom from '@recoil/userData';
 import { useRecoilState } from 'recoil';
-import { TRAVEL_MINI_ICON, TravelType } from '@src/constants/testResult';
+import { TRAVEL_MINI_ICON, TravelType } from '@constants/testResult';
 
 const MainHeader = ({ handleOpen }: { handleOpen: () => void }) => {
   const [userData, setUserData] = useRecoilState(userDataAtom);

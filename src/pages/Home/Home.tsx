@@ -15,8 +15,9 @@ import TRAVEL_ROOM_THUMBNAIL5 from '@images/travel_room_thumbnail5.png';
 import TRAVEL_ROOM_THUMBNAIL6 from '@images/travel_room_thumbnail6.png';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import userDataAtom from '@src/recoil/userData/atom';
-import { TRAVEL_DESCRIPTION, TRAVEL_ICON, TravelType } from '@src/constants/testResult';
+import userDataAtom from '@recoil/userData';
+import { TRAVEL_DESCRIPTION, TRAVEL_ICON, TravelType } from '@constants/testResult';
+import authUtil from '@utils/authUtil';
 
 const THUMBNAIL_IMAGES = [
   TRAVEL_ROOM_THUMBNAIL1,
@@ -49,6 +50,11 @@ const Home = () => {
     }
   };
 
+  const handleLogout = () => {
+    authUtil.clearStorage();
+    navigate(ROUTES.login, { replace: true });
+  };
+
   return (
     <>
       {isOpen && (
@@ -67,7 +73,7 @@ const Home = () => {
           <div className={styles.sideBarTest}>
             <p>테스트 결과 보기</p>
           </div>
-          <div className={styles.logout}>
+          <div className={styles.logout} onClick={handleLogout}>
             <Logout />
             <p>로그아웃</p>
           </div>

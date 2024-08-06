@@ -1,4 +1,4 @@
-import { TravelType } from '@src/constants/testResult';
+import { TravelType } from '@constants/testResult';
 import { atom } from 'recoil';
 
 interface UserData {
