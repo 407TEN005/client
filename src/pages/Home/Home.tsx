@@ -1,12 +1,30 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.scss';
 import { format } from 'date-fns';
-import { CheckButton, Plus, TravelCardLogo } from '@images/index';
+import {
+  Plus,
+  CardThumbnail1,
+  CardThumbnail2,
+  CardThumbnail3,
+  CardThumbnail4,
+  CardThumbnail5,
+  CardThumbnail6,
+  UserCount,
+} from '@images/index';
 import NoTravelRoom from './NoTravelRoom';
 import useGetTravelRoom from '@apis/useGetTravelRoom';
 import ROUTES from '@constants/routes';
 import MainHeader from '@components/MainHeader';
 import { dday } from '@utils/dateUtil';
+
+const CARD_THUMBNAIL_IMAGE = [
+  <CardThumbnail1 />,
+  <CardThumbnail2 />,
+  <CardThumbnail3 />,
+  <CardThumbnail4 />,
+  <CardThumbnail5 />,
+  <CardThumbnail6 />,
+];
 
 const Home = () => {
   const { travelRoomData } = useGetTravelRoom();
@@ -24,7 +42,7 @@ const Home = () => {
 
   // ? 여행 방이 있을 때
   return (
-    <>
+    <div className={styles.mainWrapper}>
       <MainHeader />
       <div className={styles.wrapper}>
         <div className={styles.plusButton} onClick={handleCreateTravel}>
@@ -34,8 +52,9 @@ const Home = () => {
           <p>우리 가족 여행 방</p>
         </div>
         {travelRoomData &&
-          travelRoomData.map((data) => {
-            const { id, roomName, startDate, endDate, existCommandments } = data;
+          travelRoomData.map((data, index) => {
+            const { id, roomName, startDate, endDate, existCommandments, headcount, maxHeadcount } =
+              data;
 
             const handleNavigateTravelRoom = () => {
               navigate(`/travel/${id}`);
@@ -43,26 +62,26 @@ const Home = () => {
 
             return (
               <div key={id} className={styles.card} onClick={handleNavigateTravelRoom}>
-                <div className={styles.image}>
-                  <TravelCardLogo />
-                </div>
+                <div className={styles.image}>{CARD_THUMBNAIL_IMAGE[index % 6]}</div>
                 <div className={styles.detail}>
                   <div className={styles.travelDetail}>
-                    <div className={styles.dday}>{dday(startDate)}</div>
+                    <div className={styles.header}>
+                      <div className={styles.dday}>{dday(startDate)}</div>
+                      <div
+                        className={`${styles.existCommandments} ${existCommandments ? styles.exist : ''}`}
+                      >
+                        {existCommandments ? '10계명 생성 완료 ' : '10계명 생성 전'}
+                      </div>
+                    </div>
                     <div className={styles.roomName}>{roomName}</div>
                     <div className={styles.date}>
                       {format(startDate, 'yyyy.MM.dd')} ~ {format(endDate, 'yyyy.MM.dd')}
                     </div>
-                  </div>
-                  <div className={styles.existCommandments}>
-                    <div className={`${styles.button} ${existCommandments ? styles.selected : ''}`}>
-                      {existCommandments ? (
-                        <p>
-                          10계명 생성 완료 <CheckButton />
-                        </p>
-                      ) : (
-                        '10계명 생성 전'
-                      )}
+                    <div className={styles.headCount}>
+                      <UserCount />
+                      <p>
+                        {headcount}/{maxHeadcount}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -70,7 +89,7 @@ const Home = () => {
             );
           })}
       </div>
-    </>
+    </div>
   );
 };
 

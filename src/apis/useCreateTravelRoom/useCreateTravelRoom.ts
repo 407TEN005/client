@@ -14,7 +14,9 @@ const useCreateTravelRoom = () => {
 
   const fetchCreateTravelRoom = async (createRoomData: CreateRoomData) => {
     try {
-      await tentenInstance.post(`/travel-rooms`, createRoomData);
+      const response = await tentenInstance.post(`/travel-rooms`, createRoomData);
+
+      console.log('response :', response.data);
     } catch (error) {
       console.error(error);
     } finally {
