@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.scss';
-import { differenceInDays, format } from 'date-fns';
+import { format } from 'date-fns';
 import { CheckButton, Plus, TravelCardLogo } from '@images/index';
 import NoTravelRoom from './NoTravelRoom';
 import useGetTravelRoom from '@apis/useGetTravelRoom';
 import ROUTES from '@constants/routes';
 import MainHeader from '@components/MainHeader';
+import { dday } from '@utils/dateUtil';
 
 const Home = () => {
   const { travelRoomData } = useGetTravelRoom();
@@ -36,9 +37,6 @@ const Home = () => {
           travelRoomData.map((data) => {
             const { id, roomName, startDate, endDate, existCommandments } = data;
 
-            const today = format(new Date(), 'yyyy-MM-dd');
-            const parsedStartedDate = differenceInDays(startDate, today);
-
             const handleNavigateTravelRoom = () => {
               navigate(`/travel/${id}`);
             };
@@ -50,7 +48,7 @@ const Home = () => {
                 </div>
                 <div className={styles.detail}>
                   <div className={styles.travelDetail}>
-                    <div className={styles.dday}>D-{parsedStartedDate}</div>
+                    <div className={styles.dday}>{dday(startDate)}</div>
                     <div className={styles.roomName}>{roomName}</div>
                     <div className={styles.date}>
                       {format(startDate, 'yyyy.MM.dd')} ~ {format(endDate, 'yyyy.MM.dd')}
