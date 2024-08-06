@@ -45,8 +45,6 @@ const CreateTravel = () => {
   };
 
   const handleCountChange = (value: string) => {
-    console.log(value);
-
     setCount(value);
   };
 
@@ -55,7 +53,7 @@ const CreateTravel = () => {
       roomName,
       startDate,
       endDate,
-      maxHeadCount: Number(count),
+      maxHeadcount: Number(count),
     });
   };
 
