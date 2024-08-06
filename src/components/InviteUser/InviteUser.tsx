@@ -11,7 +11,7 @@ import { format } from 'date-fns';
 import { dday } from '@utils/dateUtil';
 import { useRecoilValue } from 'recoil';
 import { userTravelTypeSelector } from '@recoil/userData/selector';
-import { TRAVEL_ICON, TravelType } from '@src/constants/testResult';
+import { TRAVEL_MINI_ICON, TravelType } from '@src/constants/testResult';
 
 const CARD_THUMBNAIL_LIST = [
   CARD_THUMBNAIL1,
@@ -58,7 +58,7 @@ const InviteUser = ({
             <div className={styles.dday}>{dday(startDate)}</div>
             <img src={CARD_THUMBNAIL_LIST[getRandomInt()]} />
           </div>
-          <div className={styles.badge}>{TRAVEL_ICON[userTravelType as TravelType]}</div>
+          <div className={styles.badge}>{TRAVEL_MINI_ICON[userTravelType as TravelType]}</div>
           <IconCrown className={styles.icon} />
           <div className={styles.roomName}>{roomName}</div>
           <div className={styles.date}>
