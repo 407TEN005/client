@@ -64,7 +64,7 @@ const Home = () => {
               {TRAVEL_ICON[userData?.travelType as TravelType]}
             </div>
             <div className={styles.sideBarFamily}>
-              <div className={styles.sideBarRole}>familyRole</div>
+              <div className={styles.sideBarRole}>{userData?.familyRole}</div>
               <div className={styles.sideBarDescription}>
                 {TRAVEL_DESCRIPTION[userData?.travelType as TravelType]}
               </div>
@@ -81,6 +81,7 @@ const Home = () => {
       )}
       {!travelRoomData || travelRoomData.length < 1 ? (
         <NoTravelRoom
+          isOpen={isOpen}
           onClick={handleCreateTravel}
           handleOpen={handleOpen}
           handleClose={handleClose}

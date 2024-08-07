@@ -59,6 +59,7 @@
       }
 
       .badge {
+        @include flex(center, center);
         width: 44px;
         height: 44px;
         border-radius: 999px;

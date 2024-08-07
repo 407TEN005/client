@@ -21,3 +21,8 @@
     margin-bottom: 28px;
   }
 }
+
+.open {
+  overflow-y: hidden;
+  filter: brightness(50%);
+}
