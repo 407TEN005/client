@@ -9,7 +9,7 @@ const getAccessToken = () => {
 };
 
 const getRoomId = () => {
-  return localStorage.getRoomId(ROOM_ID);
+  return localStorage.getItem(ROOM_ID);
 };
 
 const setTokens = ({ accessToken }: { accessToken: string }) => {
