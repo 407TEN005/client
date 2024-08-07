@@ -80,10 +80,10 @@ export const router = createBrowserRouter([
     path: '',
     Component: Layout,
     children: [
-      {
-        index: true,
-        Component: () => <Navigate to={ROUTES.travel} />,
-      },
+      // {
+      //   index: true,
+      //   Component: () => <Navigate to={ROUTES.travel} />,
+      // },
       {
         Component: () => AuthLayout({ shouldProtect: false }),
         children: nonLoginRouters,
