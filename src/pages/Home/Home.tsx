@@ -18,6 +18,7 @@ import { useRecoilValue } from 'recoil';
 import userDataAtom from '@recoil/userData';
 import { TRAVEL_DESCRIPTION, TRAVEL_ICON, TravelType } from '@constants/testResult';
 import authUtil from '@utils/authUtil';
+import { tentenInstance } from '@src/constants/axios';
 
 const THUMBNAIL_IMAGES = [
   TRAVEL_ROOM_THUMBNAIL1,
@@ -58,6 +59,23 @@ const Home = () => {
   useEffect(() => {
     if (userData?.status === 'NEW') {
       navigate(ROUTES.authTest);
+    }
+  }, []);
+
+  useEffect(() => {
+    const roomId = authUtil.getRoomId();
+
+    const joinNewTravelRoom = async () => {
+      try {
+        await tentenInstance.post(`/travel-rooms/${roomId}`);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (roomId) {
+      joinNewTravelRoom();
+      authUtil.clearRoomId();
     }
   }, []);
 

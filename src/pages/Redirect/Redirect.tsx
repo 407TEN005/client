@@ -14,8 +14,6 @@ const Redirect = () => {
 
     const accessToken = params.get('accessToken');
 
-    const roomId = authUtil.getRoomId();
-
     if (accessToken) {
       authUtil.setTokens({ accessToken });
     }
@@ -35,21 +33,6 @@ const Redirect = () => {
         console.error(error);
       }
     };
-
-    const joinNewTravelRoom = async () => {
-      try {
-        await tentenInstance.post(`/travel-rooms/${roomId}`);
-
-        console.log('fetch 1');
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    if (roomId) {
-      joinNewTravelRoom();
-      authUtil.clearRoomId();
-    }
 
     fetchUserData();
   }, [navigate]);
