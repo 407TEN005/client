@@ -1,12 +1,11 @@
 import styles from './AuthTestResult.module.scss';
 import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import testResponseAtom from '@recoil/testResponse';
 import ROUTES from '@constants/routes';
 import { TRAVEL_TYPE, TravelType } from '@constants/testResult';
 import { splitTextWithLineBreaks } from '@utils/textUtil';
-import commandmentAtom from '@recoil/commandment';
 import { useEffect } from 'react';
 import authUtil from '@src/utils/authUtil';
 import { tentenInstance } from '@src/constants/axios';
@@ -15,17 +14,9 @@ const AuthTestResult = () => {
   const navigate = useNavigate();
   const testResult = useRecoilValue(testResponseAtom);
 
-  const resetCommandment = useResetRecoilState(commandmentAtom);
-
-  const roomId = authUtil.getRoomId();
-
   useEffect(() => {
-    return () => {
-      resetCommandment();
-    };
-  }, [resetCommandment]);
+    const roomId = authUtil.getRoomId();
 
-  useEffect(() => {
     const joinNewTravelRoom = async () => {
       try {
         await tentenInstance.post(`/travel-rooms/${roomId}`);
@@ -37,7 +28,7 @@ const AuthTestResult = () => {
     };
 
     joinNewTravelRoom();
-  }, []);
+  }, [navigate]);
 
   if (!testResult) {
     return null;
