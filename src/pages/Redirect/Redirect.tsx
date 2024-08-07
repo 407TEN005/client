@@ -48,6 +48,7 @@ const Redirect = () => {
 
     if (roomId) {
       joinNewTravelRoom();
+      authUtil.clearRoomId();
     }
 
     fetchUserData();

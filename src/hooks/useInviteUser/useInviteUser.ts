@@ -9,7 +9,7 @@ const useInviteUser = ({
   roomName?: string;
   userName?: string;
 }) => {
-  const sendDatas = {
+  const sendData = {
     objectType: 'feed',
     content: {
       title: `${userName}님이 '${roomName}' 여행방에 초대했어요 !`,
@@ -23,7 +23,7 @@ const useInviteUser = ({
   };
 
   const handleInvite = () => {
-    kakao.Share.sendDefault(sendDatas);
+    kakao.Share.sendDefault(sendData);
   };
 
   return { handleInvite };

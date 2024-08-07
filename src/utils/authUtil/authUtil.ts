@@ -20,6 +20,10 @@ const setRoomId = ({ roomId }: { roomId: string }) => {
   localStorage.setItem(ROOM_ID, roomId);
 };
 
+const clearRoomId = () => {
+  localStorage.removeItem(ROOM_ID);
+};
+
 const clearStorage = () => {
   localStorage.clear();
 };
@@ -31,6 +35,7 @@ const authUtil = {
   clearStorage,
   getRoomId,
   getAccessToken,
+  clearRoomId,
 };
 
 export default authUtil;
