@@ -16,7 +16,7 @@ const Redirect = () => {
 
     const roomId = authUtil.getRoomId();
 
-    console.log('roomId : ', roomId);
+    console.log('roomId : 2', roomId);
 
     if (accessToken) {
       authUtil.setTokens({ accessToken });
