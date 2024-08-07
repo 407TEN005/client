@@ -13,10 +13,6 @@ import useInviteUser from '@src/hooks/useInviteUser';
 import { useRecoilValue } from 'recoil';
 import userDataAtom from '@src/recoil/userData/atom';
 
-const COMMANDMENTS_INFO_MESSAGE = [
-  '함께하는 가족 구성원이 모두 모였다면 \n이번 여행을 위한 10계명을 생성해 보세요!',
-];
-
 const FAMILY_DESCRIPTION: Record<FamilyRole, string> = {
   DAD: '아빠',
   MOM: '엄마',
@@ -37,6 +33,7 @@ const TravelDetail = () => {
     roomName: travelRoomData?.roomName,
     userName: userData?.nickname,
   });
+
   const [isAnalysisOpen, setIsAnalysisOpen] = useState(false);
 
   useEffect(() => {
@@ -50,6 +47,8 @@ const TravelDetail = () => {
   const { startDate, endDate, roomName, users, commandments, headcount, maxHeadcount } =
     travelRoomData;
 
+  const isAdmin = users.filter((data) => data.id === userData?.id)[0].admin;
+
   const handleOpenAnalysis = () => {
     setIsAnalysisOpen(true);
   };
@@ -61,15 +60,6 @@ const TravelDetail = () => {
   if (isAnalysisOpen) {
     return <Analysis />;
   }
-
-  const renderInfoMessage = (message: string) => {
-    return message.split('\n').map((line, index) => (
-      <span key={index}>
-        {line}
-        {index === 0 && <br />}
-      </span>
-    ));
-  };
 
   const hasCommandment = commandments && commandments.length > 1;
 
@@ -117,12 +107,27 @@ const TravelDetail = () => {
         <div className={styles.commandmentItem}>
           <EmptyRoom />
           <div className={styles.info}>
-            {hasCommandment ? '' : renderInfoMessage(COMMANDMENTS_INFO_MESSAGE[0])}
+            {users.length < 2 ? (
+              <>
+                <p>여행 10계명을 함께 만들고 싶은</p>
+                <p>가족 구성원을 초대해 보세요!</p>
+              </>
+            ) : isAdmin ? (
+              <>
+                <p>함께하는 가족 구성원이 모두 모였다면</p>
+                <p>이번 여행을 위한 10계명을 생성해 보세요!</p>
+              </>
+            ) : (
+              <>
+                <p>이번 가족 여행을 위한 10계명 공개 직전!</p>
+                <p>모두 입장할 때 까지 잠시만 기다려주세요...</p>
+              </>
+            )}
           </div>
           <div className={styles.buttonWrapper}>
             {hasCommandment ? (
               ''
-            ) : (
+            ) : users.length < 2 ? (
               <Button
                 variant="outlined"
                 className={styles.button}
@@ -130,8 +135,20 @@ const TravelDetail = () => {
                 size="m"
                 onClick={handleOpenAnalysis}
               >
+                초대하기
+              </Button>
+            ) : isAdmin ? (
+              <Button
+                variant="outlined"
+                className={styles.button}
+                isActive
+                size="m"
+                onClick={handleInvite}
+              >
                 여행 10계명 생성하기
               </Button>
+            ) : (
+              <p>방장만 생성 가능</p>
             )}
           </div>
         </div>

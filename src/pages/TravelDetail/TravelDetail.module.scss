@@ -112,7 +112,10 @@
     @include flex(center, center, column);
     @include caption1($color: $gray300);
     padding-top: 12px;
-    padding-bottom: 28px;
+
+    p {
+      @include caption1($color: $gray300);
+    }
   }
 }
 
@@ -122,10 +125,15 @@
 }
 
 .buttonWrapper {
-  height: 44px;
+  padding-top: 12px;
+
+  P {
+    @include caption1($color: $p300);
+  }
 }
 
 .button {
+  margin-top: 28px;
   border: 1px solid $p300;
 }
 
