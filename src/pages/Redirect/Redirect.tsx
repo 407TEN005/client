@@ -40,7 +40,7 @@ const Redirect = () => {
 
     const joinNewTravelRoom = async () => {
       try {
-        await tentenInstance.post(`/travel-room/${roomId}`);
+        await tentenInstance.post(`/travel-rooms/${roomId}`);
 
         console.log('fetch');
       } catch (error) {
