@@ -26,7 +26,7 @@ const AuthTestResult = () => {
       console.error(error);
     } finally {
       authUtil.clearRoomId();
-      navigate(ROUTES.checkType);
+      navigate(ROUTES.travel);
     }
   };
 
@@ -46,7 +46,7 @@ const AuthTestResult = () => {
     if (roomId) {
       joinNewTravelRoom();
     } else {
-      navigate(ROUTES.checkType);
+      navigate(ROUTES.travel);
     }
   };
 

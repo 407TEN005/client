@@ -60,7 +60,7 @@ const Home = () => {
     if (userData?.status === 'NEW') {
       navigate(ROUTES.authTest);
     }
-  }, []);
+  }, [navigate, userData]);
 
   useEffect(() => {
     const roomId = authUtil.getRoomId();

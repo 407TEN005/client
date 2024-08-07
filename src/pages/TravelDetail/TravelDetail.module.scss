@@ -23,6 +23,7 @@
   .dday {
     @include flex(center, center);
     @include caption2($weight: 600, $color: $p500);
+    white-space: nowrap;
     padding: 2px 8px;
     background-color: $p100;
     width: 42px;

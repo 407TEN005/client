@@ -44,6 +44,7 @@
 
         .dday {
           @include caption1($size: 12px, $weight: 600, $color: $p500);
+          white-space: nowrap;
           text-align: center;
           padding: 0.5px 8px;
           background-color: $p50;

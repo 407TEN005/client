@@ -127,6 +127,7 @@
 
           .dday {
             @include caption2($weight: 600, $color: $p500);
+            white-space: nowrap;
             width: fit-content;
             background-color: $p50;
             padding: 2px 4px;
