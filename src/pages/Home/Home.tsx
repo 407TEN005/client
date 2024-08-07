@@ -13,7 +13,7 @@ import TRAVEL_ROOM_THUMBNAIL3 from '@images/travel_room_thumbnail3.png';
 import TRAVEL_ROOM_THUMBNAIL4 from '@images/travel_room_thumbnail4.png';
 import TRAVEL_ROOM_THUMBNAIL5 from '@images/travel_room_thumbnail5.png';
 import TRAVEL_ROOM_THUMBNAIL6 from '@images/travel_room_thumbnail6.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import userDataAtom from '@recoil/userData';
 import { TRAVEL_DESCRIPTION, TRAVEL_ICON, TravelType } from '@constants/testResult';
@@ -54,6 +54,12 @@ const Home = () => {
     authUtil.clearStorage();
     navigate(ROUTES.login, { replace: true });
   };
+
+  useEffect(() => {
+    if (userData?.status === 'NEW') {
+      navigate(ROUTES.authTest);
+    }
+  }, []);
 
   return (
     <>

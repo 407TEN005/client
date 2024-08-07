@@ -4,7 +4,7 @@ import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom';
 import Layout from '@components/Layout';
 import ROUTES from '@constants/routes';
 import Redirect from '@pages/Redirect';
-import AuthLayout from './components/AuthLayout';
+import AuthLayout from '@components/AuthLayout';
 
 export const loginRouters: RouteObject[] = [
   {
@@ -80,10 +80,10 @@ export const router = createBrowserRouter([
     path: '',
     Component: Layout,
     children: [
-      // {
-      //   index: true,
-      //   Component: () => <Navigate to={ROUTES.travel} />,
-      // },
+      {
+        index: true,
+        Component: () => <Navigate to={ROUTES.travel} />,
+      },
       {
         Component: () => AuthLayout({ shouldProtect: false }),
         children: nonLoginRouters,

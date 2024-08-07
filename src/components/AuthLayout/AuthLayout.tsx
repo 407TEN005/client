@@ -1,34 +1,39 @@
 import authUtil from '@utils/authUtil';
-import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import ROUTES from '@constants/routes';
 import { useEffect } from 'react';
+import { tentenInstance } from '@src/constants/axios';
 
 const AuthLayout = ({ shouldProtect }: { shouldProtect: boolean }) => {
   const navigate = useNavigate();
-
-  const { pathname } = useLocation();
-
-  console.log('pathname : ', pathname);
-
   const hasAuth = authUtil.isAuth();
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const roomId = params.get('roomId');
+    const param = new URLSearchParams(window.location.search);
 
-    console.log('roomId 1: ', roomId);
+    const roomId = param.get('roomId');
+
+    const joinNewTravelRoom = async () => {
+      try {
+        await tentenInstance.post(`/travel-rooms/${roomId}`);
+
+        console.log('fetch');
+      } catch (error) {
+        console.error(error);
+      } finally {
+        navigate(ROUTES.travel);
+      }
+    };
 
     if (roomId) {
-      authUtil.setRoomId({ roomId });
+      joinNewTravelRoom();
+    } else if (hasAuth && !shouldProtect) {
+      navigate(ROUTES.travel);
     }
   }, [navigate]);
 
   if (!hasAuth && shouldProtect) {
     return <Navigate replace={true} to={ROUTES.login} />;
-  }
-
-  if (hasAuth && !shouldProtect) {
-    return <Navigate replace={true} to={ROUTES.travel} />;
   }
 
   return <Outlet />;
