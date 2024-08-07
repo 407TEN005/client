@@ -30,8 +30,6 @@ const TravelDetail = () => {
 
   const userData = useRecoilValue(userDataAtom);
 
-  console.log('userData : ', userData);
-
   const { travelRoomData, fetchTravelRoomDetail } = useGetTravelRoomDetail();
 
   const { handleInvite } = useInviteUser({
