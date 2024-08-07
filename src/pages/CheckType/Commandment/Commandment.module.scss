@@ -7,7 +7,7 @@
 
   .header {
     @include flex(center, flex-end);
-    height: 68px;
+    height: 48px;
 
     .goBackButton {
       @include SubHeading3($color: white);
@@ -23,6 +23,7 @@
 
     .title {
       @include Heading2($weight: 600, $color: white);
+      white-space: nowrap;
     }
 
     .title + .title {
