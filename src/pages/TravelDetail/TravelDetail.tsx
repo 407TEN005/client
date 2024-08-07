@@ -10,6 +10,7 @@ import ROUTES from '@constants/routes';
 import { dday } from '@utils/dateUtil';
 import useInviteUser from '@hooks/useInviteUser';
 import useGetUserData from '@apis/useGetUserData';
+import useCreateCommandment from '@src/apis/useCreateCommandment';
 
 const FAMILY_DESCRIPTION: Record<FamilyRole, string> = {
   DAD: '아빠',
@@ -32,6 +33,8 @@ const TravelDetail = () => {
     userName: userData?.nickname,
   });
 
+  const { createCommandment } = useCreateCommandment();
+
   useEffect(() => {
     fetchTravelRoomDetail(travelId);
   }, []);
@@ -45,8 +48,8 @@ const TravelDetail = () => {
 
   const isAdmin = users.filter((data) => data.id === userData?.id)[0]?.admin;
 
-  const handleOpenAnalysis = () => {
-    console.log(1);
+  const handleOpenAnalysis = async () => {
+    await createCommandment(travelId);
   };
 
   const handleGoBack = () => {
@@ -96,54 +99,74 @@ const TravelDetail = () => {
       <div className={styles.commandmentListContainer}>
         <div className={styles.commandmentListTitle}>서로를 배려하는 여행 10계명</div>
 
-        <div className={styles.commandmentItem}>
-          <EmptyRoom />
-          <div className={styles.info}>
-            {users.length < 2 ? (
-              <>
-                <p>여행 10계명을 함께 만들고 싶은</p>
-                <p>가족 구성원을 초대해 보세요!</p>
-              </>
-            ) : isAdmin ? (
-              <>
-                <p>함께하는 가족 구성원이 모두 모였다면</p>
-                <p>이번 여행을 위한 10계명을 생성해 보세요!</p>
-              </>
-            ) : (
-              <>
-                <p>이번 가족 여행을 위한 10계명 공개 직전!</p>
-                <p>모두 입장할 때 까지 잠시만 기다려주세요...</p>
-              </>
-            )}
-          </div>
-          <div className={styles.buttonWrapper}>
-            {hasCommandment ? (
-              ''
-            ) : users.length < 2 ? (
+        {hasCommandment ? (
+          <div className={styles.commandmentList}>
+            {commandments.map((commandment, index) => {
+              return <p key={index}>{commandment}</p>;
+            })}
+            <div className={styles.buttonTop}></div>
+            <div className={styles.regenerateButton}>
               <Button
                 variant="outlined"
-                className={styles.button}
+                className={styles.inviteButton}
                 isActive
                 size="m"
                 onClick={handleInvite}
               >
-                초대하기
+                여행 10계명 전체보기
               </Button>
-            ) : isAdmin ? (
-              <Button
-                variant="outlined"
-                className={styles.button}
-                isActive
-                size="m"
-                onClick={handleOpenAnalysis}
-              >
-                여행 10계명 생성하기
-              </Button>
-            ) : (
-              <p>방장만 생성 가능</p>
-            )}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className={styles.commandmentItem}>
+            <EmptyRoom />
+            <div className={styles.info}>
+              {users.length < 2 ? (
+                <>
+                  <p>여행 10계명을 함께 만들고 싶은</p>
+                  <p>가족 구성원을 초대해 보세요!</p>
+                </>
+              ) : isAdmin ? (
+                <>
+                  <p>함께하는 가족 구성원이 모두 모였다면</p>
+                  <p>이번 여행을 위한 10계명을 생성해 보세요!</p>
+                </>
+              ) : (
+                <>
+                  <p>이번 가족 여행을 위한 10계명 공개 직전!</p>
+                  <p>모두 입장할 때 까지 잠시만 기다려주세요...</p>
+                </>
+              )}
+            </div>
+            <div className={styles.buttonWrapper}>
+              {hasCommandment ? (
+                ''
+              ) : users.length < 2 ? (
+                <Button
+                  variant="outlined"
+                  className={styles.button}
+                  isActive
+                  size="m"
+                  onClick={handleInvite}
+                >
+                  초대하기
+                </Button>
+              ) : isAdmin ? (
+                <Button
+                  variant="outlined"
+                  className={styles.button}
+                  isActive
+                  size="m"
+                  onClick={handleOpenAnalysis}
+                >
+                  여행 10계명 생성하기
+                </Button>
+              ) : (
+                <p>방장만 생성 가능</p>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

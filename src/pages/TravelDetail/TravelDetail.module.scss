@@ -144,3 +144,33 @@
 .familyWrapper + .familyWrapper {
   margin-left: 10px;
 }
+
+.commandmentList {
+  position: relative;
+  height: calc(100% - 68px);
+
+  p {
+    @include Body1($color: $gray300);
+    padding: 0 22px 10px 20px;
+  }
+
+  .buttonTop {
+    position: absolute;
+    width: 100%;
+    height: 168px;
+    bottom: 116px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 100));
+  }
+
+  .regenerateButton {
+    @include flex(center, center);
+    position: absolute;
+    width: 100%;
+    bottom: 72px;
+    background-color: white;
+
+    .inviteButton {
+      border: 1px solid $p300;
+    }
+  }
+}
