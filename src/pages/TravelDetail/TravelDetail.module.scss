@@ -87,6 +87,10 @@
   }
 }
 
+.invite {
+  cursor: pointer;
+}
+
 .familyMemberName {
   @include caption1($size: 10px, $color: white);
   margin-top: 8px;

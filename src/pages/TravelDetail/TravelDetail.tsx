@@ -1,17 +1,15 @@
 import styles from './TravelDetail.module.scss';
 import Button from '@components/Button';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Analysis from '@components/Analysis';
 import { EmptyRoom, IconCallendar, IconCrown, LeftArrowWhite, PlusWhite } from '@images/index';
 import useGetTravelRoomDetail, { FamilyRole } from '@apis/useGetTravelRoomDetail';
 import { format } from 'date-fns';
 import { TRAVEL_ICON, TravelType } from '@constants/testResult';
 import ROUTES from '@constants/routes';
 import { dday } from '@utils/dateUtil';
-import useInviteUser from '@src/hooks/useInviteUser';
-import { useRecoilValue } from 'recoil';
-import userDataAtom from '@src/recoil/userData/atom';
+import useInviteUser from '@hooks/useInviteUser';
+import useGetUserData from '@apis/useGetUserData';
 
 const FAMILY_DESCRIPTION: Record<FamilyRole, string> = {
   DAD: '아빠',
@@ -24,7 +22,7 @@ const TravelDetail = () => {
   const { travelId } = useParams();
   const navigate = useNavigate();
 
-  const userData = useRecoilValue(userDataAtom);
+  const { userData } = useGetUserData();
 
   const { travelRoomData, fetchTravelRoomDetail } = useGetTravelRoomDetail();
 
@@ -33,8 +31,6 @@ const TravelDetail = () => {
     roomName: travelRoomData?.roomName,
     userName: userData?.nickname,
   });
-
-  const [isAnalysisOpen, setIsAnalysisOpen] = useState(false);
 
   useEffect(() => {
     fetchTravelRoomDetail(travelId);
@@ -47,19 +43,15 @@ const TravelDetail = () => {
   const { startDate, endDate, roomName, users, commandments, headcount, maxHeadcount } =
     travelRoomData;
 
-  const isAdmin = users.filter((data) => data.id === userData?.id)[0].admin;
+  const isAdmin = users.filter((data) => data.id === userData?.id)[0]?.admin;
 
   const handleOpenAnalysis = () => {
-    setIsAnalysisOpen(true);
+    console.log(1);
   };
 
   const handleGoBack = () => {
     navigate(ROUTES.travel);
   };
-
-  if (isAnalysisOpen) {
-    return <Analysis />;
-  }
 
   const hasCommandment = commandments && commandments.length > 1;
 
@@ -95,7 +87,7 @@ const TravelDetail = () => {
           </div>
         ))}
         {maxHeadcount > headcount && (
-          <div className={styles.familyWrapper} onClick={handleInvite}>
+          <div className={`${styles.familyWrapper} ${styles.invite}`} onClick={handleInvite}>
             <PlusWhite />
             <div className={styles.familyMemberName}>초대</div>
           </div>
@@ -133,7 +125,7 @@ const TravelDetail = () => {
                 className={styles.button}
                 isActive
                 size="m"
-                onClick={handleOpenAnalysis}
+                onClick={handleInvite}
               >
                 초대하기
               </Button>
@@ -143,7 +135,7 @@ const TravelDetail = () => {
                 className={styles.button}
                 isActive
                 size="m"
-                onClick={handleInvite}
+                onClick={handleOpenAnalysis}
               >
                 여행 10계명 생성하기
               </Button>
