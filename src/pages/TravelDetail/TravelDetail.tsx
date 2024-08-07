@@ -10,6 +10,8 @@ import { TRAVEL_ICON, TravelType } from '@constants/testResult';
 import ROUTES from '@constants/routes';
 import { dday } from '@utils/dateUtil';
 import useInviteUser from '@src/hooks/useInviteUser';
+import { useRecoilValue } from 'recoil';
+import userDataAtom from '@src/recoil/userData/atom';
 
 const COMMANDMENTS_INFO_MESSAGE = [
   '함께하는 가족 구성원이 모두 모였다면 \n이번 여행을 위한 10계명을 생성해 보세요!',
@@ -26,10 +28,17 @@ const TravelDetail = () => {
   const { travelId } = useParams();
   const navigate = useNavigate();
 
-  const { handleInvite } = useInviteUser();
+  const userData = useRecoilValue(userDataAtom);
+
+  console.log('userData : ', userData);
 
   const { travelRoomData, fetchTravelRoomDetail } = useGetTravelRoomDetail();
 
+  const { handleInvite } = useInviteUser({
+    travelId,
+    roomName: travelRoomData?.roomName,
+    userName: userData?.nickname,
+  });
   const [isAnalysisOpen, setIsAnalysisOpen] = useState(false);
 
   useEffect(() => {
