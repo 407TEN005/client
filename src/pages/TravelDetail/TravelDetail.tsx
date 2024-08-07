@@ -11,6 +11,7 @@ import { dday } from '@utils/dateUtil';
 import useInviteUser from '@hooks/useInviteUser';
 import useGetUserData from '@apis/useGetUserData';
 import useCreateCommandment from '@src/apis/useCreateCommandment';
+import Analysis from '@src/components/Analysis';
 
 const FAMILY_DESCRIPTION: Record<FamilyRole, string> = {
   DAD: '아빠',
@@ -33,14 +34,18 @@ const TravelDetail = () => {
     userName: userData?.nickname,
   });
 
-  const { createCommandment } = useCreateCommandment();
+  const { isLoading, createCommandment } = useCreateCommandment();
 
   useEffect(() => {
     fetchTravelRoomDetail(travelId);
-  }, []);
+  }, [isLoading]);
 
   if (!travelRoomData) {
     return null;
+  }
+
+  if (isLoading) {
+    return <Analysis />;
   }
 
   const { startDate, endDate, roomName, users, commandments, headcount, maxHeadcount } =
@@ -50,6 +55,10 @@ const TravelDetail = () => {
 
   const handleOpenAnalysis = async () => {
     await createCommandment(travelId);
+  };
+
+  const handleGoCommandment = () => {
+    navigate(`/travel/${travelId}/commandment`);
   };
 
   const handleGoBack = () => {
@@ -111,7 +120,7 @@ const TravelDetail = () => {
                 className={styles.inviteButton}
                 isActive
                 size="m"
-                onClick={handleInvite}
+                onClick={handleGoCommandment}
               >
                 여행 10계명 전체보기
               </Button>
@@ -139,15 +148,13 @@ const TravelDetail = () => {
               )}
             </div>
             <div className={styles.buttonWrapper}>
-              {hasCommandment ? (
-                ''
-              ) : users.length < 2 ? (
+              {users.length < 2 ? (
                 <Button
                   variant="outlined"
                   className={styles.button}
                   isActive
                   size="m"
-                  onClick={handleInvite}
+                  onClick={handleOpenAnalysis}
                 >
                   초대하기
                 </Button>

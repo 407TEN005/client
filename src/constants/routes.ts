@@ -11,7 +11,7 @@ export const ROUTES = {
   travel: '/travel',
   createTravel: '/createTravel',
   travelDetail: '/travel/:travelId',
-  analysis: '/analysis',
+  travelCommandment: '/travel/:travelId/commandment',
   redirect: '/oauth2/redirect',
 
   // ? 비로그인

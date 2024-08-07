@@ -16,8 +16,6 @@ const AuthLayout = ({ shouldProtect }: { shouldProtect: boolean }) => {
     const joinNewTravelRoom = async () => {
       try {
         await tentenInstance.post(`/travel-rooms/${roomId}`);
-
-        console.log('fetch');
       } catch (error) {
         console.error(error);
       } finally {
