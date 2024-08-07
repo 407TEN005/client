@@ -25,7 +25,7 @@ const AuthLayout = ({ shouldProtect }: { shouldProtect: boolean }) => {
       }
     };
 
-    if (roomId) {
+    if (hasAuth && roomId) {
       joinNewTravelRoom();
     } else if (hasAuth && !shouldProtect) {
       navigate(ROUTES.travel);

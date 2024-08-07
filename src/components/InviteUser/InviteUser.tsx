@@ -10,8 +10,9 @@ import CARD_THUMBNAIL6 from '@images/card_thumbnail6.png';
 import { format } from 'date-fns';
 import { dday } from '@utils/dateUtil';
 import { useRecoilValue } from 'recoil';
-import { userTravelTypeSelector } from '@recoil/userData/selector';
 import { TRAVEL_MINI_ICON, TravelType } from '@src/constants/testResult';
+import useInviteUser from '@src/hooks/useInviteUser';
+import userDataAtom from '@src/recoil/userData/atom';
 
 const CARD_THUMBNAIL_LIST = [
   CARD_THUMBNAIL1,
@@ -23,6 +24,7 @@ const CARD_THUMBNAIL_LIST = [
 ];
 
 interface InviteUserProps {
+  roomId?: string;
   roomName?: string;
   startDate?: string;
   endDate?: string;
@@ -31,13 +33,25 @@ interface InviteUserProps {
 }
 
 const InviteUser = ({
+  roomId,
   roomName = '',
   startDate = '',
   endDate = '',
   maxHeadcount = '',
   handleGoTravelRoom,
 }: InviteUserProps) => {
-  const userTravelType = useRecoilValue(userTravelTypeSelector);
+  const userData = useRecoilValue(userDataAtom);
+
+  const { handleInvite } = useInviteUser({
+    travelId: roomId,
+    userName: userData?.nickname,
+    roomName,
+  });
+
+  const handleInviteKakao = () => {
+    handleInvite();
+    handleGoTravelRoom();
+  };
 
   const getRandomInt = () => {
     return Math.floor(Math.random() * 6);
@@ -58,7 +72,7 @@ const InviteUser = ({
             <div className={styles.dday}>{dday(startDate)}</div>
             <img src={CARD_THUMBNAIL_LIST[getRandomInt()]} />
           </div>
-          <div className={styles.badge}>{TRAVEL_MINI_ICON[userTravelType as TravelType]}</div>
+          <div className={styles.badge}>{TRAVEL_MINI_ICON[userData?.travelType as TravelType]}</div>
           <IconCrown className={styles.icon} />
           <div className={styles.roomName}>{roomName}</div>
           <div className={styles.date}>
@@ -69,7 +83,7 @@ const InviteUser = ({
             <p>1/{maxHeadcount}</p>
           </div>
         </div>
-        <div className={styles.invite} onClick={handleGoTravelRoom}>
+        <div className={styles.invite} onClick={handleInviteKakao}>
           <KakaoLogo />
           <p>카카오톡 초대</p>
         </div>

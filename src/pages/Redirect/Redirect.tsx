@@ -40,7 +40,7 @@ const Redirect = () => {
       try {
         await tentenInstance.post(`/travel-rooms/${roomId}`);
 
-        console.log('fetch');
+        console.log('fetch 1');
       } catch (error) {
         console.error(error);
       }
