@@ -8,12 +8,27 @@ import { TRAVEL_TYPE, TravelType } from '@constants/testResult';
 import { splitTextWithLineBreaks } from '@utils/textUtil';
 import commandmentAtom from '@recoil/commandment';
 import { useEffect } from 'react';
+import authUtil from '@src/utils/authUtil';
+import { tentenInstance } from '@src/constants/axios';
 
 const AuthTestResult = () => {
   const testResult = useRecoilValue(testResponseAtom);
   const navigate = useNavigate();
 
   const resetCommandment = useResetRecoilState(commandmentAtom);
+
+  const roomId = authUtil.getRoomId();
+
+  const joinNewTravelRoom = async () => {
+    try {
+      await tentenInstance.post(`/travel-rooms/${roomId}`);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      authUtil.clearRoomId();
+      navigate(ROUTES.checkType);
+    }
+  };
 
   useEffect(() => {
     return () => {
@@ -28,7 +43,11 @@ const AuthTestResult = () => {
   const { travelType, description, hashtag, advantage, caution } = testResult;
 
   const handleStartTenTen = () => {
-    navigate(ROUTES.checkType);
+    if (roomId) {
+      joinNewTravelRoom();
+    } else {
+      navigate(ROUTES.checkType);
+    }
   };
 
   return (
