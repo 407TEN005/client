@@ -1,4 +1,4 @@
-import { ACCESS_TOKEN, USER_ID } from '@constants/auth';
+import { ACCESS_TOKEN, ROOM_ID, USER_ID } from '@constants/auth';
 
 const isAuth = () => {
   return !!authUtil.getAccessToken();
@@ -16,6 +16,10 @@ const setTokens = ({ accessToken }: { accessToken: string }) => {
   localStorage.setItem(ACCESS_TOKEN, accessToken);
 };
 
+const setRoomId = ({ roomId }: { roomId: string }) => {
+  localStorage.setItem(ROOM_ID, roomId);
+};
+
 const clearStorage = () => {
   localStorage.clear();
 };
@@ -23,6 +27,7 @@ const clearStorage = () => {
 const authUtil = {
   isAuth,
   setTokens,
+  setRoomId,
   clearStorage,
   getUserId,
   getAccessToken,

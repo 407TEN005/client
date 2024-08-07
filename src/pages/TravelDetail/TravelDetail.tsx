@@ -9,6 +9,7 @@ import { format } from 'date-fns';
 import { TRAVEL_ICON, TravelType } from '@constants/testResult';
 import ROUTES from '@constants/routes';
 import { dday } from '@utils/dateUtil';
+import useInviteUser from '@src/hooks/useInviteUser';
 
 const COMMANDMENTS_INFO_MESSAGE = [
   '함께하는 가족 구성원이 모두 모였다면 \n이번 여행을 위한 10계명을 생성해 보세요!',
@@ -24,6 +25,8 @@ const FAMILY_DESCRIPTION: Record<FamilyRole, string> = {
 const TravelDetail = () => {
   const { travelId } = useParams();
   const navigate = useNavigate();
+
+  const { handleInvite } = useInviteUser();
 
   const { travelRoomData, fetchTravelRoomDetail } = useGetTravelRoomDetail();
 
@@ -95,7 +98,7 @@ const TravelDetail = () => {
           </div>
         ))}
         {maxHeadcount > headcount && (
-          <div className={styles.familyWrapper}>
+          <div className={styles.familyWrapper} onClick={handleInvite}>
             <PlusWhite />
             <div className={styles.familyMemberName}>초대</div>
           </div>
