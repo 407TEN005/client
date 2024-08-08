@@ -6,8 +6,6 @@ import testResponseAtom from '@recoil/testResponse';
 import ROUTES from '@constants/routes';
 import { TRAVEL_TYPE, TravelType } from '@constants/testResult';
 import { splitTextWithLineBreaks } from '@utils/textUtil';
-import authUtil from '@utils/authUtil';
-import { tentenInstance } from '@constants/axios';
 
 const AuthTestResult = () => {
   const navigate = useNavigate();
@@ -20,23 +18,6 @@ const AuthTestResult = () => {
   const { travelType, description, hashtag, advantage, caution } = testResult;
 
   const handleStartTenTen = async () => {
-    // const roomId = authUtil.getRoomId();
-
-    // if (roomId) {
-    //   try {
-    //     await tentenInstance.post(`/travel-rooms/${roomId}`);
-
-    //     console.log('fetch');
-    //   } catch (error) {
-    //     console.error(error);
-    //   } finally {
-    //     authUtil.clearRoomId();
-    //     navigate(ROUTES.travel);
-    //   }
-
-    //   return;
-    // }
-
     navigate(ROUTES.travel);
   };
 
