@@ -6,13 +6,16 @@ import { CommandmentIlust, DashLine, Refresh, Share } from '@images/index';
 import Tooltip from '@components/Tooltip';
 import useCreateCommandment from '@apis/useCreateCommandment';
 import Analysis from '@components/Analysis';
+import useShareCommandment from '@src/hooks/useShareCommandment';
 
 const Commandment = () => {
   const { travelId } = useParams();
   const { travelRoomData, fetchTravelRoomDetail } = useGetTravelRoomDetail();
   const { isLoading, createCommandment } = useCreateCommandment();
 
-  const handleOpenAnalysis = async () => {
+  const { handleShare } = useShareCommandment({ travelId });
+
+  const handleCreateNewCommandment = async () => {
     await createCommandment(travelId);
   };
 
@@ -47,7 +50,7 @@ const Commandment = () => {
       </div>
       <div className={styles.buttonWrapper}>
         <div className={styles.buttons}>
-          <button className={styles.button}>
+          <button className={styles.button} onClick={handleShare}>
             <Share />
             <div className={styles.info}>공유하기</div>
           </button>
@@ -55,7 +58,7 @@ const Commandment = () => {
         {travelRoomData?.commandments && travelRoomData?.commandments.length < 10 && (
           <div className={styles.buttons}>
             <Tooltip content="10계명이 모두 나타나지 않았다면? 클릭!" />
-            <button className={styles.button} onClick={handleOpenAnalysis}>
+            <button className={styles.button} onClick={handleCreateNewCommandment}>
               <Refresh />
               <div className={styles.info}>재생성하기</div>
             </button>
