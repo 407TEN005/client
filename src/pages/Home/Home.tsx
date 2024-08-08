@@ -76,7 +76,6 @@ const Home = () => {
         console.error(error);
       } finally {
         authUtil.clearRoomId();
-        window.location.reload();
       }
     };
 
