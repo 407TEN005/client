@@ -1,4 +1,5 @@
 import { tentenInstance } from '@constants/axios';
+import authUtil from '@utils/authUtil';
 import { useEffect, useState } from 'react';
 
 interface TravelRoomData {
@@ -16,6 +17,24 @@ const useGetTravelRoom = () => {
   const [travelRoomData, setTravelRoomData] = useState<TravelRoomData[] | undefined>(undefined);
 
   useEffect(() => {
+    const roomId = authUtil.getRoomId();
+
+    const joinNewTravelRoom = async () => {
+      try {
+        await tentenInstance.post(`/travel-rooms/${roomId}`);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        try {
+          const response = await tentenInstance.get(`/travel-rooms`);
+
+          setTravelRoomData(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+
     const fetchTravelRoomData = async () => {
       try {
         const response = await tentenInstance.get(`/travel-rooms`);
@@ -26,7 +45,11 @@ const useGetTravelRoom = () => {
       }
     };
 
-    fetchTravelRoomData();
+    if (roomId) {
+      joinNewTravelRoom();
+    } else {
+      fetchTravelRoomData();
+    }
   }, []);
 
   return { travelRoomData };
