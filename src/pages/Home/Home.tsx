@@ -18,7 +18,7 @@ import { useRecoilValue } from 'recoil';
 import userDataAtom from '@recoil/userData';
 import { TRAVEL_DESCRIPTION, TRAVEL_ICON, TravelType } from '@constants/testResult';
 import authUtil from '@utils/authUtil';
-import { tentenInstance } from '@src/constants/axios';
+import { tentenInstance } from '@constants/axios';
 
 const THUMBNAIL_IMAGES = [
   TRAVEL_ROOM_THUMBNAIL1,
@@ -54,6 +54,10 @@ const Home = () => {
   const handleLogout = () => {
     authUtil.clearStorage();
     navigate(ROUTES.login, { replace: true });
+  };
+
+  const handleTestResult = () => {
+    navigate(ROUTES.myTestResult);
   };
 
   useEffect(() => {
@@ -94,7 +98,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className={styles.sideBarTest}>
+          <div className={styles.sideBarTest} onClick={handleTestResult}>
             <p>테스트 결과 보기</p>
           </div>
           <div className={styles.logout} onClick={handleLogout}>

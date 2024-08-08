@@ -10,9 +10,9 @@ import CARD_THUMBNAIL6 from '@images/card_thumbnail6.png';
 import { format } from 'date-fns';
 import { dday } from '@utils/dateUtil';
 import { useRecoilValue } from 'recoil';
-import { TRAVEL_MINI_ICON, TravelType } from '@src/constants/testResult';
-import useInviteUser from '@src/hooks/useInviteUser';
-import userDataAtom from '@src/recoil/userData/atom';
+import { TRAVEL_MINI_ICON, TravelType } from '@constants/testResult';
+import useInviteUser from '@hooks/useInviteUser';
+import userDataAtom from '@recoil/userData/atom';
 
 const CARD_THUMBNAIL_LIST = [
   CARD_THUMBNAIL1,

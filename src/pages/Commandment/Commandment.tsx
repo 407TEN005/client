@@ -1,4 +1,4 @@
-import useGetTravelRoomDetail from '@src/apis/useGetTravelRoomDetail';
+import useGetTravelRoomDetail from '@apis/useGetTravelRoomDetail';
 import styles from './Commandment.module.scss';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -6,10 +6,11 @@ import { CommandmentIlust, DashLine, Refresh, Share } from '@images/index';
 import Tooltip from '@components/Tooltip';
 import useCreateCommandment from '@apis/useCreateCommandment';
 import Analysis from '@components/Analysis';
-import useShareCommandment from '@src/hooks/useShareCommandment';
+import useShareCommandment from '@hooks/useShareCommandment';
 
 const Commandment = () => {
   const { travelId } = useParams();
+
   const { travelRoomData, fetchTravelRoomDetail } = useGetTravelRoomDetail();
   const { isLoading, createCommandment } = useCreateCommandment();
 
@@ -27,11 +28,17 @@ const Commandment = () => {
     return <Analysis />;
   }
 
+  if (!travelRoomData) {
+    return null;
+  }
+
+  const { roomName, commandments } = travelRoomData;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}></div>
       <div className={styles.titleContainer}>
-        <div className={styles.title}>{travelRoomData?.roomName}</div>
+        <div className={styles.title}>{roomName}</div>
       </div>
 
       <div className={styles.commandmentWrapper}>
@@ -40,7 +47,7 @@ const Commandment = () => {
           <div className={styles.commandmentTitle}>서로를 배려하는 여행 10계명</div>
           <DashLine />
           <div className={styles.itemWrapper}>
-            {travelRoomData?.commandments.map((commandment, index) => (
+            {commandments.map((commandment, index) => (
               <p key={index} className={styles.commandmentItem}>
                 {commandment}
               </p>
@@ -55,7 +62,7 @@ const Commandment = () => {
             <div className={styles.info}>공유하기</div>
           </button>
         </div>
-        {travelRoomData?.commandments && travelRoomData?.commandments.length < 10 && (
+        {commandments && commandments.length < 10 && (
           <div className={styles.buttons}>
             <Tooltip content="10계명이 모두 나타나지 않았다면? 클릭!" />
             <button className={styles.button} onClick={handleCreateNewCommandment}>

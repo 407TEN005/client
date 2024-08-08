@@ -7,8 +7,8 @@ import ROUTES from '@constants/routes';
 import { TRAVEL_TYPE, TravelType } from '@constants/testResult';
 import { splitTextWithLineBreaks } from '@utils/textUtil';
 import { useEffect } from 'react';
-import authUtil from '@src/utils/authUtil';
-import { tentenInstance } from '@src/constants/axios';
+import authUtil from '@utils/authUtil';
+import { tentenInstance } from '@constants/axios';
 
 const AuthTestResult = () => {
   const navigate = useNavigate();

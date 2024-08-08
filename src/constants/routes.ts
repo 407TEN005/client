@@ -7,6 +7,7 @@ export const ROUTES = {
   authTest: '/auth/test',
   authTestSurvey: '/auth/test/survey',
   authTestResult: '/auth/testResult',
+  myTestResult: '/auth/myTestResult',
 
   travel: '/travel',
   createTravel: '/createTravel',
