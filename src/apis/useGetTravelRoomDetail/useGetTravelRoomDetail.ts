@@ -26,8 +26,6 @@ const useGetTravelRoomDetail = () => {
     try {
       const response = await tentenInstance.get(`/travel-rooms/${travelRoomId}`);
 
-      console.log('response : ', response.data);
-
       setTravelRoomData(response.data);
     } catch (error) {
       console.error(error);

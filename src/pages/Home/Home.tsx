@@ -13,11 +13,12 @@ import TRAVEL_ROOM_THUMBNAIL3 from '@images/travel_room_thumbnail3.png';
 import TRAVEL_ROOM_THUMBNAIL4 from '@images/travel_room_thumbnail4.png';
 import TRAVEL_ROOM_THUMBNAIL5 from '@images/travel_room_thumbnail5.png';
 import TRAVEL_ROOM_THUMBNAIL6 from '@images/travel_room_thumbnail6.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import userDataAtom from '@recoil/userData';
 import { TRAVEL_DESCRIPTION, TRAVEL_ICON, TravelType } from '@constants/testResult';
 import authUtil from '@utils/authUtil';
+import { tentenInstance } from '@src/constants/axios';
 
 const THUMBNAIL_IMAGES = [
   TRAVEL_ROOM_THUMBNAIL1,
@@ -55,6 +56,29 @@ const Home = () => {
     navigate(ROUTES.login, { replace: true });
   };
 
+  useEffect(() => {
+    if (userData?.status === 'NEW') {
+      navigate(ROUTES.authTest);
+    }
+  }, [navigate, userData]);
+
+  useEffect(() => {
+    const roomId = authUtil.getRoomId();
+
+    const joinNewTravelRoom = async () => {
+      try {
+        await tentenInstance.post(`/travel-rooms/${roomId}`);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (roomId) {
+      joinNewTravelRoom();
+      authUtil.clearRoomId();
+    }
+  }, []);
+
   return (
     <>
       {isOpen && (
@@ -64,7 +88,7 @@ const Home = () => {
               {TRAVEL_ICON[userData?.travelType as TravelType]}
             </div>
             <div className={styles.sideBarFamily}>
-              <div className={styles.sideBarRole}>familyRole</div>
+              <div className={styles.sideBarRole}>{userData?.familyRole}</div>
               <div className={styles.sideBarDescription}>
                 {TRAVEL_DESCRIPTION[userData?.travelType as TravelType]}
               </div>
@@ -81,6 +105,7 @@ const Home = () => {
       )}
       {!travelRoomData || travelRoomData.length < 1 ? (
         <NoTravelRoom
+          isOpen={isOpen}
           onClick={handleCreateTravel}
           handleOpen={handleOpen}
           handleClose={handleClose}

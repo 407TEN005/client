@@ -4,7 +4,7 @@ import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom';
 import Layout from '@components/Layout';
 import ROUTES from '@constants/routes';
 import Redirect from '@pages/Redirect';
-import AuthLayout from './components/AuthLayout';
+import AuthLayout from '@components/AuthLayout';
 
 export const loginRouters: RouteObject[] = [
   {
@@ -34,10 +34,10 @@ export const loginRouters: RouteObject[] = [
         path: ROUTES.travelDetail,
         Component: lazy(() => import('./pages/TravelDetail')),
       },
-      // {
-      //   path: ROUTES.commandment,
-      //   Component: lazy(() => import('./pages/Commandment')),
-      // },
+      {
+        path: ROUTES.travelCommandment,
+        Component: lazy(() => import('./pages/Commandment')),
+      },
       // {
       //   path: ROUTES.testResult,
       //   Component: lazy(() => import('./pages/TestResult')),

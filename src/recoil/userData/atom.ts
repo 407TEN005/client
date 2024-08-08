@@ -6,6 +6,7 @@ interface UserData {
   nickname: string;
   authority: string;
   status: 'ACTIVE' | 'NEW';
+  familyRole: string;
   travelType: TravelType;
 }
 

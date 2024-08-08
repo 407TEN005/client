@@ -1,25 +1,34 @@
 import styles from './AuthTestResult.module.scss';
 import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import testResponseAtom from '@recoil/testResponse';
 import ROUTES from '@constants/routes';
 import { TRAVEL_TYPE, TravelType } from '@constants/testResult';
 import { splitTextWithLineBreaks } from '@utils/textUtil';
-import commandmentAtom from '@recoil/commandment';
 import { useEffect } from 'react';
+import authUtil from '@src/utils/authUtil';
+import { tentenInstance } from '@src/constants/axios';
 
 const AuthTestResult = () => {
-  const testResult = useRecoilValue(testResponseAtom);
   const navigate = useNavigate();
-
-  const resetCommandment = useResetRecoilState(commandmentAtom);
+  const testResult = useRecoilValue(testResponseAtom);
 
   useEffect(() => {
-    return () => {
-      resetCommandment();
+    const roomId = authUtil.getRoomId();
+
+    const joinNewTravelRoom = async () => {
+      try {
+        await tentenInstance.post(`/travel-rooms/${roomId}`);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        authUtil.clearRoomId();
+      }
     };
-  }, [resetCommandment]);
+
+    joinNewTravelRoom();
+  }, [navigate]);
 
   if (!testResult) {
     return null;
@@ -28,7 +37,7 @@ const AuthTestResult = () => {
   const { travelType, description, hashtag, advantage, caution } = testResult;
 
   const handleStartTenTen = () => {
-    navigate(ROUTES.checkType);
+    navigate(ROUTES.travel);
   };
 
   return (

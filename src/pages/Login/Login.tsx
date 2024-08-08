@@ -3,6 +3,8 @@ import styles from './Login.module.scss';
 
 import { KakaoLogo, MainLogo } from '@images/index';
 import ROUTES from '@constants/routes';
+import { useEffect } from 'react';
+import authUtil from '@src/utils/authUtil';
 
 const KAKAO_LOGIN_URL = import.meta.env.VITE_KAKAO_LOGIN_URL;
 
@@ -16,6 +18,16 @@ const Login = () => {
   const handleNotLoginClick = () => {
     navigate(ROUTES.test);
   };
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    const roomId = params.get('roomId');
+
+    if (roomId) {
+      authUtil.setRoomId({ roomId });
+    }
+  }, []);
 
   return (
     <div className={styles.wrapper}>

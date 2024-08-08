@@ -99,6 +99,7 @@ const CreateTravel = () => {
   if (roomId) {
     return (
       <InviteUser
+        roomId={roomId}
         handleGoTravelRoom={handleGoTravelRoom}
         roomName={roomName}
         startDate={startDate}

@@ -23,6 +23,7 @@
   .dday {
     @include flex(center, center);
     @include caption2($weight: 600, $color: $p500);
+    white-space: nowrap;
     padding: 2px 8px;
     background-color: $p100;
     width: 42px;
@@ -86,6 +87,10 @@
   }
 }
 
+.invite {
+  cursor: pointer;
+}
+
 .familyMemberName {
   @include caption1($size: 10px, $color: white);
   margin-top: 8px;
@@ -111,7 +116,10 @@
     @include flex(center, center, column);
     @include caption1($color: $gray300);
     padding-top: 12px;
-    padding-bottom: 28px;
+
+    p {
+      @include caption1($color: $gray300);
+    }
   }
 }
 
@@ -121,13 +129,50 @@
 }
 
 .buttonWrapper {
-  height: 44px;
+  padding-top: 12px;
+
+  P {
+    @include caption1($color: $p300);
+  }
 }
 
 .button {
+  margin-top: 28px;
   border: 1px solid $p300;
 }
 
 .familyWrapper + .familyWrapper {
   margin-left: 10px;
+}
+
+.commandmentList {
+  position: relative;
+  height: calc(100% - 68px);
+  overflow: hidden;
+
+  p {
+    @include Body1($color: $gray300);
+    padding: 0 22px 10px 20px;
+  }
+
+  .buttonTop {
+    position: absolute;
+    width: 100%;
+    height: 168px;
+    bottom: 116px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 100));
+  }
+
+  .regenerateButton {
+    @include flex(center, center);
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    padding-bottom: 72px;
+    background-color: white;
+
+    .inviteButton {
+      border: 1px solid $p300;
+    }
+  }
 }

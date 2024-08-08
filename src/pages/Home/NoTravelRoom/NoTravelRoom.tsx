@@ -4,16 +4,18 @@ import Button from '@components/Button';
 import MainHeader from '@components/MainHeader';
 
 const NoTravelRoom = ({
+  isOpen = false,
   onClick,
   handleOpen,
   handleClose,
 }: {
+  isOpen: boolean;
   onClick: () => void;
   handleOpen: () => void;
   handleClose: () => void;
 }) => {
   return (
-    <div className={styles.wrapper} onClick={handleClose}>
+    <div className={`${styles.wrapper} ${isOpen ? styles.open : ''}`} onClick={handleClose}>
       <MainHeader handleOpen={handleOpen} />
       <div className={styles.image}>
         <HomeLogo />
