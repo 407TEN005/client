@@ -74,12 +74,14 @@ const Home = () => {
         await tentenInstance.post(`/travel-rooms/${roomId}`);
       } catch (error) {
         console.error(error);
+      } finally {
+        authUtil.clearRoomId();
+        window.location.reload();
       }
     };
 
     if (roomId) {
       joinNewTravelRoom();
-      authUtil.clearRoomId();
     }
   }, []);
 

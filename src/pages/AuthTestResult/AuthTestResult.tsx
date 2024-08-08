@@ -20,22 +20,22 @@ const AuthTestResult = () => {
   const { travelType, description, hashtag, advantage, caution } = testResult;
 
   const handleStartTenTen = async () => {
-    const roomId = authUtil.getRoomId();
+    // const roomId = authUtil.getRoomId();
 
-    if (roomId) {
-      try {
-        await tentenInstance.post(`/travel-rooms/${roomId}`);
+    // if (roomId) {
+    //   try {
+    //     await tentenInstance.post(`/travel-rooms/${roomId}`);
 
-        console.log('fetch');
-      } catch (error) {
-        console.error(error);
-      } finally {
-        authUtil.clearRoomId();
-        navigate(ROUTES.travel);
-      }
+    //     console.log('fetch');
+    //   } catch (error) {
+    //     console.error(error);
+    //   } finally {
+    //     authUtil.clearRoomId();
+    //     navigate(ROUTES.travel);
+    //   }
 
-      return;
-    }
+    //   return;
+    // }
 
     navigate(ROUTES.travel);
   };
