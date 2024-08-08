@@ -6,7 +6,6 @@ import testResponseAtom from '@recoil/testResponse';
 import ROUTES from '@constants/routes';
 import { TRAVEL_TYPE, TravelType } from '@constants/testResult';
 import { splitTextWithLineBreaks } from '@utils/textUtil';
-import { useEffect } from 'react';
 import authUtil from '@utils/authUtil';
 import { tentenInstance } from '@constants/axios';
 
@@ -14,29 +13,30 @@ const AuthTestResult = () => {
   const navigate = useNavigate();
   const testResult = useRecoilValue(testResponseAtom);
 
-  useEffect(() => {
-    const roomId = authUtil.getRoomId();
-
-    const joinNewTravelRoom = async () => {
-      try {
-        await tentenInstance.post(`/travel-rooms/${roomId}`);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        authUtil.clearRoomId();
-      }
-    };
-
-    joinNewTravelRoom();
-  }, [navigate]);
-
   if (!testResult) {
     return null;
   }
 
   const { travelType, description, hashtag, advantage, caution } = testResult;
 
-  const handleStartTenTen = () => {
+  const handleStartTenTen = async () => {
+    const roomId = authUtil.getRoomId();
+
+    if (roomId) {
+      try {
+        await tentenInstance.post(`/travel-rooms/${roomId}`);
+
+        console.log('fetch');
+      } catch (error) {
+        console.error(error);
+      } finally {
+        authUtil.clearRoomId();
+        navigate(ROUTES.travel);
+      }
+
+      return;
+    }
+
     navigate(ROUTES.travel);
   };
 
