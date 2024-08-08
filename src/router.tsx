@@ -38,10 +38,10 @@ export const loginRouters: RouteObject[] = [
         path: ROUTES.travelCommandment,
         Component: lazy(() => import('./pages/Commandment')),
       },
-      // {
-      //   path: ROUTES.testResult,
-      //   Component: lazy(() => import('./pages/TestResult')),
-      // },
+      {
+        path: ROUTES.myTestResult,
+        Component: lazy(() => import('./pages/MyTestResult')),
+      },
       // {
       //   // 디자인 완료 후 삭제 예정
       //   path: ROUTES.analysis,

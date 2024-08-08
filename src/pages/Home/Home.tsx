@@ -56,6 +56,10 @@ const Home = () => {
     navigate(ROUTES.login, { replace: true });
   };
 
+  const handleTestResult = () => {
+    navigate(ROUTES.myTestResult);
+  };
+
   useEffect(() => {
     if (userData?.status === 'NEW') {
       navigate(ROUTES.authTest);
@@ -94,7 +98,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className={styles.sideBarTest}>
+          <div className={styles.sideBarTest} onClick={handleTestResult}>
             <p>테스트 결과 보기</p>
           </div>
           <div className={styles.logout} onClick={handleLogout}>
