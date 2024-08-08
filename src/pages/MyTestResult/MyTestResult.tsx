@@ -7,7 +7,7 @@ import {
   TRAVEL_TYPE,
 } from '@constants/testResult';
 import Button from '@components/Button';
-import { LeftArrow } from '@assets/images';
+import { LeftArrow } from '@images/index';
 import { useNavigate } from 'react-router-dom';
 import ROUTES from '@constants/routes';
 
