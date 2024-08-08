@@ -1,7 +1,7 @@
 import styles from './Layout.module.scss';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
-import ROUTES from '@src/constants/routes';
+import ROUTES from '@constants/routes';
 
 const Layout = () => {
   const { pathname } = useLocation();

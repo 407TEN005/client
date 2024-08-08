@@ -18,7 +18,7 @@ import { useRecoilValue } from 'recoil';
 import userDataAtom from '@recoil/userData';
 import { TRAVEL_DESCRIPTION, TRAVEL_ICON, TravelType } from '@constants/testResult';
 import authUtil from '@utils/authUtil';
-import { tentenInstance } from '@src/constants/axios';
+import { tentenInstance } from '@constants/axios';
 
 const THUMBNAIL_IMAGES = [
   TRAVEL_ROOM_THUMBNAIL1,

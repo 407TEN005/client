@@ -1,4 +1,4 @@
-import useGetTravelRoomDetail from '@src/apis/useGetTravelRoomDetail';
+import useGetTravelRoomDetail from '@apis/useGetTravelRoomDetail';
 import styles from './Commandment.module.scss';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { CommandmentIlust, DashLine, Refresh, Share } from '@images/index';
 import Tooltip from '@components/Tooltip';
 import useCreateCommandment from '@apis/useCreateCommandment';
 import Analysis from '@components/Analysis';
-import useShareCommandment from '@src/hooks/useShareCommandment';
+import useShareCommandment from '@hooks/useShareCommandment';
 
 const Commandment = () => {
   const { travelId } = useParams();

@@ -10,8 +10,8 @@ import ROUTES from '@constants/routes';
 import { dday } from '@utils/dateUtil';
 import useInviteUser from '@hooks/useInviteUser';
 import useGetUserData from '@apis/useGetUserData';
-import useCreateCommandment from '@src/apis/useCreateCommandment';
-import Analysis from '@src/components/Analysis';
+import useCreateCommandment from '@apis/useCreateCommandment';
+import Analysis from '@components/Analysis';
 
 const FAMILY_DESCRIPTION: Record<FamilyRole, string> = {
   DAD: '아빠',

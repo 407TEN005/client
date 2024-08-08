@@ -4,7 +4,7 @@ import styles from './Login.module.scss';
 import { KakaoLogo, MainLogo } from '@images/index';
 import ROUTES from '@constants/routes';
 import { useEffect } from 'react';
-import authUtil from '@src/utils/authUtil';
+import authUtil from '@utils/authUtil';
 
 const KAKAO_LOGIN_URL = import.meta.env.VITE_KAKAO_LOGIN_URL;
 

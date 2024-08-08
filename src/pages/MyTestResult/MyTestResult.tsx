@@ -1,4 +1,4 @@
-import useGetUserData from '@src/apis/useGetUserData';
+import useGetUserData from '@apis/useGetUserData';
 import styles from './MyTestResult.module.scss';
 import {
   TRAVEL_DESCRIPTION,
@@ -6,10 +6,10 @@ import {
   TRAVEL_HASH_TAG,
   TRAVEL_TYPE,
 } from '@constants/testResult';
-import Button from '@src/components/Button';
-import { LeftArrow } from '@src/assets/images';
+import Button from '@components/Button';
+import { LeftArrow } from '@assets/images';
 import { useNavigate } from 'react-router-dom';
-import ROUTES from '@src/constants/routes';
+import ROUTES from '@constants/routes';
 
 const MyTestResult = () => {
   const navigate = useNavigate();

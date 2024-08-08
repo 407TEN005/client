@@ -1,4 +1,4 @@
-import { tentenInstance } from '@src/constants/axios';
+import { tentenInstance } from '@constants/axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

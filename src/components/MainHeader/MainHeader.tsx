@@ -1,7 +1,7 @@
 import { HeaderLogo } from '@images/index';
 import styles from './MainHeader.module.scss';
 import { TRAVEL_MINI_ICON, TravelType } from '@constants/testResult';
-import useGetUserData from '@src/apis/useGetUserData';
+import useGetUserData from '@apis/useGetUserData';
 
 const MainHeader = ({ handleOpen }: { handleOpen: () => void }) => {
   const { userData } = useGetUserData();
